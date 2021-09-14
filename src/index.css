@@ -1,13 +1,92 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.container{
+  width: 100%;
+  height: 800px;
+  background-image: url("background.png") ;
+
+}
+ul{
+  position: absolute;
+  left:400px;
+}
+li{
+  color: white;
+  display: inline;
+  margin-left: 100px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+
+  color: #FFFFFF;
+
+
+}
+.logo{
+  position: absolute;
+  top:20px;
+  margin-left:100px;
+  background-image: url("Logo.png") ;
+  position: absolute;
+  width: 310px;
+  height: 80px;
+
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.login {
+  position: absolute;
+  left: 1250px;
+  width: 88px;
+  height: 35px;
+  text-align: center;
+  margin-right: 30px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+
+  border-radius: 10px;
+  background-color: white;
+
+  color: #6C4125;
+
+  vertical-align: center;
+}
+
+.swipe-art{
+  position: absolute;
+  width: 700px;
+  height: 184px;
+  left: 620px;
+  top: 397px;
+
+  font-family: Allerta;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 144px;
+  line-height: 184px;
+  /* identical to box height */
+
+
+  color: #FFFFFF;
+}
+
+.sign-up{
+  position: absolute;
+  width: 189px;
+  height: 55px;
+  left: 770px;
+  top: 611px;
+  background: #6C4125;
+  border-radius: 50px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+
+  color: #FFFFFF;
+
+  text-align: center;
+  padding-top: 20px;
 }
