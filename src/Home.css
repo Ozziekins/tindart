@@ -2,13 +2,12 @@
     width: 100%;
     height: 800px;
     background-image: url("background.png") ;
+    margin-top: 0px;
+}
 
-}
-ul{
-    position: absolute;
-    left:400px;
-}
 li{
+    position: relative;
+    top: 20px;
     color: white;
     display: inline;
     margin-left: 100px;
@@ -19,15 +18,11 @@ li{
     line-height: 28px;
 
     color: #FFFFFF;
-
-
 }
 .logo{
-    position: absolute;
-    top:20px;
-    margin-left:100px;
+    margin-left: 45px;
+    float: left;
     background-image: url("Logo.png") ;
-    position: absolute;
     width: 310px;
     height: 80px;
 
@@ -35,12 +30,11 @@ li{
 }
 
 .login {
-    position: absolute;
-    left: 1250px;
+    float: right;
     width: 88px;
-    height: 35px;
     text-align: center;
     margin-right: 30px;
+    padding: 10px;
 
     font-style: normal;
     font-weight: normal;
@@ -48,10 +42,9 @@ li{
 
     border-radius: 10px;
     background-color: white;
-
+    margin-top: -30px;
     color: #6C4125;
 
-    vertical-align: center;
 }
 
 .swipe-art{

@@ -1,0 +1,22 @@
+.container{
+    width: 100%;
+    height: 800px;
+    margin-top: 0px;
+}
+.user{
+    float: right;
+    margin-top:20px;
+    margin-right: 500px;
+    background-image: url("User photo.png");
+    border-radius: 20px;
+    width: 60px;
+    height: 60px;
+}
+.logo-feed{
+    float: left;
+    top:20px;
+    margin-left:500px;
+    background-image: url("Logo-pages.png") ;
+    width: 310px;
+    height: 80px;
+}

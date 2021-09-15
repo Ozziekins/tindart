@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router, Route}  from 'react-router-dom'
 import Home from "./Home";
+import Feed from "./Feed"
 
 ReactDOM.render(
 
@@ -12,6 +13,9 @@ ReactDOM.render(
         <div>
             <Route exact path="/">
                 <Home />
+            </Route>
+            <Route exact path="/feed">
+                <Feed />
             </Route>
         </div>
     </Router>
