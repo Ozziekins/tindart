@@ -8,6 +8,7 @@ import Home from "./Home";
 import Feed from "./Feed";
 import Login from "./Login";
 import Swipe from "./Swipe";
+import Auction from "./Auction";
 
 ReactDOM.render(
 
@@ -24,6 +25,9 @@ ReactDOM.render(
             </Route>
             <Route exact path="/swipe">
                 <Swipe />
+            </Route>
+            <Route exact path="/auction">
+                <Auction />
             </Route>
         </div>
     </Router>
