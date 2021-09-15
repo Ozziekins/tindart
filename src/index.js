@@ -9,6 +9,7 @@ import Feed from "./Feed";
 import Login from "./Login";
 import Swipe from "./Swipe";
 import Profile from "./Profile";
+import Auction from "./Auction";
 
 ReactDOM.render(
 
@@ -29,6 +30,10 @@ ReactDOM.render(
             <Route exact path="/profile">
                 <Profile />
             </Route>
+            <Route exact path="/auction">
+                <Auction />
+            </Route>
+
         </div>
     </Router>
     ,
