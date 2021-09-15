@@ -20,3 +20,12 @@
     width: 310px;
     height: 80px;
 }
+.post-user-name-time{
+    /*display: inline;*/
+    color: black;
+    width: 646px;
+    height: 579px;
+}
+.post-user{
+    background-image: url("User photo2.png");
+}
