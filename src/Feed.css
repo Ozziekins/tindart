@@ -20,12 +20,111 @@
     width: 310px;
     height: 80px;
 }
+
 .post-user-name-time{
-    /*display: inline;*/
+
+    border:1px solid #6C4125;
+    position: relative;
+    left: 600px;
+    top: 222px;
     color: black;
     width: 646px;
     height: 579px;
 }
+.li-feed{
+    width: 100px;
+    height: 60px;
+    float: left;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    /* identical to box height, or 154% */
+
+    list-style-type: none;
+    margin-top: -50px;
+
+    color: #000000;
+}
 .post-user{
+    margin-right: 50px;
+    width: 60px;
+    height: 60px;
     background-image: url("User photo2.png");
 }
+
+.description-pic{
+    margin-top: 100px;
+    border-top: 1px solid #6C4125;
+    border-bottom: 1px solid #6C4125;
+    height: 420px;
+}
+
+.description-feed{
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 20px;
+    /* identical to box height, or 154% */
+
+
+    color: #000000;
+    margin-top:20px ;
+    margin-left: 100px;
+}
+.pic-feed{
+    background-image: url("mike von.png");
+    width: 450px;
+    height: 357px;
+    margin-top:10px ;
+    margin-left: 100px;
+}
+
+.footer-desc-pic{
+    display:inline-flex;
+    list-style-type: none;
+}
+.like-pic{
+    background-image: url("like.png");
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+}
+.like-feed{
+    margin-right: 60px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 20px;
+    /* identical to box height, or 154% */
+
+
+    color: #000000;
+
+}
+
+.comment-pic{
+    background-image: url("comment.png");
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+}
+
+.comment-feed{
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 20px;
+    /* identical to box height, or 154% */
+
+
+    color: #000000;
+
+}
+
