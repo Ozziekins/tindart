@@ -8,7 +8,6 @@ import Home from "./Home";
 import Feed from "./Feed";
 import Login from "./Login";
 import Swipe from "./Swipe";
-import Profile from "./Profile";
 
 ReactDOM.render(
 
@@ -25,9 +24,6 @@ ReactDOM.render(
             </Route>
             <Route exact path="/swipe">
                 <Swipe />
-            </Route>
-            <Route exact path="/profile">
-                <Profile />
             </Route>
         </div>
     </Router>
