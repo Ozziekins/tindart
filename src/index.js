@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Route}  from 'react-router-dom'
 import Home from "./Home";
 import Feed from "./Feed";
 import Login from "./Login";
+import Swipe from "./Swipe";
 
 ReactDOM.render(
 
@@ -20,6 +21,9 @@ ReactDOM.render(
             </Route>
             <Route exact path="/login">
                 <Login />
+            </Route>
+            <Route exact path="/swipe">
+                <Swipe />
             </Route>
         </div>
     </Router>
