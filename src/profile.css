@@ -1,3 +1,94 @@
 .logo-profile{
+    float: left;
+    top:20px;
+    margin-left:150px;
+
+    width: 476px;
+    height: 80px;
     background-image: url("images/Logo-pages5.png");
+}
+.profile-user{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    left: 45%;
+    top: 20%;
+    background-image: url("images/Profile photo PROFILE.png");
+}
+.username-profile{
+
+    position: absolute;
+    width: 178px;
+    height: 42px;
+    left: 45%;
+    top: 38%;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 42px;
+
+    color: #000000;
+}
+.desc-profile{
+    position: absolute;
+    width: 318px;
+    height: 42px;
+    left:42%;
+    top:45%;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+
+    color: #000000;
+}
+.profile-buttons{
+    display:inline-flex;
+    list-style-type: none;
+}
+
+.li-profile{
+    width: 75px;
+    height: 21px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+    position: absolute;
+    top:55%;
+    left:45%;
+
+    color: #6C4125;
+}
+.fav-profile{
+    margin-left: 100px;
+}
+.fav-box-profile{
+
+    position: absolute;
+    top:60%;
+    left:15%;
+    display:inline-flex;
+    list-style-type: none;
+}
+.li-fav-profile{
+    width: 300px;
+    height: 200px;
+    margin-left: 100px;
+}
+.fav-box1{
+    background-image: url("images/fav1-photo.png");
+}
+.fav-box2{
+    background-image: url("images/fav2-photo.png");
+}
+.fav-box3{
+    background-image: url("images/fav3-box.png");
 }
