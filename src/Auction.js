@@ -20,11 +20,13 @@ function Auction() {
                     <div className="money-auction">$50</div>
                     <div className="current-bids-auction">Current bids:<span> 5 people</span></div>
                     <div className="time-left-auction">12 hours remaining</div>
-                    <ul className="buttons-price-auction">
-                        <li className="plus-auction li-bid-auction"></li>
-                        <li className="price-auction li-bid-auction">$100</li>
-                        <li className="minus-auction li-bid-auction"></li>
-                    </ul>
+                    <div className="buttons-price-auction">
+                        <ul className="inline-bid-auction" >
+                            <li className="plus-auction li-bid-auction"></li>
+                            <li className="price-auction li-bid-auction">$100</li>
+                            <li className="minus-auction li-bid-auction"></li>
+                        </ul>
+                    </div>
                     <div className="bid-auction-button">Bid</div>
                 </div>
             </div>
