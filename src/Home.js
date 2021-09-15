@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Home.css"
 import "./Login.css"
 
@@ -16,9 +17,9 @@ function Home() {
             <div className="container">
                 <div className="logo"/>
                 <ul className="menu">
-                    <li className="li-home"><a>Feed</a></li>
-                    <li className="li-home"><a>Swipe</a></li>
-                    <li className="li-home"><a>Auction</a></li>
+                    <li className="li-home"><Link to="/feed">Feed</Link></li>
+                    <li className="li-home"><Link to="/swipe">Swipe</Link></li>
+                    <li className="li-home"><Link to="/auction">Auction</Link></li>
                     <li className="li-home"><a>Contact</a></li>
                 </ul>
                 <button onClick={showLogin} className="login"> Log in </button>
