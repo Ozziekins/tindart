@@ -139,18 +139,21 @@
     color: #FF0000;
 }
 .buttons-price-auction{
-    display:inline-flex;
+    position: relative;
+
+    left: 15.73%;
+    right: 22.73%;
+    top: 55.47%;
+    bottom: 29.86%;
+}
+.inline-bid-auction{
     list-style-type: none;
-
-
+    display:inline-flex;
 }
 .li-bid-auction{
-    position: absolute;
-    left: 22.73%;
-    right: 22.73%;
-    top: 57.47%;
-    bottom: 29.86%;
-    margin-left: 60px;
+
+    margin-left: 10px;
+    justify-content: center;
 
 }
 
@@ -160,10 +163,20 @@
     font-style: normal;
     font-weight: normal;
     font-size: 48px;
-    line-height: 56px;
-    text-align: justify;
 
     color: #97694B;
+}
+.minus-auction{
+
+    width: 30px;
+    height: 30px;
+    background-image: url("images/minus.png");
+}
+.plus-auction{
+
+    width: 30px;
+    height: 30px;
+    background-image: url("images/add.png");
 }
 .bid-auction-button{
     width: 88px;
@@ -189,14 +202,4 @@
 
     background: #6C4125;
     border-radius: 10px;
-}
-.minus-auction{
-    width: 30px;
-    height: 30px;
-    background-image: url("images/minus.png");
-}
-.plus-auction{
-    width: 30px;
-    height: 30px;
-    background-image: url("images/add.png");
 }
