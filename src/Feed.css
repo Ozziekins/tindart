@@ -7,7 +7,7 @@
     float: right;
     margin-top:20px;
     margin-right: 500px;
-    background-image: url("User photo.png");
+    background-image: url("images/User photo.png");
     border-radius: 20px;
     width: 60px;
     height: 60px;
@@ -16,7 +16,7 @@
     float: left;
     top:20px;
     margin-left:500px;
-    background-image: url("Logo-pages.png") ;
+    background-image: url("images/Logo-pages.png") ;
     width: 400px;
     height: 80px;
 }
@@ -51,7 +51,7 @@
     margin-right: 50px;
     width: 60px;
     height: 60px;
-    background-image: url("User photo2.png");
+    background-image: url("images/User photo2.png");
 }
 
 .description-pic{
@@ -76,7 +76,7 @@
     margin-left: 100px;
 }
 .pic-feed{
-    background-image: url("mike von.png");
+    background-image: url("images/mike von.png");
     width: 450px;
     height: 357px;
     margin-top:10px ;
@@ -88,7 +88,7 @@
     list-style-type: none;
 }
 .like-pic{
-    background-image: url("like.png");
+    background-image: url("images/like.png");
     width: 20px;
     height: 20px;
     margin-right: 20px;
@@ -109,7 +109,7 @@
 }
 
 .comment-pic{
-    background-image: url("comment.png");
+    background-image: url("images/comment.png");
     width: 20px;
     height: 20px;
     margin-right: 20px;

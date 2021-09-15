@@ -1,8 +1,8 @@
 .swipe-logo{
-    background-image: url("Logo-pages2.png");
+    background-image: url("images/Logo-pages2.png");
 }
 .card-swipe{
-    background-image: url("swipe photo.png");
+    background-image: url("images/swipe photo.png");
     position: absolute;
     width: 471px;
     height: 622px;
@@ -42,21 +42,21 @@
 }
 
 .swipe-like{
-    background-image: url("Like-swipe.png");
+    background-image: url("images/Like-swipe.png");
 }
 
 .swipe-nope{
 
-    background-image: url("Nope.png");
+    background-image: url("images/Nope.png");
 }
 .swipe-info{
-    background-image: url("Info.png");
+    background-image: url("images/Info.png");
 }
 .swipe-fav{
 
-    background-image: url("Favourite.png");
+    background-image: url("images/Favourite.png");
 }
 .swipe-next{
 
-    background-image: url("Next.png");
+    background-image: url("images/Next.png");
 }
