@@ -19,10 +19,24 @@ label {
     text-align: left;
 }
 
-#card {
+.login-card {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(255,255,255); /* Fallback color */
+    background-color: rgba(103,83,69,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+.card {
     background: #FFFFFF;
     border-radius: 20px;
-    height: 429px;
+    height: 529px;
     margin: 6rem auto 8.1rem auto;
     width: 372px;
 }
@@ -49,6 +63,21 @@ label {
     border-radius: 15px;
     width: 100%;
     height: 25px;
+}
+
+/* The Close Button (x) */
+.close {
+    float: right;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
 }
 
 .btns {

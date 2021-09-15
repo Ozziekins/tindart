@@ -3,7 +3,7 @@ import "./Login.css"
 
 function Login() {
     return (
-        <div id="card">
+        <div className="card">
             <div id="card-content">
                 <div id="card-title">
                     <h2>Login</h2>
