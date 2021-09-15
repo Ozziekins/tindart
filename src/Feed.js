@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Feed.css"
 function Feed() {
     return (
         <div>
-            <div className="logo-feed"/>
-            <div className="user"/>
+            <Link to="/" className="logo-feed"/>
+            <Link to="/profile" className="user"/>
             <div className="post">
                 <div className="post-user-name-time">
                     <ul>

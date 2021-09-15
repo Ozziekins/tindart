@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Auction.css"
 
 function Auction() {
     return (
         <div>
-            <div className="logo-auction"/>
-            <div className="user-auction"/>
+            <Link to="/" className="logo-auction"/>
+            <Link to="/profile" className="user-auction"/>
             <div className="auction">
                 <div className="art-info">
                     <div className="art-piece"/>

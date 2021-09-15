@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./profile.css"
 function Profile() {
     return (
         <div>
-            <div className="logo-profile"/>
+            <Link to="/feed" className="logo-profile"/>
             <div className="user"/>
             <div className='profile-user'></div>
             <div className="username-profile">User Daryll</div>

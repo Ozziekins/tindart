@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./swipe.css"
 
 function Swipe() {
     return (
         <div>
-            <div className="logo-feed swipe-logo"/>
-            <div className="user"/>
+            <Link to="/" className="logo-feed swipe-logo"/>
+            <Link to="/profile" className="user"/>
 
             <div className="card-swipe">
                 <div className="swipe-title">Art title</div>
