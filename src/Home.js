@@ -5,10 +5,10 @@ function Home() {
         <div className="container">
             <div className="logo"/>
             <ul className="menu">
-                <li><a>Feed</a></li>
-                <li><a>Swipe</a></li>
-                <li><a>Auction</a></li>
-                <li><a>Contact</a></li>
+                <li className="li-home"><a>Feed</a></li>
+                <li className="li-home"><a>Swipe</a></li>
+                <li className="li-home"><a>Auction</a></li>
+                <li className="li-home"><a>Contact</a></li>
             </ul>
             <a className="login">Log in</a>
             <div className="swipe-art">Swipe Art</div>
