@@ -77,3 +77,126 @@
     box-sizing: border-box;
     box-shadow: 5px 5px 10px 5px #E6CFC0;
 }
+.money-auction{
+    position: absolute;
+    left: 39.04%;
+    right: 39.3%;
+    top: 10.86%;
+    bottom: 76.47%;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 56px;
+    text-align: justify;
+
+    color: #000000;
+}
+.current-bids-auction{
+    width: 400px;
+    position: absolute;
+    left: 26.47%;
+    right: 26.74%;
+    top: 30.54%;
+    bottom: 64.71%;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+
+    text-align: justify;
+
+    color: rgba(0, 0, 0, 0.8);
+
+}
+.current-bids-auction span{
+    color: rgba(151, 105, 75, 0.7);
+
+}
+.time-left-auction{
+
+    width: 400px;
+
+    position: absolute;
+    left: 35.83%;
+    right: 29.68%;
+    top: 42.31%;
+    bottom: 53.62%;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 18px;
+    /* identical to box height */
+
+    text-align: justify;
+
+    color: #FF0000;
+}
+.buttons-price-auction{
+    display:inline-flex;
+    list-style-type: none;
+
+
+}
+.li-bid-auction{
+    position: absolute;
+    left: 22.73%;
+    right: 22.73%;
+    top: 57.47%;
+    bottom: 29.86%;
+    margin-left: 60px;
+
+}
+
+.price-auction{
+    width: 108px;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 56px;
+    text-align: justify;
+
+    color: #97694B;
+}
+.bid-auction-button{
+    width: 88px;
+    height: 35px;
+    position: absolute;
+    left: 40%;
+    right: 34.09%;
+    top: 75%    ;
+    bottom: 22.86%;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+    color: #FFFFFF;
+
+    background: #6C4125;
+    border-radius: 10px;
+}
+.minus-auction{
+    width: 30px;
+    height: 30px;
+    background-image: url("images/minus.png");
+}
+.plus-auction{
+    width: 30px;
+    height: 30px;
+    background-image: url("images/add.png");
+}
