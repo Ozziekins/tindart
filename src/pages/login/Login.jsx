@@ -24,7 +24,7 @@ function Login() {
             &nbsp;User Name
           </label>
           <FormContent id="user-name" type="username" name="username" required />
-          <label htmlFor="user-password" style={{ 'padding-top': '22px', color: '#ABAAAA' }}>
+          <label htmlFor="user-password" style={{ paddingTop: '22px', color: '#ABAAAA' }}>
             &nbsp;Password
           </label>
           <FormContent id="user-password" type="password" name="password" required />

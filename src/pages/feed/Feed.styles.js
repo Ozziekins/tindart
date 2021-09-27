@@ -1,4 +1,11 @@
 import styled, { createGlobalStyle } from 'styled-components'
+import { Link } from 'react-router-dom'
+import UserPhoto from '../../images/User photo.png'
+import LogoPages from '../../images/Logo-pages.png'
+import UserPhoto2 from '../../images/User photo2.png'
+import MikeVon from '../../images/mike von.png'
+import Like from '../../images/like.png'
+import Comment from '../../images/comment.png'
 
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Lato');
@@ -10,21 +17,21 @@ export const Post = styled.div`
   margin-top: 0px;
 `
 
-export const User = styled.Link`
+export const User = styled(Link)`
   float: right;
   margin-top: 20px;
   margin-right: 500px;
-  background-image: url('../../images/User photo.png');
+  background-image: url(${UserPhoto});
   border-radius: 20px;
   width: 60px;
   height: 60px;
 `
 
-export const LogoFeed = styled.Link`
+export const LogoFeed = styled(Link)`
   float: left;
   top: 20px;
   margin-left: 500px;
-  background-image: url('../../images/Logo-pages.png');
+  background-image: url(${LogoPages});
   width: 400px;
   height: 80px;
 `
@@ -60,7 +67,7 @@ export const PostUser = styled.li`
   margin-right: 50px;
   width: 60px;
   height: 60px;
-  background-image: url('../../images/User photo2.png');
+  background-image: url(${UserPhoto2});
 
   width: 100px;
   height: 60px;
@@ -99,7 +106,7 @@ export const DescriptionFeed = styled.div`
 `
 
 export const PicFeed = styled.div`
-  background-image: url('../../images/mike von.png');
+  background-image: url(${MikeVon});
   width: 450px;
   height: 357px;
   margin-top: 10px;
@@ -112,7 +119,7 @@ export const FooterDescPic = styled.ul`
 `
 
 export const LikePic = styled.li`
-  background-image: url('../../images/like.png');
+  background-image: url(${Like});
   width: 20px;
   height: 20px;
   margin-right: 20px;
@@ -132,7 +139,7 @@ export const LikeFeed = styled.li`
 `
 
 export const CommentPic = styled.li`
-  background-image: url('../../images/comment.png');
+  background-image: url(${Comment});
   width: 20px;
   height: 20px;
   margin-right: 20px;

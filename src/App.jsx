@@ -29,6 +29,7 @@ function App() {
         <Route path="/auction">
           <Auction />
         </Route>
+        <Route>404</Route>
       </Switch>
     </Router>
   )

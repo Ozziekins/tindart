@@ -1,21 +1,30 @@
 import styled, { createGlobalStyle } from 'styled-components'
+import { Link } from 'react-router-dom'
+import LogoPages2 from '../../images/Logo-pages2.png'
+import SwipePhoto from '../../images/swipe photo.png'
+import UserPhoto from '../../images/User photo.png'
+import LikeSwipe from '../../images/Like-swipe.png'
+import Nope from '../../images/Nope.png'
+import Info from '../../images/Info.png'
+import Favourite from '../../images/Favourite.png'
+import Next from '../../images/Next.png'
 
 export default createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Roboto');
     @import url('https://fonts.googleapis.com/css?family=Allerta');
 `
 
-export const SwipeLogo = styled.Link`
+export const SwipeLogo = styled(Link)`
   float: left;
   top: 20px;
   margin-left: 500px;
   width: 400px;
   height: 80px;
-  background-image: url('../../images/Logo-pages2.png');
+  background-image: url(${LogoPages2});
 `
 
 export const CardSwipe = styled.div`
-  background-image: url('../../images/swipe photo.png');
+  background-image: url(${SwipePhoto});
   position: absolute;
   width: 471px;
   height: 622px;
@@ -23,11 +32,11 @@ export const CardSwipe = styled.div`
   top: 216px;
 `
 
-export const User = styled.Link`
+export const User = styled(Link)`
   float: right;
   margin-top: 20px;
   margin-right: 500px;
-  background-image: url('../../images/User photo.png');
+  background-image: url(${UserPhoto});
   border-radius: 20px;
   width: 60px;
   height: 60px;
@@ -63,33 +72,33 @@ export const SwipeLike = styled.li`
   width: 45px;
   height: 45px;
   margin-right: 15px;
-  background-image: url('../../images/Like-swipe.png');
+  background-image: url(${LikeSwipe});
 `
 
 export const SwipeNope = styled.li`
   width: 45px;
   height: 45px;
   margin-right: 15px;
-  background-image: url('../../images/Nope.png');
+  background-image: url(${Nope});
 `
 
 export const SwipeInfo = styled.li`
   width: 45px;
   height: 45px;
   margin-right: 15px;
-  background-image: url('../../images/Info.png');
+  background-image: url(${Info});
 `
 
 export const SwipeFave = styled.li`
   width: 45px;
   height: 45px;
   margin-right: 15px;
-  background-image: url('../../images/Favourite.png');
+  background-image: url(${Favourite});
 `
 
 export const SwipeNext = styled.li`
   width: 45px;
   height: 45px;
   margin-right: 15px;
-  background-image: url('../../images/Next.png');
+  background-image: url(${Next});
 `

@@ -1,4 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components'
+import Background from '../../images/background.png'
+import LogoPic from '../../images/Logo.png'
 
 export default createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Roboto');
@@ -13,7 +15,7 @@ export const NoDecorLink = styled.a`
 export const Container = styled.div`
   width: 100%;
   height: 800px;
-  background-image: url('../../images/background.png');
+  background-image: url(${Background});
   margin-top: 0px;
 `
 
@@ -34,7 +36,7 @@ export const LiHome = styled.li`
 export const Logo = styled.div`
   margin-left: 45px;
   float: left;
-  background-image: url('../../images/Logo.png');
+  background-image: url(${LogoPic});
   width: 310px;
   height: 80px;
 `

@@ -62,7 +62,7 @@ function Home() {
                 &nbsp;User Name
               </label>
               <FormContent type="username" name="username" required />
-              <label htmlFor="user-password" style={{ 'padding-top': '22px', color: '#ABAAAA' }}>
+              <label htmlFor="user-password" style={{ paddingTop: '22px', color: '#ABAAAA' }}>
                 &nbsp;Password
               </label>
               <FormContent type="password" name="password" required />

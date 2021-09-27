@@ -1,25 +1,32 @@
 import styled, { createGlobalStyle } from 'styled-components'
+import { Link } from 'react-router-dom'
+import LogoPages5 from '../../images/Logo-pages5.png'
+import UserPhoto from '../../images/User photo.png'
+import ProfilePhoto from '../../images/Profile photo PROFILE.png'
+import Fav1Photo from '../../images/fav1-photo.png'
+import Fav2Photo from '../../images/fav2-photo.png'
+import Fav3Photo from '../../images/fav3-box.png'
 
 export default createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Roboto');
     @import url('https://fonts.googleapis.com/css?family=Allerta');
 `
 
-export const LogoProfile = styled.Link`
+export const LogoProfile = styled(Link)`
   float: left;
   top: 20px;
   margin-left: 150px;
 
   width: 476px;
   height: 80px;
-  background-image: url('../../images/Logo-pages5.png');
+  background-image: url(${LogoPages5});
 `
 
-export const User = styled.Link`
+export const User = styled(Link)`
   float: right;
   margin-top: 20px;
   margin-right: 500px;
-  background-image: url('../../images/User photo.png');
+  background-image: url(${UserPhoto});
   border-radius: 20px;
   width: 60px;
   height: 60px;
@@ -31,7 +38,7 @@ export const ProfileUser = styled.div`
   height: 150px;
   left: 45%;
   top: 20%;
-  background-image: url('../../images/Profile photo PROFILE.png');
+  background-image: url(${ProfilePhoto});
 `
 
 export const UsernameProfile = styled.div`
@@ -118,19 +125,19 @@ export const LiFavProfileBox1 = styled.li`
   width: 300px;
   height: 200px;
   margin-left: 100px;
-  background-image: url('../../images/fav1-photo.png');
+  background-image: url(${Fav1Photo});
 `
 
 export const LiFavProfileBox2 = styled.li`
   width: 300px;
   height: 200px;
   margin-left: 100px;
-  background-image: url('../../images/fav2-photo.png');
+  background-image: url(${Fav2Photo});
 `
 
 export const LiFavProfileBox3 = styled.li`
   width: 300px;
   height: 200px;
   margin-left: 100px;
-  background-image: url('../../images/fav3-box.png');
+  background-image: url(${Fav3Photo});
 `

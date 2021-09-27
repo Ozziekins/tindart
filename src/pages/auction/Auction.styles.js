@@ -1,4 +1,10 @@
 import styled, { createGlobalStyle } from 'styled-components'
+import { Link } from 'react-router-dom'
+import UserPhoto from '../../images/User photo.png'
+import LogoPages4 from '../../images/Logo-pages4.png'
+import Dan from '../../images/dan.png'
+import Minus from '../../images/minus.png'
+import Add from '../../images/add.png'
 
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Roboto');
@@ -13,23 +19,23 @@ export const AuctionDiv = styled.div`
   top: 70px;
 `
 
-export const UserAuction = styled.Link`
+export const UserAuction = styled(Link)`
   position: relative;
   float: right;
   margin-top: 20px;
   margin-right: 150px;
-  background-image: url('../../images/User photo.png');
+  background-image: url(${UserPhoto});
   border-radius: 20px;
   width: 60px;
   height: 60px;
 `
 
-export const LogoAuction = styled.Link`
+export const LogoAuction = styled(Link)`
   position: relative;
   float: left;
   top: 20px;
   margin-left: 150px;
-  background-image: url('../../images/Logo-pages4.png');
+  background-image: url(${LogoPages4});
   width: 476px;
   height: 80px;
 `
@@ -43,7 +49,7 @@ export const ArtInfo = styled.div`
 
 export const ArtPiece = styled.div`
   position: relative;
-  background-image: url('../../images/dan.png');
+  background-image: url(${Dan});
   width: 490px;
   height: 364px;
 `
@@ -176,7 +182,7 @@ export const MinusAuction = styled.li`
 
   width: 30px;
   height: 30px;
-  background-image: url('../../images/minus.png');
+  background-image: url(${Minus});
 `
 
 export const PlusAuction = styled.li`
@@ -185,7 +191,7 @@ export const PlusAuction = styled.li`
 
   width: 30px;
   height: 30px;
-  background-image: url('../../images/add.png');
+  background-image: url(${Add});
 `
 
 export const BidAuctionButton = styled.div`
