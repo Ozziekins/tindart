@@ -1,25 +1,13 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import authService from '../../services/auth.service'
-import {
-  Btns,
-  Card,
-  CardContent,
-  CardTitle,
-  Form,
-  FormContent,
-  LoginCard,
-  Close,
-  LoginBtn,
-  ForgotPass,
-  ForgotPassA
-} from './Login.styles'
+import { Btns, Card, CardContent, CardTitle, Close, Form, FormContent, LoginCard, SignUpBtn } from './Signup.styles'
 
-function hideLogin() {
-  document.getElementById('login1').style.display = 'none'
+function hideSignup() {
+  document.getElementById('signup1').style.display = 'none'
 }
 
-function Login() {
+function Signup() {
   const history = useHistory()
   const [error, setError] = useState()
   const [login, setLogin] = useState('')
@@ -35,14 +23,14 @@ function Login() {
   }
 
   return (
-    <LoginCard id="login1">
+    <LoginCard id="signup1">
       <Card>
         <CardContent>
-          <Close onClick={hideLogin} title="Close Signup">
+          <Close onClick={hideSignup} title="Close Signup">
             &times;
           </Close>
           <CardTitle>
-            <h2>Login</h2>
+            <h2>Sign up</h2>
           </CardTitle>
           <Form onSubmit={onSubmit} error={error} defaultValues={{ login: '', password: '' }}>
             <label htmlFor="user-name" style={{ paddingTop: '13px', color: '#ABAAAA' }}>
@@ -53,11 +41,9 @@ function Login() {
               &nbsp;Password
             </label>
             <FormContent type="password" name="password" required />
-            <ForgotPassA href="#">
-              <ForgotPass id="forgot-pass">Forgot password?</ForgotPass>
-            </ForgotPassA>
             <Btns>
-              <LoginBtn type="submit" name="submit" value="Login" />
+              {/* <LoginBtn type="submit" name="submit" value="Login" /> */}
+              <SignUpBtn type="submit" name="submit" value="Signup" />
             </Btns>
           </Form>
         </CardContent>
@@ -66,4 +52,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Signup

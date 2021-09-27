@@ -13,20 +13,6 @@ export default createGlobalStyle`
     }
 `
 
-export const ForgotPass = styled.legend`
-  color: #6c4125;
-  font-family: Roboto, sans-serif;
-  font-weight: bold;
-  font-style: normal;
-  font-size: 14px;
-  margin-top: 3px;
-  text-align: left;
-`
-
-export const ForgotPassA = styled.a`
-  padding-top: 22px;
-`
-
 export const LoginCard = styled.div`
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */

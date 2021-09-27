@@ -11,9 +11,6 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/">
-          <Home />
-        </Route>
         <Route path="/feed">
           <Feed />
         </Route>
@@ -28,6 +25,9 @@ function App() {
         </Route>
         <Route path="/auction">
           <Auction />
+        </Route>
+        <Route path="/">
+          <Home />
         </Route>
         <Route>404</Route>
       </Switch>

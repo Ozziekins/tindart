@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
+import { Link } from 'react-router-dom'
 import Background from '../../images/background.png'
 import LogoPic from '../../images/Logo.png'
 
@@ -7,7 +8,7 @@ export default createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Allerta');
 `
 
-export const NoDecorLink = styled.a`
+export const NoDecorLink = styled(Link)`
   text-decoration: none;
   color: #ffffff;
 `
