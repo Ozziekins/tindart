@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+
 import {
   DescProfile,
   EditProfileIcon,
@@ -17,6 +18,7 @@ import {
 import EditProfile from '../../components/profile/EditProfile'
 import ProfilePhoto from '../../images/Profile photo PROFILE.png'
 import Logout from '../../components/logout/Logout'
+import Uploads from '../../components/uploads/Uploads'
 
 function showEdit() {
   document.getElementById('edit1').style.display = 'block'
@@ -24,6 +26,16 @@ function showEdit() {
 
 function showLogout() {
   document.getElementById('logout1').style.display = 'flex'
+}
+
+function showUploads() {
+  // document.getElementById('favourites1').style.display = 'none'
+  document.getElementById('uploads1').style.display = 'block'
+}
+
+function showFavourites() {
+  document.getElementById('uploads1').style.display = 'none'
+  document.getElementById('favourites1').style.display = 'block'
 }
 
 function Profile() {
@@ -60,13 +72,14 @@ function Profile() {
       <EditProfile id="edit1" getUserInfo={getUserInfo} />
       <DescProfile> {description} </DescProfile>
       <ProfileButtons>
-        <FavProfile to="/favourites">Favorites</FavProfile>
-        <LiProfile to="/uploads">Uploads</LiProfile>
+        <FavProfile onClick={showFavourites}>Favorites</FavProfile>
+        <LiProfile onClick={showUploads}>Uploads</LiProfile>
       </ProfileButtons>
       <FavBoxProfile>
-        <LiFavProfileBox1 />
-        <LiFavProfileBox2 />
-        <LiFavProfileBox3 />
+        {/*<LiFavProfileBox1 />*/}
+        {/*<LiFavProfileBox2 />*/}
+        {/*<LiFavProfileBox3 />*/}
+        <Uploads id="uploads1" />
       </FavBoxProfile>
     </div>
   )

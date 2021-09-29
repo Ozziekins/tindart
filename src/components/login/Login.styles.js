@@ -104,23 +104,6 @@ export const LoginBtn = styled.input`
   width: 270px;
 `
 
-export const SignUpBtn = styled.input`
-  background: #6c4125;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  color: white;
-  font-family: Roboto, sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  margin-top: 50px;
-  margin-right: auto;
-  margin-left: 10px;
-  margin-bottom: 0;
-  padding: 20px;
-  width: 270px;
-`
-
 export const Form = styled.form`
   align-items: flex-start;
   display: flex;

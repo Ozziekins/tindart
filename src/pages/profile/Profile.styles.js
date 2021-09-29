@@ -94,7 +94,7 @@ export const ProfileButtons = styled.ul`
   list-style-type: none;
 `
 
-export const LiProfile = styled(NavLink)`
+export const LiProfile = styled.div`
   width: 75px;
   height: 21px;
   font-family: Roboto, serif;
@@ -108,9 +108,17 @@ export const LiProfile = styled(NavLink)`
   left: 45%;
 
   color: #6c4125;
+  text-decoration-line: underline;
+
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    cursor: pointer;
+  }
 `
 
-export const FavProfile = styled(NavLink)`
+export const FavProfile = styled.div`
   margin-left: 100px;
 
   width: 75px;
@@ -126,12 +134,20 @@ export const FavProfile = styled(NavLink)`
   left: 45%;
 
   color: #6c4125;
+  text-decoration-line: underline;
+
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    cursor: pointer;
+  }
 `
 
 export const FavBoxProfile = styled.ul`
   position: absolute;
   top: 60%;
-  left: 15%;
+  left: 5%;
   display: inline-flex;
   list-style-type: none;
 `
