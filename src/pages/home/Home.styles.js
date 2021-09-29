@@ -105,3 +105,8 @@ export const SignUp = styled.div`
   text-align: center;
   padding-top: 20px;
 `
+
+export const ContactLink = styled.a`
+  text-decoration: none;
+  color: #ffffff;
+`

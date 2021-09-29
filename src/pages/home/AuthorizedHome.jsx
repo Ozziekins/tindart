@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, User, LiHome, Logo, NoDecorLink, SwipeArt } from './Home.styles'
+import { ContactLink, Container, User, LiHome, Logo, NoDecorLink, SwipeArt } from './Home.styles'
 
 function AuthorizedHome() {
   return (
@@ -17,7 +17,7 @@ function AuthorizedHome() {
             <NoDecorLink to="/auction">Auction</NoDecorLink>
           </LiHome>
           <LiHome>
-            <NoDecorLink>Contact</NoDecorLink>
+            <ContactLink href="https://forms.gle/8bSFaKFEiJCyKb3fA">Contact</ContactLink>
           </LiHome>
           <User
             to="/profile"
