@@ -6,6 +6,8 @@ import {
   DescriptionPic,
   FooterDescPic,
   LiFeed,
+  LiFeedArtist,
+  LiFeedDate,
   LikeFeed,
   LikePic,
   LogoFeed,
@@ -46,7 +48,7 @@ function Feed() {
   if (error) {
     return (
       <div>
-        <LogoFeed to="/" />
+        <LogoFeed to="/home" />
         <User to="/profile" />
         <Post>Error: {error.message}</Post>
       </div>
@@ -56,7 +58,7 @@ function Feed() {
   if (!isLoaded) {
     return (
       <div>
-        <LogoFeed to="/" />
+        <LogoFeed to="/home" />
         <User to="/profile" />
         <Post>Loading...</Post>
       </div>
@@ -65,7 +67,7 @@ function Feed() {
 
   return (
     <div>
-      <LogoFeed to="/" />
+      <LogoFeed to="/home" />
       <User to="/profile" />
       {items.map((item) => (
         <div key={item.id}>
@@ -73,7 +75,10 @@ function Feed() {
             <PostUserNameTime>
               <ul>
                 <PostUser> </PostUser>
-                <LiFeed>User Darryl</LiFeed>
+                <LiFeed>
+                  <LiFeedArtist> {item.artist_title} </LiFeedArtist>
+                  <LiFeedDate> {item.date_display} </LiFeedDate>
+                </LiFeed>
               </ul>
               <DescriptionPic>
                 <DescriptionFeed> {item.title} </DescriptionFeed>

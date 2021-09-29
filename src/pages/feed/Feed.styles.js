@@ -46,9 +46,34 @@ export const PostUserNameTime = styled.div`
   height: 579px;
 `
 
-export const LiFeed = styled.li`
-  width: 100px;
-  height: 60px;
+export const LiFeed = styled.ul`
+  float: left;
+  font-family: Lato, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  /* identical to box height, or 154% */
+  list-style-type: none;
+  margin-top: -50px;
+
+  display: flex;
+  flex-direction: column;
+`
+
+export const LiFeedArtist = styled.li`
+  position: relative;
+  float: left;
+
+  font-family: Lato, serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+
+  color: #000000;
+`
+
+export const LiFeedDate = styled.li`
+  position: relative;
   float: left;
 
   font-family: Lato, serif;
@@ -57,31 +82,24 @@ export const LiFeed = styled.li`
   font-size: 13px;
   /* identical to box height, or 154% */
 
-  list-style-type: none;
-  margin-top: -50px;
+  margin-top: 5px;
 
-  color: #000000;
+  color: grey;
 `
 
 export const PostUser = styled.li`
   margin-right: 50px;
   width: 60px;
   height: 60px;
-  background-image: url(${UserPhoto2});
-
-  width: 100px;
-  height: 60px;
+  background-image: url(${UserPhoto});
   float: left;
-
   font-family: Lato, serif;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
   /* identical to box height, or 154% */
-
   list-style-type: none;
   margin-top: -50px;
-
   color: #000000;
 `
 
@@ -99,7 +117,6 @@ export const DescriptionFeed = styled.div`
   font-size: 13px;
   line-height: 20px;
   /* identical to box height, or 154% */
-
   color: #000000;
   margin-top: 20px;
   margin-left: 100px;
@@ -127,14 +144,12 @@ export const LikePic = styled.li`
 
 export const LikeFeed = styled.li`
   margin-right: 60px;
-
   font-family: Lato, serif;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
   line-height: 20px;
   /* identical to box height, or 154% */
-
   color: #000000;
 `
 
@@ -152,6 +167,5 @@ export const CommentFeed = styled.li`
   font-size: 13px;
   line-height: 20px;
   /* identical to box height, or 154% */
-
   color: #000000;
 `

@@ -32,7 +32,8 @@ function Login() {
       .loginUser(username, password)
       .then(() => {
         window.sessionStorage.setItem('isLoggedIn', true)
-        history.replace('/feed')
+        hideLogin()
+        history.replace('/home')
       })
       .catch(() => setError(error))
   }

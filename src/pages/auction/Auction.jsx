@@ -23,8 +23,15 @@ import {
 function Auction() {
   return (
     <div>
-      <LogoAuction to="/" />
-      <UserAuction to="/profile" />
+      <LogoAuction to="/home" />
+      <UserAuction
+        to="/profile"
+        style={{
+          backgroundImage: 'url(' + window.sessionStorage.getItem('ProfilePhoto') + ')',
+          backgroundSize: '60px',
+          objectFit: 'contain'
+        }}
+      />
       <AuctionDiv>
         <ArtInfo>
           <ArtPiece />

@@ -1,7 +1,8 @@
 import styled, { createGlobalStyle } from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import Background from '../../images/background.png'
 import LogoPic from '../../images/Logo.png'
+import UserPhoto from '../../images/User photo.png'
 
 export default createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Roboto');
@@ -18,6 +19,16 @@ export const Container = styled.div`
   height: 800px;
   background-image: url(${Background});
   margin-top: 0px;
+`
+
+export const User = styled(Link)`
+  float: right;
+  margin-top: 15px;
+  margin-right: 45px;
+  background-image: url(${UserPhoto});
+  border-radius: 20px;
+  width: 60px;
+  height: 60px;
 `
 
 export const LiHome = styled.li`
