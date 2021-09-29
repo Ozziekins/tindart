@@ -16,10 +16,9 @@ class AuthService {
     return !!this.TOKEN
   }
 
-  async registerUser(login, password) {
-    // TODO implement signup request similarly to login request
+  async signupUser(login, password) {
     try {
-      const response = await axios.post(`${this.API_ENDPOINT}/register`, { login, password })
+      const response = await axios.post(`${this.API_ENDPOINT}/signup`, { login, password })
 
       if (response.data?.token) {
         this.TOKEN = response.data.token

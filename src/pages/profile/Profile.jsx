@@ -16,7 +16,7 @@ import {
 
 function Profile() {
   return (
-    <DescProfile>
+    <div>
       <LogoProfile to="/feed" />
       <User />
       <ProfileUser />
@@ -31,7 +31,7 @@ function Profile() {
         <LiFavProfileBox2 />
         <LiFavProfileBox3 />
       </FavBoxProfile>
-    </DescProfile>
+    </div>
   )
 }
 
