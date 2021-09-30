@@ -19,6 +19,7 @@ import EditProfile from '../../components/profile/EditProfile'
 import ProfilePhoto from '../../images/Profile photo PROFILE.png'
 import Logout from '../../components/logout/Logout'
 import Uploads from '../../components/uploads/Uploads'
+import Favourites from '../../components/favourites/Favourites'
 
 function showEdit() {
   document.getElementById('edit1').style.display = 'block'
@@ -29,7 +30,7 @@ function showLogout() {
 }
 
 function showUploads() {
-  // document.getElementById('favourites1').style.display = 'none'
+  document.getElementById('favourites1').style.display = 'none'
   document.getElementById('uploads1').style.display = 'block'
 }
 
@@ -80,6 +81,7 @@ function Profile() {
         {/*<LiFavProfileBox2 />*/}
         {/*<LiFavProfileBox3 />*/}
         <Uploads id="uploads1" />
+        <Favourites id="favourites1" />
       </FavBoxProfile>
     </div>
   )
