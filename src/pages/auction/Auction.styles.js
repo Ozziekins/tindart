@@ -164,7 +164,7 @@ export const InlineBidAuction = styled.ul`
   display: inline-flex;
 `
 
-export const PriceAuction = styled.li`
+export const PriceAuction = styled.div`
   margin-left: 10px;
   justify-content: center;
   width: 108px;

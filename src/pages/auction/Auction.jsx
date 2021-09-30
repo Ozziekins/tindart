@@ -21,6 +21,20 @@ import {
 } from './Auction.styles'
 
 function Auction() {
+  var i = 0
+
+  const incrementBid = () => {
+    i += 5
+    const div = document.getElementById('bid-value')
+    div.innerText = '$' + i
+  }
+
+  const decrementBid = () => {
+    i -= 5
+    const div = document.getElementById('bid-value')
+    div.innerText = '$' + i
+  }
+
   return (
     <div>
       <LogoAuction to="/home" />
@@ -50,9 +64,9 @@ function Auction() {
           <TimeLeftAuction>12 hours remaining</TimeLeftAuction>
           <ButtonsPriceAuction>
             <InlineBidAuction>
-              <PlusAuction />
-              <PriceAuction>$100</PriceAuction>
-              <MinusAuction />
+              <PlusAuction onClick={incrementBid} />
+              <PriceAuction id="bid-value">$100</PriceAuction>
+              <MinusAuction onClick={decrementBid} />
             </InlineBidAuction>
           </ButtonsPriceAuction>
           <BidAuctionButton>Bid</BidAuctionButton>

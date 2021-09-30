@@ -12,6 +12,7 @@ import {
   LikeFeed,
   LikePic,
   LogoFeed,
+  Main,
   NextPageBtn,
   PicFeed,
   Post,
@@ -113,26 +114,26 @@ function Feed() {
 
   if (error) {
     return (
-      <div>
+      <Main>
         <LogoFeed to="/home" />
         <User to="/profile" />
         <Post>Error: {error.message}</Post>
-      </div>
+      </Main>
     )
   }
 
   if (!isLoaded) {
     return (
-      <div>
+      <Main>
         <LogoFeed to="/home" />
         <User to="/profile" />
         <Post>Loading...</Post>
-      </div>
+      </Main>
     )
   }
 
   return (
-    <div>
+    <Main>
       <div style={{ display: 'flex' }}>
         <LogoFeed to="/home" />
         <Searchbutton />
@@ -179,7 +180,7 @@ function Feed() {
         <PrevPageBtn onClick={gotoPrevPage}> Prev </PrevPageBtn>
         <NextPageBtn onClick={gotoNextPage}> Next </NextPageBtn>
       </div>
-    </div>
+    </Main>
   )
 }
 

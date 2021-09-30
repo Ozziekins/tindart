@@ -1,7 +1,8 @@
 import styled, { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css?family=Roboto');
+  @import url('https://fonts.googleapis.com/css?family=Roboto');
+  @import url('https://fonts.googleapis.com/css?family=Allerta');
     
     a {
         text-decoration: none;
@@ -78,13 +79,23 @@ export const FormContent = styled.input`
   height: 25px;
 `
 
+export const CommentHeader = styled.h1`
+  color: #97694b;
+  font-family: Allerta, sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: xx-large;
+`
+
 export const CommentAndAuthor = styled.div`
   margin-top: 20px;
-  border: 1px solid grey;
+  border: 1px solid #6c4125;
+  border-radius: 20px;
+  padding: 10px;
 `
 
 export const SingleComment = styled.span`
-  color: #6c4125;
+  color: #000;
   font-family: Roboto, sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -92,7 +103,7 @@ export const SingleComment = styled.span`
 `
 
 export const CommentAuthor = styled.span`
-  color: #6c4125;
+  color: #000;
   font-family: Roboto, sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -107,6 +118,7 @@ export const CommentMenu = styled.span`
   top: 0;
   right: 0;
   overflow-x: hidden;
-  padding-top: 60px;
-  border-left: 1px solid #6c4125;
+  padding-top: 100px;
+  margin-right: 20px;
+  //border-left: 1px solid #6c4125;
 `

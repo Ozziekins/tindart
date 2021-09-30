@@ -9,6 +9,18 @@ import Comment from '../../images/comment.png'
 
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Lato');
+  
+  body {
+    height: 100%;
+    width: 100%;
+    background-color: gray; 
+  }
+`
+
+export const Main = styled.body`
+  height: 100%;
+  width: 100%;
+  background-color: #fafafa;
 `
 
 export const Post = styled.div`
@@ -55,6 +67,10 @@ export const PostUserNameTime = styled.div`
   color: black;
   width: 646px;
   height: 579px;
+
+  border-radius: 10px;
+
+  background-color: white;
 `
 
 export const LiFeed = styled.ul`
