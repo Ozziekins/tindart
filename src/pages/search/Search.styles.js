@@ -18,8 +18,6 @@ export const Post = styled.div`
 `
 
 export const User = styled(Link)`
-  position: absolute;
-  left: 70%;
   float: right;
   margin-top: 20px;
   margin-right: 500px;
@@ -32,19 +30,10 @@ export const User = styled(Link)`
 export const LogoFeed = styled(Link)`
   float: left;
   top: 20px;
-  margin-left: 300px;
+  margin-left: 500px;
   background-image: url(${LogoPages});
   width: 400px;
   height: 80px;
-`
-
-export const FeedHeader = styled.div`
-  //display: flex;
-  //flex-direction: row;
-  position: relative;
-  top: 20px;
-  display: inline;
-  margin-left: 100px;
 `
 
 export const PostUserNameTime = styled.div`

@@ -8,6 +8,7 @@ import Login from './components/login/Login'
 import Swipe from './pages/swipe/Swipe'
 import Profile from './pages/profile/Profile'
 import Auction from './pages/auction/Auction'
+import Search from './pages/search/Search'
 import store from './store'
 
 function App() {
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route path="/auction">
             <Auction />
+          </Route>
+          <Route path="/search">
+            <Search />
           </Route>
           <Route path="/home">
             <AuthorizedHome />

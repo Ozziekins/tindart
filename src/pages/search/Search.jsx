@@ -4,7 +4,6 @@ import {
   CommentPic,
   DescriptionFeed,
   DescriptionPic,
-  FeedHeader,
   FooterDescPic,
   LiFeed,
   LiFeedArtist,
@@ -17,13 +16,12 @@ import {
   PostUser,
   PostUserNameTime,
   User
-} from './Feed.styles'
+} from './Search.styles'
 import Liked from '../../images/liked.png'
 import CommentForm from '../../components/comment/CommentForm'
 import { useDispatch, useSelector } from 'react-redux'
 import { favouriteActions } from '../../store/favourite/favourite.slice'
 import CommentSection from '../../components/comment/CommentSection'
-import Searchbutton from '../../components/searchbutton/Searchbutton'
 
 function getImage(imageId) {
   const imageUrl = `https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg`
@@ -35,7 +33,7 @@ function showComment() {
   document.getElementById('comment1').style.display = 'block'
 }
 
-function Feed() {
+function Search() {
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const [items, setItems] = useState([])
@@ -49,8 +47,10 @@ function Feed() {
     dispatch(favouriteActions.setFavourites({ favouriteImages: favouriteUrl }))
   }
 
+  const keyword = window.sessionStorage.getItem('Keyword')
+
   useEffect(() => {
-    fetch('https://api.artic.edu/api/v1/artworks')
+    fetch(`https://api.artic.edu/api/v1/artworks/search?q=${keyword}`)
       .then((res) => res.json())
       .then(
         (result) => {
@@ -87,11 +87,8 @@ function Feed() {
 
   return (
     <div>
-      <div style={{ display: 'flex' }}>
-        <LogoFeed to="/home" />
-        <Searchbutton />
-        <User to="/profile" />
-      </div>
+      <LogoFeed to="/home" />
+      <User to="/profile" />
       <div>
         {items.map((item) => (
           <div key={item.id}>
@@ -131,33 +128,6 @@ function Feed() {
       </div>
     </div>
   )
-
-  // return (
-  // <div>
-  //   <LogoFeed to="/" />
-  //   <User to="/profile" />
-  //   <Post>
-  //     <PostUserNameTime>
-  //       <ul>
-  //         <PostUser> </PostUser>
-  //         <LiFeed>User Darryl</LiFeed>
-  //       </ul>
-  //       <DescriptionPic>
-  //         <DescriptionFeed>Check out this exquisite painting from Luxembourgh!...</DescriptionFeed>
-  //         <PicFeed />
-  //       </DescriptionPic>
-  //       <div>
-  //         <FooterDescPic>
-  //           <LikePic />
-  //           <LikeFeed>Like</LikeFeed>
-  //           <CommentPic />
-  //           <CommentFeed>CommentForm </CommentFeed>
-  //         </FooterDescPic>
-  //       </div>
-  //     </PostUserNameTime>
-  //   </Post>
-  // </div>
-  // )
 }
 
-export default Feed
+export default Search
