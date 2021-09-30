@@ -13,20 +13,32 @@ import {
   UploadBackground
 } from './EditProfile.styles'
 import ProfilePhoto from '../../images/Profile photo PROFILE.png'
+import { useDispatch, useSelector } from 'react-redux'
+import { userActions } from '../../store/user/user.slice'
+import { favouriteActions } from '../../store/favourite/favourite.slice'
 
 function hideEdit() {
   document.getElementById('edit1').style.display = 'none'
 }
 
-function EditProfile({ getUserInfo }) {
+function EditProfile() {
   const [username, setUsername] = useState('')
   const [description, setDescription] = useState('')
   const [uploadedImg, setUploadedImg] = useState(ProfilePhoto)
 
+  const uploads = useSelector((state) => state.user)
+  const dispatch = useDispatch()
+
   const onSubmit = async (e) => {
     e.preventDefault()
 
-    getUserInfo(username, description, uploadedImg)
+    dispatch(
+      userActions.setUser({
+        username: username,
+        description: description,
+        photo: uploadedImg
+      })
+    )
     hideEdit()
     history.replace('/profile')
   }
@@ -95,6 +107,7 @@ function EditProfile({ getUserInfo }) {
                 label="Description"
                 type="description"
                 placeholder="Add your description"
+                maxLength="80"
                 onChange={({ target }) => setDescription(target.value)}
               />
               <Btns>

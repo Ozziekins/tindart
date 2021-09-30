@@ -1,10 +1,14 @@
 import { favouriteReducer, favouriteStateName } from './favourite/favourite.slice'
 import { commentReducer, commentStateName } from './comment/comment.slice'
+import { uploadReducer, uploadStateName } from './uploads/uploads.slice'
+import { userReducer, userStateName } from './user/user.slice'
 // import { combineReducers } from 'redux'
 
 const rootReducer = {
   [favouriteStateName]: favouriteReducer,
-  [commentStateName]: commentReducer
+  [commentStateName]: commentReducer,
+  [uploadStateName]: uploadReducer,
+  [userStateName]: userReducer
 }
 
 // const rootReducer = (state, action) => {

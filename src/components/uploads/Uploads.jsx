@@ -10,11 +10,14 @@ import {
   AllWrapper
 } from './Uploads.styles'
 import ImageUploading from 'react-images-uploading'
+import { useDispatch, useSelector } from 'react-redux'
+import { uploadActions } from '../../store/uploads/uploads.slice'
 
 function Uploads() {
-  // const div = document.createElement('UploadTemplate')
-  // div.style.backgroundImage = `url(${uploadImage})`
-  // div.setAttribute('id', 'upload1')
+  const { uploadedImages } = useSelector((state) => state.upload)
+
+  const uploads = useSelector((state) => state.upload)
+  const dispatch = useDispatch()
 
   const [images, setImages] = React.useState([])
   const maxNumber = 6
@@ -22,6 +25,7 @@ function Uploads() {
     // data for submit
     // console.log(imageList, addUpdateIndex)
     setImages(imageList)
+    dispatch(uploadActions.setUploads({ uploadedImages: imageList }))
   }
 
   return (
@@ -38,7 +42,7 @@ function Uploads() {
               <UploadBtn onClick={onImageRemoveAll}>Clear uploads</UploadBtn>
             </BtnsWrapper>
             <ImgsWrapper>
-              {imageList.map((image, index) => (
+              {uploadedImages.map((image, index) => (
                 <ImageBtnWrapper key={index} className="image-item">
                   <UploadTemplate src={image.data_url} />
                   <DeleteBtn onClick={() => onImageRemove(index)}>&times;</DeleteBtn>

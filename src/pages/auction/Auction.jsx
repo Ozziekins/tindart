@@ -19,6 +19,13 @@ import {
   MinusAuction,
   BidAuctionButton
 } from './Auction.styles'
+import { useSelector } from 'react-redux'
+import { useHistory } from 'react-router'
+import NavProfile from '../../components/profile/NavProfile'
+
+function showProfile() {
+  document.getElementById('profile1').style.display = 'block'
+}
 
 function Auction() {
   var i = 0
@@ -35,17 +42,20 @@ function Auction() {
     div.innerText = '$' + i
   }
 
+  const { username, description, photo } = useSelector((state) => state.user)
+
   return (
     <div>
       <LogoAuction to="/home" />
       <UserAuction
-        to="/profile"
+        onClick={showProfile}
         style={{
-          backgroundImage: 'url(' + window.sessionStorage.getItem('ProfilePhoto') + ')',
+          backgroundImage: 'url(' + photo + ')',
           backgroundSize: '60px',
           objectFit: 'contain'
         }}
       />
+      <NavProfile id="profile1" />
       <AuctionDiv>
         <ArtInfo>
           <ArtPiece />

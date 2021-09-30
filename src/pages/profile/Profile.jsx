@@ -5,9 +5,6 @@ import {
   EditProfileIcon,
   FavBoxProfile,
   FavProfile,
-  LiFavProfileBox1,
-  LiFavProfileBox2,
-  LiFavProfileBox3,
   LiProfile,
   LogoProfile,
   ProfileButtons,
@@ -20,6 +17,8 @@ import ProfilePhoto from '../../images/Profile photo PROFILE.png'
 import Logout from '../../components/logout/Logout'
 import Uploads from '../../components/uploads/Uploads'
 import Favourites from '../../components/favourites/Favourites'
+import { useDispatch, useSelector } from 'react-redux'
+import { userActions } from '../../store/user/user.slice'
 
 function showEdit() {
   document.getElementById('edit1').style.display = 'block'
@@ -40,18 +39,7 @@ function showFavourites() {
 }
 
 function Profile() {
-  const [username, setUsername] = useState('User Daryll')
-  const [description, setDescription] = useState(
-    'Vestibulum dapibus sagittis odio, non vestibulum felis accumsan sit amet'
-  )
-  const [uploadedImage, setUploadedImage] = useState(ProfilePhoto)
-
-  const getUserInfo = (name, desc, uploadedImg) => {
-    setUsername(name)
-    setDescription(desc)
-    setUploadedImage(uploadedImg)
-    window.sessionStorage.setItem('ProfilePhoto', uploadedImg)
-  }
+  const { username, description, photo } = useSelector((state) => state.user)
 
   return (
     <div>
@@ -59,27 +47,22 @@ function Profile() {
       <User
         onClick={showLogout}
         style={{
-          backgroundImage: 'url(' + window.sessionStorage.getItem('ProfilePhoto') + ')',
+          backgroundImage: 'url(' + photo + ')',
           backgroundSize: '60px',
           objectFit: 'contain'
         }}
       />
       <Logout id="logout1" />
-      <ProfileUser
-        style={{ backgroundImage: 'url(' + uploadedImage + ')', backgroundSize: '150px', objectFit: 'contain' }}
-      />
-      <UsernameProfile> {username} </UsernameProfile>
+      <ProfileUser style={{ backgroundImage: 'url(' + photo + ')', backgroundSize: '150px', objectFit: 'contain' }} />
+      <UsernameProfile id="user-name"> {username} </UsernameProfile>
       <EditProfileIcon onClick={showEdit} />
-      <EditProfile id="edit1" getUserInfo={getUserInfo} />
-      <DescProfile> {description} </DescProfile>
+      <EditProfile id="edit1" />
+      <DescProfile id="user-desc"> {description} </DescProfile>
       <ProfileButtons>
         <FavProfile onClick={showFavourites}>Favorites</FavProfile>
         <LiProfile onClick={showUploads}>Uploads</LiProfile>
       </ProfileButtons>
       <FavBoxProfile>
-        {/*<LiFavProfileBox1 />*/}
-        {/*<LiFavProfileBox2 />*/}
-        {/*<LiFavProfileBox3 />*/}
         <Uploads id="uploads1" />
         <Favourites id="favourites1" />
       </FavBoxProfile>

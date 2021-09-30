@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import {
+  ArtistDate,
   CommentFeed,
   CommentPic,
   DescriptionFeed,
@@ -27,6 +28,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { favouriteActions } from '../../store/favourite/favourite.slice'
 import CommentSection from '../../components/comment/CommentSection'
 import Searchbutton from '../../components/searchbutton/Searchbutton'
+import NavProfile from '../../components/profile/NavProfile'
 
 let MAIN_URL = 'https://api.artic.edu/api/v1/artworks'
 
@@ -40,7 +42,13 @@ function showComment() {
   document.getElementById('comment1').style.display = 'block'
 }
 
+function showProfile() {
+  document.getElementById('profile1').style.display = 'block'
+}
+
 function Feed() {
+  const { username, description, photo } = useSelector((state) => state.user)
+
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const [items, setItems] = useState([])
@@ -137,22 +145,33 @@ function Feed() {
       <div style={{ display: 'flex' }}>
         <LogoFeed to="/home" />
         <Searchbutton />
-        <User to="/profile" />
+        <User
+          onClick={showProfile}
+          style={{
+            backgroundImage: 'url(' + photo + ')',
+            backgroundSize: '60px',
+            objectFit: 'contain'
+          }}
+        />
+        <NavProfile id="profile1" />
       </div>
       <div>
         {items.map((item) => (
           <div key={item.id}>
             <Post>
               <PostUserNameTime>
-                <ul>
+                <ArtistDate>
                   <PostUser> </PostUser>
                   <LiFeed>
                     <LiFeedArtist> {item.artist_title} </LiFeedArtist>
                     <LiFeedDate> {item.date_display} </LiFeedDate>
                   </LiFeed>
-                </ul>
+                </ArtistDate>
                 <DescriptionPic>
-                  <DescriptionFeed> {item.title} </DescriptionFeed>
+                  <DescriptionFeed>
+                    <p>Title: {item.title} </p>
+                    <p>Place of origin: {item.place_of_origin}</p>
+                  </DescriptionFeed>
                   {getImage(item.image_id)}
                 </DescriptionPic>
                 <div>

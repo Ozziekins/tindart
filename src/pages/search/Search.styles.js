@@ -17,12 +17,13 @@ export const Post = styled.div`
   margin-top: 0px;
 `
 
-export const User = styled(Link)`
+export const User = styled.div`
   float: right;
   margin-top: 20px;
   margin-right: 500px;
+  background-color: grey;
   background-image: url(${UserPhoto});
-  border-radius: 20px;
+  border-radius: 50%;
   width: 60px;
   height: 60px;
 `

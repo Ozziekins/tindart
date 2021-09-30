@@ -11,19 +11,28 @@ import {
   SwipeTitle,
   User
 } from './Swipe.styles'
+import { useSelector } from 'react-redux'
+import NavProfile from '../../components/profile/NavProfile'
+
+function showProfile() {
+  document.getElementById('profile1').style.display = 'block'
+}
 
 function Swipe() {
+  const { username, description, photo } = useSelector((state) => state.user)
+
   return (
     <div>
       <SwipeLogo to="/home" />
       <User
-        to="/profile"
+        onclick={showProfile}
         style={{
-          backgroundImage: 'url(' + window.sessionStorage.getItem('ProfilePhoto') + ')',
+          backgroundImage: 'url(' + photo + ')',
           backgroundSize: '60px',
           objectFit: 'contain'
         }}
       />
+      <NavProfile id="profile1" />
 
       <CardSwipe>
         <SwipeTitle>Art title</SwipeTitle>

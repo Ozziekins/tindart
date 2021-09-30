@@ -4,8 +4,6 @@ import LogoPages5 from '../../images/Logo-pages5.png'
 import UserPhoto from '../../images/User photo.png'
 import EditProf from '../../images/edit-profile.png'
 import Fav1Photo from '../../images/fav1-photo.png'
-import Fav2Photo from '../../images/fav2-photo.png'
-import Fav3Photo from '../../images/fav3-box.png'
 import ProfilePhoto from '../../images/Profile photo PROFILE.png'
 
 export default createGlobalStyle`
@@ -27,8 +25,9 @@ export const User = styled.div`
   float: right;
   margin-top: 20px;
   margin-right: 500px;
-  background-image: url(${UserPhoto});
-  border-radius: 20px;
+  //background-image: url(${UserPhoto});
+  background-color: grey;
+  border-radius: 50%;
   width: 60px;
   height: 60px;
 `
@@ -41,7 +40,8 @@ export const ProfileUser = styled.div`
   top: 20%;
   border-radius: 50%;
   object-fit: contain;
-  background-image: url(${ProfilePhoto});
+  // background-image: url(${ProfilePhoto});
+  background-color: grey;
 `
 
 export const UsernameProfile = styled.div`
@@ -59,6 +59,10 @@ export const UsernameProfile = styled.div`
 
   color: #000000;
   text-align: center;
+
+  //&:before {
+  //  content: 'User Daryll';
+  //}
 `
 
 export const EditProfileIcon = styled.li`
@@ -86,7 +90,9 @@ export const DescProfile = styled.div`
   text-align: center;
 
   color: #000000;
-  text-align: center;
+  //&:before {
+  //  content: 'Vestibulum dapibus sagittis odio, non vestibulum felis accumsan sit amet';
+  //}
 `
 
 export const ProfileButtons = styled.ul`
@@ -157,18 +163,4 @@ export const LiFavProfileBox1 = styled.li`
   height: 200px;
   margin-left: 100px;
   background-image: url(${Fav1Photo});
-`
-
-export const LiFavProfileBox2 = styled.li`
-  width: 300px;
-  height: 200px;
-  margin-left: 100px;
-  background-image: url(${Fav2Photo});
-`
-
-export const LiFavProfileBox3 = styled.li`
-  width: 300px;
-  height: 200px;
-  margin-left: 100px;
-  background-image: url(${Fav3Photo});
 `

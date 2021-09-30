@@ -6,8 +6,6 @@ import { useSelector } from 'react-redux'
 function Favourites() {
   const { favouriteImages } = useSelector((state) => state.favourite)
 
-  // let allFavourites = Array.from(favouriteImages)
-
   return (
     <FavDiv id="favourites1">
       <OuterWrapper>

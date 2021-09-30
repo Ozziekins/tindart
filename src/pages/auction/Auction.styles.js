@@ -19,13 +19,15 @@ export const AuctionDiv = styled.div`
   top: 70px;
 `
 
-export const UserAuction = styled(Link)`
-  position: relative;
+export const UserAuction = styled.div`
+  position: absolute;
+  left: 87%;
   float: right;
   margin-top: 20px;
-  margin-right: 150px;
+  margin-right: 10px;
+  background-color: grey;
   background-image: url(${UserPhoto});
-  border-radius: 20px;
+  border-radius: 50%;
   width: 60px;
   height: 60px;
 `

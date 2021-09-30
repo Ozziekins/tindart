@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
+import UserPhoto from '../../images/User photo.png'
 
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Roboto');
@@ -92,6 +93,7 @@ export const CommentAndAuthor = styled.div`
   border: 1px solid #6c4125;
   border-radius: 20px;
   padding: 10px;
+  position: relative;
 `
 
 export const SingleComment = styled.span`
@@ -108,6 +110,8 @@ export const CommentAuthor = styled.span`
   font-style: normal;
   font-weight: bold;
   font-size: medium;
+  position: relative;
+  margin-left: 10%;
 `
 
 export const CommentMenu = styled.span`
@@ -121,4 +125,15 @@ export const CommentMenu = styled.span`
   padding-top: 100px;
   margin-right: 20px;
   //border-left: 1px solid #6c4125;
+`
+
+export const CommentUserPhoto = styled.span`
+  background-color: grey;
+  background-image: url(${UserPhoto});
+  background-repeat: no-repeat;
+  position: absolute;
+  border-radius: 50%;
+  margin-right: 0;
+  width: 20px;
+  height: 20px;
 `

@@ -22,6 +22,7 @@ import CommentForm from '../../components/comment/CommentForm'
 import { useDispatch, useSelector } from 'react-redux'
 import { favouriteActions } from '../../store/favourite/favourite.slice'
 import CommentSection from '../../components/comment/CommentSection'
+import NavProfile from '../../components/profile/NavProfile'
 
 function getImage(imageId) {
   const imageUrl = `https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg`
@@ -33,7 +34,13 @@ function showComment() {
   document.getElementById('comment1').style.display = 'block'
 }
 
+function showProfile() {
+  document.getElementById('profile1').style.display = 'block'
+}
+
 function Search() {
+  const { username, description, photo } = useSelector((state) => state.user)
+
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const [items, setItems] = useState([])
@@ -88,14 +95,22 @@ function Search() {
   return (
     <div>
       <LogoFeed to="/home" />
-      <User to="/profile" />
+      <User
+        onClick={showProfile}
+        style={{
+          backgroundImage: 'url(' + photo + ')',
+          backgroundSize: '60px',
+          objectFit: 'contain'
+        }}
+      />
+      <NavProfile id="profile1" />
       <div>
         {items.map((item) => (
           <div key={item.id}>
             <Post>
               <PostUserNameTime>
                 <ul>
-                  <PostUser> </PostUser>
+                  <PostUser />
                   <LiFeed>
                     <LiFeedArtist> {item.artist_title} </LiFeedArtist>
                     <LiFeedDate> {item.date_display} </LiFeedDate>

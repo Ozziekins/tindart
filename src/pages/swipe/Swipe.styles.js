@@ -36,8 +36,9 @@ export const User = styled(Link)`
   float: right;
   margin-top: 20px;
   margin-right: 500px;
+  background-color: grey;
   background-image: url(${UserPhoto});
-  border-radius: 20px;
+  border-radius: 50%;
   width: 60px;
   height: 60px;
 `

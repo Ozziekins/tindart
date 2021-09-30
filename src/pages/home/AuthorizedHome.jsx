@@ -1,7 +1,15 @@
 import React from 'react'
 import { ContactLink, Container, User, LiHome, Logo, NoDecorLink, SwipeArt } from './Home.styles'
+import { useSelector } from 'react-redux'
+import NavProfile from '../../components/profile/NavProfile'
+
+function showProfile() {
+  document.getElementById('profile1').style.display = 'block'
+}
 
 function AuthorizedHome() {
+  const { username, description, photo } = useSelector((state) => state.user)
+
   return (
     <div>
       <Container>
@@ -20,13 +28,14 @@ function AuthorizedHome() {
             <ContactLink href="https://forms.gle/8bSFaKFEiJCyKb3fA">Contact</ContactLink>
           </LiHome>
           <User
-            to="/profile"
+            onClick={showProfile}
             style={{
-              backgroundImage: 'url(' + window.sessionStorage.getItem('ProfilePhoto') + ')',
+              backgroundImage: 'url(' + photo + ')',
               backgroundSize: '60px',
               objectFit: 'contain'
             }}
           />
+          <NavProfile id="profile1" />
         </ul>
         <SwipeArt>Swipe Art</SwipeArt>
       </Container>
