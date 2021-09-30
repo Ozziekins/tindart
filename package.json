@@ -29,6 +29,7 @@
     "react-router-dom": "^5.3.0",
     "react-scripts": "^4.0.3",
     "redux": "^4.1.1",
+    "sonar-scanner": "^3.1.0",
     "styled-components": "^5.3.1",
     "web-vitals": "^1.1.2"
   },
@@ -105,7 +106,8 @@
     "build": "webpack",
     "start": "webpack serve",
     "test": "jest",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "sonar-scanner": ""
   },
   "version": "0.1.0"
 }
