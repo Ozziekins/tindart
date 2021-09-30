@@ -59,10 +59,6 @@ export const UsernameProfile = styled.div`
 
   color: #000000;
   text-align: center;
-
-  //&:before {
-  //  content: 'User Daryll';
-  //}
 `
 
 export const EditProfileIcon = styled.li`
@@ -90,9 +86,6 @@ export const DescProfile = styled.div`
   text-align: center;
 
   color: #000000;
-  //&:before {
-  //  content: 'Vestibulum dapibus sagittis odio, non vestibulum felis accumsan sit amet';
-  //}
 `
 
 export const ProfileButtons = styled.ul`

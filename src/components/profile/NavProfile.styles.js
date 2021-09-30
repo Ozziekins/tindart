@@ -24,8 +24,7 @@ export const Card = styled.div`
   border-radius: 20px;
   height: fit-content;
   width: fit-content;
-  margin-top: 100px;
-  margin-right: 150px;
+  margin: 20px;
   float: right;
 `
 
