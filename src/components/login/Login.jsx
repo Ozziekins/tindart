@@ -22,15 +22,19 @@ function hideLogin() {
 function Login() {
   const history = useHistory()
   const [error, setError] = useState()
-  const [login, setLogin] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
   const onSubmit = async (e) => {
     e.preventDefault()
 
     authService
-      .registerUser(login, password)
-      .then(() => history.replace('/login'))
+      .loginUser(username, password)
+      .then(() => {
+        window.sessionStorage.setItem('isLoggedIn', true)
+        hideLogin()
+        history.replace('/home')
+      })
       .catch(() => setError(error))
   }
 
@@ -38,21 +42,35 @@ function Login() {
     <LoginCard id="login1">
       <Card>
         <CardContent>
-          <Close onClick={hideLogin} title="Close Signup">
+          <Close onClick={hideLogin} title="Close Login">
             &times;
           </Close>
           <CardTitle>
             <h2>Login</h2>
           </CardTitle>
-          <Form onSubmit={onSubmit} error={error} defaultValues={{ login: '', password: '' }}>
-            <label htmlFor="user-name" style={{ paddingTop: '13px', color: '#ABAAAA' }}>
+          <Form onSubmit={onSubmit} error={error} defaultValues={{ username: '', password: '' }}>
+            <label htmlFor="username" style={{ paddingTop: '13px', color: '#ABAAAA' }}>
               &nbsp;Username
             </label>
-            <FormContent type="username" name="username" required />
-            <label htmlFor="user-password" style={{ paddingTop: '22px', color: '#ABAAAA' }}>
+            <FormContent
+              id="username"
+              name="username"
+              value={username}
+              label="Username"
+              rules={{ required: { message: 'Username is required', value: true } }}
+              onChange={({ target }) => setUsername(target.value)}
+            />
+            <label htmlFor="password" style={{ paddingTop: '22px', color: '#ABAAAA' }}>
               &nbsp;Password
             </label>
-            <FormContent type="password" name="password" required />
+            <FormContent
+              name="password"
+              value={password}
+              label="Password"
+              type="password"
+              rules={{ required: { message: 'Password is required', value: true } }}
+              onChange={({ target }) => setPassword(target.value)}
+            />
             <ForgotPassA href="#">
               <ForgotPass id="forgot-pass">Forgot password?</ForgotPass>
             </ForgotPassA>

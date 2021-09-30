@@ -1,11 +1,12 @@
 import styled, { createGlobalStyle } from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import LogoPages5 from '../../images/Logo-pages5.png'
 import UserPhoto from '../../images/User photo.png'
-import ProfilePhoto from '../../images/Profile photo PROFILE.png'
+import EditProf from '../../images/edit-profile.png'
 import Fav1Photo from '../../images/fav1-photo.png'
 import Fav2Photo from '../../images/fav2-photo.png'
 import Fav3Photo from '../../images/fav3-box.png'
+import ProfilePhoto from '../../images/Profile photo PROFILE.png'
 
 export default createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Roboto');
@@ -22,7 +23,7 @@ export const LogoProfile = styled(Link)`
   background-image: url(${LogoPages5});
 `
 
-export const User = styled(Link)`
+export const User = styled.div`
   float: right;
   margin-top: 20px;
   margin-right: 500px;
@@ -38,6 +39,8 @@ export const ProfileUser = styled.div`
   height: 150px;
   left: 45%;
   top: 20%;
+  border-radius: 50%;
+  object-fit: contain;
   background-image: url(${ProfilePhoto});
 `
 
@@ -55,6 +58,17 @@ export const UsernameProfile = styled.div`
   line-height: 42px;
 
   color: #000000;
+  text-align: center;
+`
+
+export const EditProfileIcon = styled.li`
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  left: 55%;
+  top: 38.9%;
+
+  background: url(${EditProf});
 `
 
 export const DescProfile = styled.div`
@@ -72,6 +86,7 @@ export const DescProfile = styled.div`
   text-align: center;
 
   color: #000000;
+  text-align: center;
 `
 
 export const ProfileButtons = styled.ul`
@@ -79,7 +94,7 @@ export const ProfileButtons = styled.ul`
   list-style-type: none;
 `
 
-export const LiProfile = styled.li`
+export const LiProfile = styled.div`
   width: 75px;
   height: 21px;
   font-family: Roboto, serif;
@@ -93,6 +108,14 @@ export const LiProfile = styled.li`
   left: 45%;
 
   color: #6c4125;
+  text-decoration-line: underline;
+
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    cursor: pointer;
+  }
 `
 
 export const FavProfile = styled.div`
@@ -111,12 +134,20 @@ export const FavProfile = styled.div`
   left: 45%;
 
   color: #6c4125;
+  text-decoration-line: underline;
+
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    cursor: pointer;
+  }
 `
 
 export const FavBoxProfile = styled.ul`
   position: absolute;
   top: 60%;
-  left: 15%;
+  left: 5%;
   display: inline-flex;
   list-style-type: none;
 `

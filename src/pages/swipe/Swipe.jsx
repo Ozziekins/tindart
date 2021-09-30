@@ -15,8 +15,15 @@ import {
 function Swipe() {
   return (
     <div>
-      <SwipeLogo to="/" />
-      <User to="/profile" />
+      <SwipeLogo to="/home" />
+      <User
+        to="/profile"
+        style={{
+          backgroundImage: 'url(' + window.sessionStorage.getItem('ProfilePhoto') + ')',
+          backgroundSize: '60px',
+          objectFit: 'contain'
+        }}
+      />
 
       <CardSwipe>
         <SwipeTitle>Art title</SwipeTitle>

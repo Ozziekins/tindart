@@ -13,21 +13,7 @@ export default createGlobalStyle`
     }
 `
 
-export const ForgotPass = styled.legend`
-  color: #6c4125;
-  font-family: Roboto, sans-serif;
-  font-weight: bold;
-  font-style: normal;
-  font-size: 14px;
-  margin-top: 3px;
-  text-align: left;
-`
-
-export const ForgotPassA = styled.a`
-  padding-top: 22px;
-`
-
-export const LoginCard = styled.div`
+export const EditCard = styled.div`
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -42,18 +28,21 @@ export const LoginCard = styled.div`
 `
 
 export const Card = styled.div`
+  position: relative;
   background: #ffffff;
   border-radius: 20px;
-  height: 529px;
+  height: 540px;
   margin: 6rem auto 8.1rem auto;
-  width: 372px;
+  width: 472px;
 `
 
 export const CardContent = styled.div`
+  position: relative;
   padding: 12px 44px;
 `
 
 export const CardTitle = styled.div`
+  position: relative;
   font-family: Roboto, sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -65,29 +54,14 @@ export const CardTitle = styled.div`
   color: #6c4125;
 `
 
-/* The Close Button (x) */
-export const Close = styled.span`
-  float: right;
-  top: 0;
-  color: #000;
-  font-size: 35px;
-  font-weight: bold;
-
-  &:hover {
-    color: red;
-    cursor: pointer;
-  }
-  &:focus {
-    color: red;
-    cursor: pointer;
-  }
-`
-
 export const Btns = styled.div`
-  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
 `
 
-export const LoginBtn = styled.input`
+export const EditBtn = styled.input`
   background: #97694b;
   border: none;
   border-radius: 20px;
@@ -96,38 +70,23 @@ export const LoginBtn = styled.input`
   font-family: Roboto, sans-serif;
   font-style: normal;
   font-weight: bold;
-  margin-top: 50px;
-  margin-right: 10px;
-  margin-left: auto;
-  margin-bottom: 0;
-  padding: 20px;
-  width: 270px;
-`
 
-export const SignUpBtn = styled.input`
-  background: #6c4125;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  color: white;
-  font-family: Roboto, sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  margin-top: 50px;
-  margin-right: auto;
-  margin-left: 10px;
-  margin-bottom: 0;
+  margin-top: 30px;
   padding: 20px;
-  width: 270px;
+
+  width: fit-content;
 `
 
 export const Form = styled.form`
+  position: relative;
+  top: 70%;
   align-items: flex-start;
   display: flex;
   flex-direction: column;
 `
 
 export const FormContent = styled.input`
+  position: relative;
   background: #fbfbfb;
   border: none;
   outline: none;
@@ -135,4 +94,25 @@ export const FormContent = styled.input`
   border-radius: 15px;
   width: 100%;
   height: 25px;
+`
+
+export const UploadPhoto = styled.div`
+  position: relative;
+`
+
+export const ProfileUser = styled.img`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: contain;
+`
+
+export const UploadBackground = styled.div`
+  position: relative;
+  width: 150px;
+  height: 150px;
+  left: 70%;
+  background: gray;
+  border-radius: 50%;
 `

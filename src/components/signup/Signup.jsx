@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
 import authService from '../../services/auth.service'
 import { Btns, Card, CardContent, CardTitle, Close, Form, FormContent, LoginCard, SignUpBtn } from './Signup.styles'
 
@@ -8,17 +7,16 @@ function hideSignup() {
 }
 
 function Signup() {
-  const history = useHistory()
   const [error, setError] = useState()
-  const [login, setLogin] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
   const onSubmit = async (e) => {
     e.preventDefault()
 
     authService
-      .registerUser(login, password)
-      .then(() => history.replace('/login'))
+      .signupUser(username, password)
+      .then(() => hideSignup())
       .catch(() => setError(error))
   }
 
@@ -32,17 +30,30 @@ function Signup() {
           <CardTitle>
             <h2>Sign up</h2>
           </CardTitle>
-          <Form onSubmit={onSubmit} error={error} defaultValues={{ login: '', password: '' }}>
-            <label htmlFor="user-name" style={{ paddingTop: '13px', color: '#ABAAAA' }}>
+          <Form onSubmit={onSubmit} error={error} defaultValues={{ username: '', password: '' }}>
+            <label htmlFor="username" style={{ paddingTop: '13px', color: '#ABAAAA' }}>
               &nbsp;Username
             </label>
-            <FormContent type="username" name="username" required />
-            <label htmlFor="user-password" style={{ paddingTop: '22px', color: '#ABAAAA' }}>
+            <FormContent
+              id="username"
+              name="username"
+              value={username}
+              label="Username"
+              rules={{ required: { message: 'Username is required', value: true } }}
+              onChange={({ target }) => setUsername(target.value)}
+            />
+            <label htmlFor="password" style={{ paddingTop: '22px', color: '#ABAAAA' }}>
               &nbsp;Password
             </label>
-            <FormContent type="password" name="password" required />
+            <FormContent
+              name="password"
+              value={password}
+              label="Password"
+              type="password"
+              rules={{ required: { message: 'Password is required', value: true } }}
+              onChange={({ target }) => setPassword(target.value)}
+            />
             <Btns>
-              {/* <LoginBtn type="submit" name="submit" value="Login" /> */}
               <SignUpBtn type="submit" name="submit" value="Signup" />
             </Btns>
           </Form>

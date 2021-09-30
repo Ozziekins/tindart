@@ -1,14 +1,17 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    node: true,
+    es2021: true,
+    'jest/globals': true
   },
-  extends: ['airbnb', 'plugin:prettier/recommended', 'eslint:recommended', 'plugin:react/recommended'],
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly'
-  },
-  parser: '@babel/eslint-parser',
+  extends: [
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+    'eslint:recommended',
+    'plugin:react/recommended'
+  ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -16,7 +19,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module'
   },
-  plugins: ['react', 'prettier'],
+  plugins: ['react', 'prettier', '@typescript-eslint', 'jest'],
   rules: {
     'import/prefer-default-export': 0,
     'react/jsx-props-no-spreading': 0,
@@ -28,6 +31,7 @@ module.exports = {
     'react/no-array-index-key': 0,
     'no-debugger': 1,
     'no-param-reassign': [2, { props: false }],
-    'no-shadow': 0
+    'no-shadow': 0,
+    '@typescript-eslint/no-var-requires': 0
   }
 }

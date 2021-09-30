@@ -3,7 +3,7 @@ const ESLintPlugin = require('eslint-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: '/src/Index.jsx',
+  entry: '/src/index.tsx',
   output: {
     path: path.resolve('dist'),
     filename: 'bundle.js',
@@ -20,18 +20,17 @@ module.exports = {
       }
     }
   },
-  devtool: 'eval-source-map',
+  devtool: 'inline-source-map',
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
   },
   module: {
     rules: [
       {
-        test: /\.js(x)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
-          options: {}
+          loader: 'ts-loader'
         }
       },
       {
@@ -39,18 +38,19 @@ module.exports = {
         use: 'file-loader'
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        test: /\.(sass|less|css)$/,
+        loader: 'css-loader'
       }
     ]
   },
   plugins: [
-    new ESLintPlugin({
-      extensions: ['js', 'jsx'],
-      exclude: 'node_modules'
-    }),
+    // new ESLintPlugin({
+    //   extensions: ['js', 'jsx'],
+    //   exclude: 'node_modules'
+    // }),
     new HtmlWebpackPlugin({
-      template: './src/Index.html'
+      template: './src/index.html'
     })
   ]
+  // externals: ['fs', 'path']
 }
