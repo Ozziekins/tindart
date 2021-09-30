@@ -12,10 +12,12 @@ import {
   LikeFeed,
   LikePic,
   LogoFeed,
+  NextPageBtn,
   PicFeed,
   Post,
   PostUser,
   PostUserNameTime,
+  PrevPageBtn,
   User
 } from './Feed.styles'
 import Liked from '../../images/liked.png'
@@ -24,6 +26,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { favouriteActions } from '../../store/favourite/favourite.slice'
 import CommentSection from '../../components/comment/CommentSection'
 import Searchbutton from '../../components/searchbutton/Searchbutton'
+
+let MAIN_URL = 'https://api.artic.edu/api/v1/artworks'
 
 function getImage(imageId) {
   const imageUrl = `https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg`
@@ -39,6 +43,7 @@ function Feed() {
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const [items, setItems] = useState([])
+  const [nextPage, setNextPage] = useState(MAIN_URL)
   const favouriteImages = useSelector((state) => state.favourite)
   const dispatch = useDispatch()
 
@@ -49,13 +54,54 @@ function Feed() {
     dispatch(favouriteActions.setFavourites({ favouriteImages: favouriteUrl }))
   }
 
-  useEffect(() => {
-    fetch('https://api.artic.edu/api/v1/artworks')
+  const gotoNextPage = () => {
+    MAIN_URL = nextPage.next_url
+    console.log(MAIN_URL)
+
+    fetch(MAIN_URL)
       .then((res) => res.json())
       .then(
         (result) => {
           setIsLoaded(true)
           setItems(result.data)
+          setNextPage(result.pagination)
+        },
+
+        (error) => {
+          setIsLoaded(true)
+          setError(error)
+        }
+      )
+  }
+
+  const gotoPrevPage = () => {
+    MAIN_URL = nextPage.prev_url
+    console.log(MAIN_URL)
+
+    fetch(MAIN_URL)
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true)
+          setItems(result.data)
+          setNextPage(result.pagination)
+        },
+
+        (error) => {
+          setIsLoaded(true)
+          setError(error)
+        }
+      )
+  }
+
+  useEffect(() => {
+    fetch(MAIN_URL)
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true)
+          setItems(result.data)
+          setNextPage(result.pagination)
         },
 
         (error) => {
@@ -129,35 +175,12 @@ function Feed() {
       <div>
         <CommentSection />
       </div>
+      <div style={{ display: 'flex' }}>
+        <PrevPageBtn onClick={gotoPrevPage}> Prev </PrevPageBtn>
+        <NextPageBtn onClick={gotoNextPage}> Next </NextPageBtn>
+      </div>
     </div>
   )
-
-  // return (
-  // <div>
-  //   <LogoFeed to="/" />
-  //   <User to="/profile" />
-  //   <Post>
-  //     <PostUserNameTime>
-  //       <ul>
-  //         <PostUser> </PostUser>
-  //         <LiFeed>User Darryl</LiFeed>
-  //       </ul>
-  //       <DescriptionPic>
-  //         <DescriptionFeed>Check out this exquisite painting from Luxembourgh!...</DescriptionFeed>
-  //         <PicFeed />
-  //       </DescriptionPic>
-  //       <div>
-  //         <FooterDescPic>
-  //           <LikePic />
-  //           <LikeFeed>Like</LikeFeed>
-  //           <CommentPic />
-  //           <CommentFeed>CommentForm </CommentFeed>
-  //         </FooterDescPic>
-  //       </div>
-  //     </PostUserNameTime>
-  //   </Post>
-  // </div>
-  // )
 }
 
 export default Feed

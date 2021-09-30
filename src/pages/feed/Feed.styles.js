@@ -180,3 +180,41 @@ export const CommentFeed = styled.li`
   /* identical to box height, or 154% */
   color: #000000;
 `
+
+export const NextPageBtn = styled.div`
+  width: fit-content;
+  height: fit-content;
+  background: #6c4125;
+  border-radius: 10px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+
+  color: #ffffff;
+
+  text-align: center;
+  margin-left: 10px;
+  margin-right: auto;
+  margin-top: 50px;
+  padding: 10px;
+`
+
+export const PrevPageBtn = styled.div`
+  width: fit-content;
+  height: fit-content;
+  background: #6c4125;
+  border-radius: 10px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+
+  color: #ffffff;
+
+  text-align: center;
+  margin-left: auto;
+  margin-right: 10px;
+  margin-top: 50px;
+  padding: 10px;
+`
