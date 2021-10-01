@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch} from 'react-redux'
 import { Btns, Card, CardContent, Form, FormContent, CommentCard, CommentBtn } from './Comment.styles'
 import { commentActions } from '../../store/comment/comment.slice'
 
@@ -11,7 +11,6 @@ function hideComment() {
 function CommentForm() {
   const history = useHistory()
   const [comm, setComm] = useState('')
-  const commentTexts = useSelector((state) => state.comment)
   const dispatch = useDispatch()
 
   const onSubmit = async (e) => {

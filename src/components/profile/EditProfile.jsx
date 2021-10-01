@@ -15,7 +15,6 @@ import {
 import ProfilePhoto from '../../images/Profile photo PROFILE.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { userActions } from '../../store/user/user.slice'
-import { favouriteActions } from '../../store/favourite/favourite.slice'
 
 function hideEdit() {
   document.getElementById('edit1').style.display = 'none'
@@ -26,7 +25,6 @@ function EditProfile() {
   const [description, setDescription] = useState('')
   const [uploadedImg, setUploadedImg] = useState(ProfilePhoto)
 
-  const uploads = useSelector((state) => state.user)
   const dispatch = useDispatch()
 
   const onSubmit = async (e) => {

@@ -8,11 +8,10 @@ import {
   SingleComment
 } from './Comment.styles'
 import { useSelector } from 'react-redux'
-import { UserAuction } from '../../pages/auction/Auction.styles'
 
 function CommentSection() {
   const { commentTexts } = useSelector((state) => state.comment)
-  const { username, description, photo } = useSelector((state) => state.user)
+  const { username, photo } = useSelector((state) => state.user)
 
   return (
     <CommentMenu>

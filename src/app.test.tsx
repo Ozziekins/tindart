@@ -3,7 +3,7 @@
  */
 
 import React from 'react'
-import { cleanup, render } from '@testing-library/react'
+import { cleanup } from '@testing-library/react'
 import { PicFeed } from './pages/feed/Feed.styles'
 import { getImage } from './pages/feed/Feed'
 import './components/profile/NavProfile'

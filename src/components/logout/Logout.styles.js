@@ -1,5 +1,4 @@
 import styled, { createGlobalStyle } from 'styled-components'
-import UserPhoto from '../../images/Userphoto.png'
 import { Link } from 'react-router-dom'
 
 export default createGlobalStyle`

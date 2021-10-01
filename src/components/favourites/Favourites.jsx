@@ -1,5 +1,5 @@
 import React from 'react'
-import { FavDiv, FavTemplate, FavWrapper, OuterWrapper } from './Favourites.styles'
+import { FavDiv, FavWrapper, OuterWrapper } from './Favourites.styles'
 import { UploadTemplate } from '../uploads/Uploads.styles'
 import { useSelector } from 'react-redux'
 
