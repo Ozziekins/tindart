@@ -1,7 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components'
 import { Link, NavLink } from 'react-router-dom'
 import LogoPages5 from '../../images/Logo-pages5.png'
-import UserPhoto from '../../images/User photo.png'
+import UserPhoto from '../../images/Userphoto.png'
 import EditProf from '../../images/edit-profile.png'
 import Fav1Photo from '../../images/fav1-photo.png'
 import ProfilePhoto from '../../images/Profile photo PROFILE.png'

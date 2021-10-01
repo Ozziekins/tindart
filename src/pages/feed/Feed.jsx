@@ -31,7 +31,7 @@ import NavProfile from '../../components/profile/NavProfile'
 
 let MAIN_URL = 'https://api.artic.edu/api/v1/artworks'
 
-function getImage(imageId) {
+export function getImage(imageId) {
   const imageUrl = `https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg`
 
   return (
