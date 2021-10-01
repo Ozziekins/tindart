@@ -15,8 +15,6 @@ import { uploadActions } from '../../store/uploads/uploads.slice'
 
 function Uploads() {
   const { uploadedImages } = useSelector((state) => state.upload)
-
-  const uploads = useSelector((state) => state.upload)
   const dispatch = useDispatch()
 
   const [images, setImages] = React.useState([])

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import {
   ArtistDate,
   CommentFeed,
@@ -43,13 +43,13 @@ function showProfile() {
 }
 
 function Search() {
-  const { username, description, photo } = useSelector((state) => state.user)
+  const { photo } = useSelector((state) => state.user)
 
-  const [error, setError] = useState(null)
+  const [error] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
-  const [items, setItems] = useState([])
+
   const [urlsdata, setUrlsdata] = useState([])
-  const favouriteImages = useSelector((state) => state.favourite)
+
   const dispatch = useDispatch()
 
   const handleClick = (event, favouriteUrl) => {
@@ -59,26 +59,17 @@ function Search() {
     dispatch(favouriteActions.setFavourites({ favouriteImages: favouriteUrl }))
   }
 
-  // const keyword = window.sessionStorage.getItem('Keyword')
-
   // useEffect(() => {
   const searchRes = RetrieveSearch()
 
   searchRes.map((search) => {
     fetch(search.api_link)
       .then((searchres) => searchres.json())
-      .then(
-        (searchresult) => {
-          setIsLoaded(true)
-          setUrlsdata(urlsdata.concat(searchresult.data))
-          console.log(urlsdata)
-        },
-
-        (error) => {
-          setIsLoaded(true)
-          setError(error)
-        }
-      )
+      .then((searchresult) => {
+        setIsLoaded(true)
+        setUrlsdata(urlsdata.concat(searchresult.data))
+        console.log(urlsdata)
+      })
   })
 
   // fetch(`https://api.artic.edu/api/v1/artworks/search?q=${keyword}`)

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import authService from '../../services/auth.service'
+import authService from '../../services/authService'
 import {
   Btns,
   Card,

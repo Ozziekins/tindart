@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import { Form, Input, Button } from './Searchbutton.styles'
 import { useHistory } from 'react-router'
 import { configure } from 'enzyme'

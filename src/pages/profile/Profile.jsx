@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import {
   DescProfile,
@@ -13,12 +13,11 @@ import {
   UsernameProfile
 } from './Profile.styles'
 import EditProfile from '../../components/profile/EditProfile'
-import ProfilePhoto from '../../images/Profile photo PROFILE.png'
+
 import Logout from '../../components/logout/Logout'
 import Uploads from '../../components/uploads/Uploads'
 import Favourites from '../../components/favourites/Favourites'
-import { useDispatch, useSelector } from 'react-redux'
-import { userActions } from '../../store/user/user.slice'
+import { useSelector } from 'react-redux'
 
 function showEdit() {
   document.getElementById('edit1').style.display = 'block'
