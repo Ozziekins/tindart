@@ -2,8 +2,12 @@ import React, { useState, useRef, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import { Form, Input, Button } from './Searchbutton.styles'
 import { useHistory } from 'react-router'
+import { configure } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 
-function Searchbutton() {
+configure({ adapter: new Adapter() })
+
+function Searchbutton({ onButtonClick }) {
   const [input, setInput] = useState('')
   const [barOpened, setBarOpened] = useState(false)
   const formRef = useRef()
@@ -43,7 +47,14 @@ function Searchbutton() {
         onSubmit={onFormSubmit}
         ref={formRef}
       >
-        <Button type="submit" barOpened={barOpened}>
+        <Button
+          type="submit"
+          barOpened={barOpened}
+          onClick={() => {
+            onButtonClick(true)
+          }}
+          className="form-test"
+        >
           Search
         </Button>
         <Input
