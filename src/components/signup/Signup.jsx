@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import authService from '../../services/auth.service'
+import authService from '../../services/authService'
 import { Btns, Card, CardContent, CardTitle, Close, Form, FormContent, LoginCard, SignUpBtn } from './Signup.styles'
 
 function hideSignup() {

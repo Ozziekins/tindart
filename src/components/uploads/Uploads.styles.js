@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Fav3Photo from '../../images/fav3-box.png'
 
 export const UploadTemplate = styled.img`
   position: relative;

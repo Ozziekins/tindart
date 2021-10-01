@@ -8,7 +8,7 @@ function showProfile() {
 }
 
 function AuthorizedHome() {
-  const { username, description, photo } = useSelector((state) => state.user)
+  const { photo } = useSelector((state) => state.user)
 
   return (
     <div>

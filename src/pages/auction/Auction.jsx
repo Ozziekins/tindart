@@ -41,7 +41,7 @@ function Auction() {
     div.innerText = '$' + i
   }
 
-  const { username, description, photo } = useSelector((state) => state.user)
+  const { photo } = useSelector((state) => state.user)
   const { title, auction_description, auction_photo } = useSelector((state) => state.auction)
 
   return (

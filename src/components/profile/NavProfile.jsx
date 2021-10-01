@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, CardContent, CardText, CardTextContent, Close, GotoProfileCard } from './NavProfile.styles'
-import authService from '../../services/auth.service'
+import authService from '../../services/authService'
 
 export function hideProfile() {
   document.getElementById('profile1').style.display = 'none'

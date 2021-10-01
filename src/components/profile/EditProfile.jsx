@@ -13,7 +13,7 @@ import {
   UploadBackground
 } from './EditProfile.styles'
 import ProfilePhoto from '../../images/Profile photo PROFILE.png'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch} from 'react-redux'
 import { userActions } from '../../store/user/user.slice'
 
 function hideEdit() {
@@ -50,7 +50,7 @@ function EditProfile() {
       const reader = new FileReader()
       const { current } = uploadedImage
       current.file = file
-      reader.onload = (e) => {
+      reader.onload = () => {
         current.src = e.target.result
         setUploadedImg(e.target.result)
       }

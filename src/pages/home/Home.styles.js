@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Background from '../../images/background.png'
 import LogoPic from '../../images/Logo.png'
 import UserPhoto from '../../images/Userphoto.png'

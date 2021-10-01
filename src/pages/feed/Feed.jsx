@@ -1,11 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   ArtistDate,
   CommentFeed,
   CommentPic,
   DescriptionFeed,
   DescriptionPic,
-  FeedHeader,
   FooterDescPic,
   LiFeed,
   LiFeedArtist,
@@ -48,13 +47,12 @@ function showProfile() {
 }
 
 function Feed() {
-  const { username, description, photo } = useSelector((state) => state.user)
+  const { photo } = useSelector((state) => state.user)
 
-  const [error, setError] = useState(null)
+  const [error] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const [items, setItems] = useState([])
   const [nextPage, setNextPage] = useState(MAIN_URL)
-  const favouriteImages = useSelector((state) => state.favourite)
   const dispatch = useDispatch()
 
   const handleClick = (event, favouriteUrl) => {
@@ -63,62 +61,31 @@ function Feed() {
 
     dispatch(favouriteActions.setFavourites({ favouriteImages: favouriteUrl }))
   }
-
+  const fetchFeedResults = (main_url) => {
+    fetch(MAIN_URL)
+      .then((res) => res.json())
+      .then((result) => {
+        setIsLoaded(true)
+        setItems(result.data)
+        setNextPage(result.pagination)
+      })
+  }
   const gotoNextPage = () => {
     MAIN_URL = nextPage.next_url
     console.log(MAIN_URL)
 
-    fetch(MAIN_URL)
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true)
-          setItems(result.data)
-          setNextPage(result.pagination)
-        },
-
-        (error) => {
-          setIsLoaded(true)
-          setError(error)
-        }
-      )
+    fetchFeedResults(MAIN_URL)
   }
 
   const gotoPrevPage = () => {
     MAIN_URL = nextPage.prev_url
     console.log(MAIN_URL)
 
-    fetch(MAIN_URL)
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true)
-          setItems(result.data)
-          setNextPage(result.pagination)
-        },
-
-        (error) => {
-          setIsLoaded(true)
-          setError(error)
-        }
-      )
+    fetchFeedResults(MAIN_URL)
   }
 
   useEffect(() => {
-    fetch(MAIN_URL)
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true)
-          setItems(result.data)
-          setNextPage(result.pagination)
-        },
-
-        (error) => {
-          setIsLoaded(true)
-          setError(error)
-        }
-      )
+    fetchFeedResults(MAIN_URL)
   }, [])
 
   if (error) {
