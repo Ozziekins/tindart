@@ -13,11 +13,7 @@ export default createGlobalStyle`
 
 export const Post = styled.div`
   width: 100%;
-  height: 100%;
   margin-bottom: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
 `
 
 export const User = styled.div`

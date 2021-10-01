@@ -42,6 +42,7 @@ function Auction() {
   }
 
   const { username, description, photo } = useSelector((state) => state.user)
+  const { title, auction_description, auction_photo } = useSelector((state) => state.auction)
 
   return (
     <div>
@@ -57,13 +58,15 @@ function Auction() {
       <NavProfile id="profile1" />
       <AuctionDiv>
         <ArtInfo>
-          <ArtPiece />
-          <ArtH3>Art information</ArtH3>
-          <ArtP>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pulvinar fringilla porttitor. Maecenas
-            porttitor ipsum eu ipsum sagittis, sed mollis neque aliquet. Sed vitae molestie ex. Vestibulum dapibus
-            sagittis odio, non vestibulum felis accumsan sit amet...
-          </ArtP>
+          <ArtPiece
+            style={{
+              backgroundImage: auction_photo,
+              backgroundSize: '490px 364px',
+              objectFit: 'contain'
+            }}
+          />
+          <ArtH3>{title}</ArtH3>
+          <ArtP>{auction_description}</ArtP>
         </ArtInfo>
         <BidBox>
           <MoneyAuction>$50</MoneyAuction>
@@ -74,7 +77,7 @@ function Auction() {
           <ButtonsPriceAuction>
             <InlineBidAuction>
               <PlusAuction onClick={incrementBid} />
-              <PriceAuction id="bid-value">$100</PriceAuction>
+              <PriceAuction id="bid-value">$0</PriceAuction>
               <MinusAuction onClick={decrementBid} />
             </InlineBidAuction>
           </ButtonsPriceAuction>

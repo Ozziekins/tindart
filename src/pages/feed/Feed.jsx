@@ -34,7 +34,9 @@ let MAIN_URL = 'https://api.artic.edu/api/v1/artworks'
 function getImage(imageId) {
   const imageUrl = `https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg`
 
-  return <PicFeed style={{ backgroundImage: `url(${imageUrl})` }} />
+  return (
+    <PicFeed style={{ backgroundImage: `url(${imageUrl})`, backgroundSize: '450px 357px', objectFit: 'contain' }} />
+  )
 }
 
 function showComment() {
@@ -154,47 +156,45 @@ function Feed() {
         />
         <NavProfile id="profile1" />
       </div>
-      <div>
-        {items.map((item) => (
-          <div key={item.id}>
-            <Post>
-              <PostUserNameTime>
-                <ArtistDate>
-                  <PostUser> </PostUser>
-                  <LiFeed>
-                    <LiFeedArtist> {item.artist_title} </LiFeedArtist>
-                    <LiFeedDate> {item.date_display} </LiFeedDate>
-                  </LiFeed>
-                </ArtistDate>
-                <DescriptionPic>
-                  <DescriptionFeed>
-                    <p>Title: {item.title} </p>
-                    <p>Place of origin: {item.place_of_origin}</p>
-                  </DescriptionFeed>
-                  {getImage(item.image_id)}
-                </DescriptionPic>
-                <div>
-                  <FooterDescPic>
-                    <LikePic
-                      onClick={(e) => {
-                        handleClick(e, item.image_id)
-                      }}
-                    />
-                    <LikeFeed>Like</LikeFeed>
-                    <CommentPic onClick={showComment} />
-                    <CommentFeed>Comment </CommentFeed>
-                  </FooterDescPic>
-                </div>
-              </PostUserNameTime>
-            </Post>
-            <CommentForm id="comment1" />
-          </div>
-        ))}
-      </div>
+      {items.map((item) => (
+        <div key={item.id}>
+          <Post>
+            <PostUserNameTime>
+              <ArtistDate>
+                <PostUser />
+                <LiFeed>
+                  <LiFeedArtist> {item.artist_title} </LiFeedArtist>
+                  <LiFeedDate> {item.date_display} </LiFeedDate>
+                </LiFeed>
+              </ArtistDate>
+              <DescriptionPic>
+                <DescriptionFeed>
+                  <p>Title: {item.title} </p>
+                  <p>Place of origin: {item.place_of_origin}</p>
+                </DescriptionFeed>
+                {getImage(item.image_id)}
+              </DescriptionPic>
+              <div>
+                <FooterDescPic>
+                  <LikePic
+                    onClick={(e) => {
+                      handleClick(e, item.image_id)
+                    }}
+                  />
+                  <LikeFeed>Like</LikeFeed>
+                  <CommentPic onClick={showComment} />
+                  <CommentFeed>Comment </CommentFeed>
+                </FooterDescPic>
+              </div>
+            </PostUserNameTime>
+          </Post>
+          <CommentForm id="comment1" />
+        </div>
+      ))}
       <div>
         <CommentSection />
       </div>
-      <div style={{ display: 'flex' }}>
+      <div style={{ width: '100%', height: '100%', display: 'flex', position: 'fixed', top: '90%', right: '35%' }}>
         <PrevPageBtn onClick={gotoPrevPage}> Prev </PrevPageBtn>
         <NextPageBtn onClick={gotoNextPage}> Next </NextPageBtn>
       </div>

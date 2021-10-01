@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import {
+  ArtistDate,
   CommentFeed,
   CommentPic,
   DescriptionFeed,
@@ -23,11 +24,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { favouriteActions } from '../../store/favourite/favourite.slice'
 import CommentSection from '../../components/comment/CommentSection'
 import NavProfile from '../../components/profile/NavProfile'
+import RetrieveSearch from './RetrieveSearch'
 
 function getImage(imageId) {
   const imageUrl = `https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg`
 
-  return <PicFeed style={{ backgroundImage: `url(${imageUrl})` }} />
+  return (
+    <PicFeed style={{ backgroundImage: `url(${imageUrl})`, backgroundSize: '450px 357px', objectFit: 'contain' }} />
+  )
 }
 
 function showComment() {
@@ -44,6 +48,7 @@ function Search() {
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const [items, setItems] = useState([])
+  const [urlsdata, setUrlsdata] = useState([])
   const favouriteImages = useSelector((state) => state.favourite)
   const dispatch = useDispatch()
 
@@ -54,15 +59,19 @@ function Search() {
     dispatch(favouriteActions.setFavourites({ favouriteImages: favouriteUrl }))
   }
 
-  const keyword = window.sessionStorage.getItem('Keyword')
+  // const keyword = window.sessionStorage.getItem('Keyword')
 
-  useEffect(() => {
-    fetch(`https://api.artic.edu/api/v1/artworks/search?q=${keyword}`)
-      .then((res) => res.json())
+  // useEffect(() => {
+  const searchRes = RetrieveSearch()
+
+  searchRes.map((search) => {
+    fetch(search.api_link)
+      .then((searchres) => searchres.json())
       .then(
-        (result) => {
+        (searchresult) => {
           setIsLoaded(true)
-          setItems(result.data)
+          setUrlsdata(urlsdata.concat(searchresult.data))
+          console.log(urlsdata)
         },
 
         (error) => {
@@ -70,7 +79,50 @@ function Search() {
           setError(error)
         }
       )
-  }, [])
+  })
+
+  // fetch(`https://api.artic.edu/api/v1/artworks/search?q=${keyword}`)
+  //   .then((res) => res.json())
+  //   .then(
+  //     (result) => {
+  //       setIsLoaded(true)
+  //       setItems(result.data)
+  //     },
+  //
+  //     (error) => {
+  //       setIsLoaded(true)
+  //       setError(error)
+  //     }
+  //   )
+  // .then(() => {
+  // console.log('hi')
+  // items.map(
+  //   // console.log('oops')
+  //   (item) =>
+  //     fetch(item.api_link)
+  //       .then((searchres) => searchres.json())
+  //       .then((searchresult) => {
+  //         setUrlsdata(urlsdata.concat(searchresult.data))
+  //       })
+  // )
+  // for (let item of items) {
+  //   console.log('oops')
+  //   fetch(item.api_link)
+  //     .then((searchres) => searchres.json())
+  //     .then((searchresult) => {
+  //       setUrlsdata(urlsdata.concat(searchresult.data))
+  //     })
+  // }
+  // for (let item in items) {
+  //   console.log('oops')
+  //   fetch(item.api_link)
+  //     .then((searchres) => searchres.json())
+  //     .then((searchresult) => {
+  //       setUrlsdata(urlsdata.concat(searchresult.data))
+  //     })
+  // }
+  // })
+  // }, [])
 
   if (error) {
     return (
@@ -104,40 +156,41 @@ function Search() {
         }}
       />
       <NavProfile id="profile1" />
-      <div>
-        {items.map((item) => (
-          <div key={item.id}>
-            <Post>
-              <PostUserNameTime>
-                <ul>
-                  <PostUser />
-                  <LiFeed>
-                    <LiFeedArtist> {item.artist_title} </LiFeedArtist>
-                    <LiFeedDate> {item.date_display} </LiFeedDate>
-                  </LiFeed>
-                </ul>
-                <DescriptionPic>
-                  <DescriptionFeed> {item.title} </DescriptionFeed>
-                  {getImage(item.image_id)}
-                </DescriptionPic>
-                <div>
-                  <FooterDescPic>
-                    <LikePic
-                      onClick={(e) => {
-                        handleClick(e, item.image_id)
-                      }}
-                    />
-                    <LikeFeed>Like</LikeFeed>
-                    <CommentPic onClick={showComment} />
-                    <CommentFeed>Comment </CommentFeed>
-                  </FooterDescPic>
-                </div>
-              </PostUserNameTime>
-            </Post>
-            <CommentForm id="comment1" />
-          </div>
-        ))}
-      </div>
+      {urlsdata.map((urldata) => (
+        <div key={urldata.id}>
+          <Post>
+            <PostUserNameTime>
+              <ArtistDate>
+                <PostUser />
+                <LiFeed>
+                  <LiFeedArtist> {urldata.artist_title} </LiFeedArtist>
+                  <LiFeedDate> {urldata.date_display} </LiFeedDate>
+                </LiFeed>
+              </ArtistDate>
+              <DescriptionPic>
+                <DescriptionFeed>
+                  <p>Title: {urldata.title} </p>
+                  <p>Place of origin: {urldata.place_of_origin}</p>
+                </DescriptionFeed>
+                {getImage(urldata.image_id)}
+              </DescriptionPic>
+              <div>
+                <FooterDescPic>
+                  <LikePic
+                    onClick={(e) => {
+                      handleClick(e, urldata.image_id)
+                    }}
+                  />
+                  <LikeFeed>Like</LikeFeed>
+                  <CommentPic onClick={showComment} />
+                  <CommentFeed>Comment </CommentFeed>
+                </FooterDescPic>
+              </div>
+            </PostUserNameTime>
+          </Post>
+          <CommentForm id="comment1" />
+        </div>
+      ))}
       <div>
         <CommentSection />
       </div>

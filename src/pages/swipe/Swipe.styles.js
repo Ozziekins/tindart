@@ -64,8 +64,8 @@ export const SwipeTitle = styled.div`
 
 export const SwipeButtons = styled.ul`
   position: absolute;
-  left: 9%;
-  right: 16.56%;
+  left: 15%;
+  right: 13.56%;
   top: 87.94%;
   bottom: 4.82%;
   display: inline-flex;
