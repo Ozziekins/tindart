@@ -1,3 +1,16 @@
+<p>
+<img src="./src/images/Logo.png" width="310px" alt="tindart-logo"/>&nbsp;
+</p>
+
+![React badge](https://img.shields.io/badge/MADE%20WITH-REACT-blue?style=for-the-badge&logo=react)
+[![GitHub contributors](https://img.shields.io/github/contributors/rufusnufus/marwelove?style=for-the-badge)](https://github.com/Annesard/create-react-app/graphs/contributors)
+[![GitHub license](https://img.shields.io/badge/license-mit-orange.svg?style=for-the-badge)](https://github.com/Annesard/create-react-app/blob/master/LICENSE)
+
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=rufusnufus_marwelove&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=rufusnufus_marwelove)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=rufusnufus_marwelove&metric=bugs)](https://sonarcloud.io/dashboard?id=rufusnufus_marwelove)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=rufusnufus_marwelove&metric=code_smells)](https://sonarcloud.io/dashboard?id=rufusnufus_marwelove)
+<br>
+
 # Front-end Web Development Project
 
 By: Anastassiya Ryabkova and Ozioma Okonicha
