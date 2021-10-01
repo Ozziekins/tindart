@@ -36,3 +36,16 @@ const mockData = {
 //     expect(queryByText('A forgotten hero, he must unravel the conspiracy to erase his memory.')).toBeTruthy()
 //   })
 // })
+
+describe('SomeComponent' () => {
+  it('validates model on button click', () => {
+    const handleSubmit = jest.fn();
+    const wrapper = mount(
+      <Login handleSubmit={handleSubmit}/>
+    );
+    const instance = wrapper.instance()
+    const submitBtn = app.find('#sign-in')
+    submitBtn.simulate('click')
+    expect(handleSubmit).toHaveBeenCalled()
+  })
+}
