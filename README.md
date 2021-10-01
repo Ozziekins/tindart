@@ -85,6 +85,12 @@ To see the app please visit:
 | Short description                                    | The service will have a feed where all the user published art and some highlighted art works will be displayed |
 | Priority                                             | **Must** / Should / Could / Won't                            |
 
+| <span style="font-weight:normal">Feature name</span> | <span style="font-weight:normal">Auction</span>              |
+| ---------------------------------------------------- | ------------------------------------------------------------ |
+| Short description                                    | Users can put up their artwork for auction and other users will be able to bid for it (service designed money?) |
+| Priority                                             | Must / **Should** / Could / Won't                            |
+
+
 ### Future plans
 
 | <span style="font-weight:normal">Feature name</span> | <span style="font-weight:normal">Block users</span>          |
@@ -111,7 +117,3 @@ To see the app please visit:
 | Short description                                    | Registered users can chat with other registered users |
 | Priority                                             | Must / **Should** / Could / Won't                     |
 
-| <span style="font-weight:normal">Feature name</span> | <span style="font-weight:normal">Auction</span>              |
-| ---------------------------------------------------- | ------------------------------------------------------------ |
-| Short description                                    | Users can put up their artwork for auction and other users will be able to bid for it (service designed money?) |
-| Priority                                             | Must / **Should** / Could / Won't                            |
