@@ -9,18 +9,6 @@ import Comment from '../../images/comment.png'
 
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Lato');
-  
-  body {
-    height: 100%;
-    width: 100%;
-    background-color: gray; 
-  }
-`
-
-export const Main = styled.body`
-  height: 100%;
-  width: 100%;
-  background-color: #fafafa;
 `
 
 export const Post = styled.div`
@@ -37,7 +25,7 @@ export const User = styled.div`
   left: 70%;
   float: right;
   margin-top: 20px;
-  margin-right: 500px;
+  //margin-right: 500px;
   background-color: grey;
   background-image: url(${UserPhoto});
   border-radius: 50%;

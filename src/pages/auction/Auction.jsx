@@ -20,7 +20,6 @@ import {
   BidAuctionButton
 } from './Auction.styles'
 import { useSelector } from 'react-redux'
-import { useHistory } from 'react-router'
 import NavProfile from '../../components/profile/NavProfile'
 
 function showProfile() {

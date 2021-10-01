@@ -1,5 +1,4 @@
 import styled, { createGlobalStyle } from 'styled-components'
-import UserPhoto from '../../images/User photo.png'
 import { Link } from 'react-router-dom'
 
 export default createGlobalStyle`
@@ -32,6 +31,11 @@ export const CardContent = styled.div`
   padding: 12px 30px;
 `
 
+export const CardTextContent = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
 export const CardText = styled(Link)`
   color: #6c4125;
   font-family: Roboto, sans-serif;
@@ -53,9 +57,11 @@ export const CardText = styled(Link)`
   }
 `
 
-export const Close = styled.span`
+export const Close = styled.p`
   float: right;
   top: 0;
+  padding-left: 10px;
+  margin-top: 0;
   color: #000;
   font-size: 22px;
   font-weight: bold;

@@ -1,8 +1,15 @@
 import React from 'react'
-import { Card, CardContent, CardText, Close, GotoProfileCard } from './NavProfile.styles'
+import { Card, CardContent, CardText, CardTextContent, Close, GotoProfileCard } from './NavProfile.styles'
+import authService from '../../services/auth.service'
 
 function hideProfile() {
   document.getElementById('profile1').style.display = 'none'
+}
+
+function logoutUser() {
+  authService.logout()
+  window.sessionStorage.setItem('isLoggedIn', false)
+  hideProfile()
 }
 
 function NavProfile() {
@@ -13,7 +20,12 @@ function NavProfile() {
           <Close onClick={hideProfile} title="Hide Profile">
             &times;
           </Close>
-          <CardText to="/profile">Profile</CardText>
+          <CardTextContent>
+            <CardText to="/profile">Profile</CardText>
+            <CardText to="/welcome" onClick={logoutUser}>
+              Logout
+            </CardText>
+          </CardTextContent>
         </CardContent>
       </Card>
     </GotoProfileCard>

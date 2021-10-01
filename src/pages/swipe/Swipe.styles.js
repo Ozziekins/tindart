@@ -25,6 +25,8 @@ export const SwipeLogo = styled(Link)`
 
 export const CardSwipe = styled.div`
   background-image: url(${SwipePhoto});
+  border: 1px solid saddlebrown;
+  border-radius: 15px;
   position: absolute;
   width: 471px;
   height: 622px;
@@ -45,16 +47,17 @@ export const User = styled(Link)`
 
 export const SwipeTitle = styled.div`
   position: absolute;
-  left: 17%;
-  right: 46.5%;
+  //left: 17%;
+  //right: 46.5%;
   top: 77.17%;
   bottom: 13.83%;
+  padding: 10px;
 
   font-family: Roboto, serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 48px;
-  line-height: 56px;
+  font-size: 28px;
+  width: 90%;
 
   color: #ffffff;
 `
