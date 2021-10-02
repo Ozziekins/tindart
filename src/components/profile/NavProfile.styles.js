@@ -20,6 +20,9 @@ export const GotoProfileCard = styled.div`
 
 export const Card = styled.div`
   background: #ffffff;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 60%;
   border-radius: 20px;
   height: fit-content;
   width: fit-content;

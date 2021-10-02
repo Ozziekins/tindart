@@ -1,5 +1,5 @@
 import React from 'react'
-import { ContactLink, Container, User, LiHome, Logo, NoDecorLink, SwipeArt } from './Home.styles'
+import { ContactLink, Container, GlobalStyle, User, LiHome, Logo, NoDecorLink, SwipeArt } from './Home.styles'
 import { useSelector } from 'react-redux'
 import NavProfile from '../../components/profile/NavProfile'
 
@@ -13,6 +13,7 @@ function AuthorizedHome() {
   return (
     <div>
       <Container>
+        <GlobalStyle />
         <Logo />
         <ul>
           <LiHome>

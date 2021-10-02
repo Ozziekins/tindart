@@ -1,6 +1,6 @@
 import React from 'react'
 import Signup from '../../components/signup/Signup'
-import { Container, LoginButton, Logo, SignUp, SwipeArt } from './Home.styles'
+import { Container, GlobalStyle, LoginButton, Logo, SignUp, SwipeArt } from './Home.styles'
 import Login from '../../components/login/Login'
 
 function showLogin() {
@@ -15,6 +15,7 @@ function WelcomeHome() {
   return (
     <div>
       <Container>
+        <GlobalStyle />
         <Logo />
         <ul />
         <LoginButton onClick={showLogin}> Log in </LoginButton>

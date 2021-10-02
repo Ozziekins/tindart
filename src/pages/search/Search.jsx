@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   ArtistDate,
   CommentFeed,
@@ -59,8 +59,8 @@ function Search() {
     dispatch(favouriteActions.setFavourites({ favouriteImages: favouriteUrl }))
   }
 
-  // useEffect(() => {
   const searchRes = RetrieveSearch()
+  let urls = []
 
   searchRes.map((search) => {
     fetch(search.api_link)
@@ -71,49 +71,6 @@ function Search() {
         console.log(urlsdata)
       })
   })
-
-  // fetch(`https://api.artic.edu/api/v1/artworks/search?q=${keyword}`)
-  //   .then((res) => res.json())
-  //   .then(
-  //     (result) => {
-  //       setIsLoaded(true)
-  //       setItems(result.data)
-  //     },
-  //
-  //     (error) => {
-  //       setIsLoaded(true)
-  //       setError(error)
-  //     }
-  //   )
-  // .then(() => {
-  // console.log('hi')
-  // items.map(
-  //   // console.log('oops')
-  //   (item) =>
-  //     fetch(item.api_link)
-  //       .then((searchres) => searchres.json())
-  //       .then((searchresult) => {
-  //         setUrlsdata(urlsdata.concat(searchresult.data))
-  //       })
-  // )
-  // for (let item of items) {
-  //   console.log('oops')
-  //   fetch(item.api_link)
-  //     .then((searchres) => searchres.json())
-  //     .then((searchresult) => {
-  //       setUrlsdata(urlsdata.concat(searchresult.data))
-  //     })
-  // }
-  // for (let item in items) {
-  //   console.log('oops')
-  //   fetch(item.api_link)
-  //     .then((searchres) => searchres.json())
-  //     .then((searchresult) => {
-  //       setUrlsdata(urlsdata.concat(searchresult.data))
-  //     })
-  // }
-  // })
-  // }, [])
 
   if (error) {
     return (

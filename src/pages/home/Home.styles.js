@@ -4,9 +4,17 @@ import Background from '../../images/background.png'
 import LogoPic from '../../images/Logo.png'
 import UserPhoto from '../../images/Userphoto.png'
 
-export default createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css?family=Roboto');
-    @import url('https://fonts.googleapis.com/css?family=Allerta');
+export const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css?family=Roboto');
+  @import url('https://fonts.googleapis.com/css?family=Allerta');
+  
+    html {
+      background: url(${Background}) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
 `
 
 export const NoDecorLink = styled(Link)`
@@ -16,9 +24,7 @@ export const NoDecorLink = styled(Link)`
 
 export const Container = styled.div`
   width: 100%;
-  height: 800px;
-  background-image: url(${Background});
-  margin-top: 0px;
+  height: 900px;
 `
 
 export const User = styled.div`

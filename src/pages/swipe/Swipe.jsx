@@ -11,6 +11,7 @@ import {
   SwipeInfo,
   SwipeLike,
   SwipeLogo,
+  SwipeNext,
   SwipeNope,
   SwipeTitle,
   User
@@ -27,39 +28,42 @@ function showProfile() {
 }
 
 function getImage(imageId) {
-  return `https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg`
+  const imageUrl = `https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg`
+
+  return imageUrl
 }
 
 function Swipe() {
   const [stack, setStack] = useState(null)
   const stackEl = useRef()
-  const [setIsLoaded] = useState(false)
+  const [error, setError] = useState(null)
+  const [isLoaded, setIsLoaded] = useState(false)
   const [items, setItems] = useState([])
-  const { photo } = useSelector((state) => state.user)
+  const { username, description, photo } = useSelector((state) => state.user)
 
   // throwOut Method
-  // const throwCard = () => {
-  //   // ReactSwing Card Directions
-  //   console.log('ReactSwing.DIRECTION', ReactSwing.DIRECTION)
-  //
-  //   console.log('stack', stack)
-  //   console.log('stack.getConfig', stack.getConfig())
-  //   console.log('stackEl', stackEl)
-  //
-  //   // ReactSwing Component Childrens
-  //   const targetEl = stack.childElements[1]
-  //   console.log('targetEl', targetEl)
-  //
-  //   if (targetEl && targetEl.current) {
-  //     // stack.getCard
-  //     const card = stack.getCard(targetEl.current)
-  //
-  //     console.log('card', card)
-  //
-  //     // throwOut method call
-  //     card.throwOut(100, 200, ReactSwing.DIRECTION.RIGHT)
-  //   }
-  // }
+  const throwCard = () => {
+    // ReactSwing Card Directions
+    console.log('ReactSwing.DIRECTION', ReactSwing.DIRECTION)
+
+    console.log('stack', stack)
+    console.log('stack.getConfig', stack.getConfig())
+    console.log('stackEl', stackEl)
+
+    // ReactSwing Component Childrens
+    const targetEl = stack.childElements[1]
+    console.log('targetEl', targetEl)
+
+    if (targetEl && targetEl.current) {
+      // stack.getCard
+      const card = stack.getCard(targetEl.current)
+
+      console.log('card', card)
+
+      // throwOut method call
+      card.throwOut(100, 200, ReactSwing.DIRECTION.RIGHT)
+    }
+  }
 
   const rejectCard = () => {
     const targetEl = stack.childElements[0]
@@ -87,7 +91,10 @@ function Swipe() {
     }
   }
 
+  const favouriteImages = useSelector((state) => state.favourite)
   const dispatch = useDispatch()
+
+  const auctionInfo = useSelector((state) => state.auction)
 
   const history = useHistory()
 
@@ -104,10 +111,17 @@ function Swipe() {
   useEffect(() => {
     fetch('https://api.artic.edu/api/v1/artworks')
       .then((res) => res.json())
-      .then((result) => {
-        setIsLoaded(true)
-        setItems(result.data)
-      })
+      .then(
+        (result) => {
+          setIsLoaded(true)
+          setItems(result.data)
+        },
+
+        (error) => {
+          setIsLoaded(true)
+          setError(error)
+        }
+      )
   }, [])
 
   return (
@@ -128,7 +142,7 @@ function Swipe() {
         */}
         <ReactSwing
           className="stack"
-          setStack={() => setStack(stack)}
+          setStack={(stack) => setStack(stack)}
           ref={stackEl}
           throwout={(e) => console.log('throwout', e)}
         >

@@ -110,7 +110,7 @@ function Feed() {
 
   return (
     <div>
-      <div style={{ display: 'flex' }}>
+      <div style={{ display: 'inline-flex' }}>
         <LogoFeed to="/home" />
         <Searchbutton />
         <User
