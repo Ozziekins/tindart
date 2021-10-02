@@ -34,7 +34,7 @@ export const CardSwipe = styled.div`
   top: 216px;
 `
 
-export const User = styled(Link)`
+export const User = styled.div`
   float: right;
   margin-top: 20px;
   margin-right: 500px;

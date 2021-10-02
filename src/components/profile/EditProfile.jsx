@@ -52,9 +52,9 @@ function EditProfile() {
       const reader = new FileReader()
       const { current } = uploadedImage
       current.file = file
-      reader.onload = (e) => {
-        current.src = e.target.result
-        setUploadedImg(e.target.result)
+      reader.onload = (eve) => {
+        current.src = eve.target.result
+        setUploadedImg(eve.target.result)
       }
       reader.readAsDataURL(file)
     }

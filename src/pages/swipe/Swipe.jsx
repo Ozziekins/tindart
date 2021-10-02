@@ -36,31 +36,7 @@ function Swipe() {
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const [items, setItems] = useState([])
-  const { username, description, photo } = useSelector((state) => state.user)
-
-  // throwOut Method
-  const throwCard = () => {
-    // ReactSwing Card Directions
-    console.log('ReactSwing.DIRECTION', ReactSwing.DIRECTION)
-
-    console.log('stack', stack)
-    console.log('stack.getConfig', stack.getConfig())
-    console.log('stackEl', stackEl)
-
-    // ReactSwing Component Childrens
-    const targetEl = stack.childElements[1]
-    console.log('targetEl', targetEl)
-
-    if (targetEl && targetEl.current) {
-      // stack.getCard
-      const card = stack.getCard(targetEl.current)
-
-      console.log('card', card)
-
-      // throwOut method call
-      card.throwOut(100, 200, ReactSwing.DIRECTION.RIGHT)
-    }
-  }
+  const { photo } = useSelector((state) => state.user)
 
   const rejectCard = () => {
     const targetEl = stack.childElements[0]
@@ -111,11 +87,14 @@ function Swipe() {
           setItems(result.data)
         },
 
-        (error) => {
+        (e) => {
           setIsLoaded(true)
-          setError(error)
-        }
+          setError(e)
+        },
+
+        console.log(isLoaded)
       )
+      .finally(setIsLoaded(false))
   }, [])
 
   return (
@@ -130,13 +109,15 @@ function Swipe() {
         }}
       />
       <NavProfile id="profile1" />
+
       <div id="viewport">
         {/*
           ReactSwing Element
         */}
+        {error && <div>{error}</div>}
         <ReactSwing
           className="stack"
-          setStack={(stack) => setStack(stack)}
+          setStack={(stacked) => setStack(stacked)}
           ref={stackEl}
           throwout={(e) => console.log('throwout', e)}
         >

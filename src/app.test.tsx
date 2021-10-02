@@ -13,7 +13,6 @@ import SignupCard, { hideSignup } from './components/signup/Signup'
 import LoginCard, { hideLogin } from './components/login/Login'
 import LogoutCard, { hideLogout } from './components/logout/Logout'
 import { BrowserRouter as Router } from 'react-router-dom'
-import Signup from './components/signup/Signup'
 
 afterEach(cleanup)
 
