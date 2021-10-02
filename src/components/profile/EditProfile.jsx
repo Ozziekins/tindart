@@ -13,8 +13,9 @@ import {
   UploadBackground
 } from './EditProfile.styles'
 import ProfilePhoto from '../../images/Profile photo PROFILE.png'
-import { useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { userActions } from '../../store/user/user.slice'
+import { useHistory } from 'react-router'
 
 function hideEdit() {
   document.getElementById('edit1').style.display = 'none'
@@ -24,6 +25,7 @@ function EditProfile() {
   const [username, setUsername] = useState('')
   const [description, setDescription] = useState('')
   const [uploadedImg, setUploadedImg] = useState(ProfilePhoto)
+  const history = useHistory()
 
   const dispatch = useDispatch()
 
@@ -50,7 +52,7 @@ function EditProfile() {
       const reader = new FileReader()
       const { current } = uploadedImage
       current.file = file
-      reader.onload = () => {
+      reader.onload = (e) => {
         current.src = e.target.result
         setUploadedImg(e.target.result)
       }

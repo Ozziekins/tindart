@@ -99,11 +99,11 @@ function Swipe() {
   const showInfo = (image, title, info) => {
     const auctionImage = 'url(' + getImage(image) + ')'
     dispatch(auctionActions.setAuction({ title: title, auction_description: info, auction_photo: auctionImage }))
-    history.replace('/auction')
+    history.push('/auction')
   }
 
   useEffect(() => {
-    fetch('https://api.artic.edu/api/v1/artworks')
+    fetch('https://api.artic.edu/api/v1/artworks?page=11')
       .then((res) => res.json())
       .then(
         (result) => {
