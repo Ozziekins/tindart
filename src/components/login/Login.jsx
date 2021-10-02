@@ -15,7 +15,7 @@ import {
   ForgotPassA
 } from './Login.styles'
 
-function hideLogin() {
+export function hideLogin() {
   document.getElementById('login1').style.display = 'none'
 }
 

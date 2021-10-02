@@ -3,15 +3,17 @@
  */
 
 import React from 'react'
-import { cleanup, render, queryByAttribute } from '@testing-library/react'
+import { cleanup, render } from '@testing-library/react'
 import { PicFeed } from './pages/feed/Feed.styles'
 import { getImage } from './pages/feed/Feed'
-import './components/profile/NavProfile'
 import { shallow } from 'enzyme'
 import Searchbutton from './components/searchbutton/Searchbutton'
-import NavProfile from './components/profile/NavProfile'
-import { hideProfile } from './components/profile/NavProfile'
+import NavProfile, { hideProfile } from './components/profile/NavProfile'
+import SignupCard, { hideSignup } from './components/signup/Signup'
+import LoginCard, { hideLogin } from './components/login/Login'
+import LogoutCard, { hideLogout } from './components/logout/Logout'
 import { BrowserRouter as Router } from 'react-router-dom'
+import Signup from './components/signup/Signup'
 
 afterEach(cleanup)
 
@@ -55,8 +57,56 @@ describe('Hide Profile', () => {
     const result = render(profile)
     const element = result.container.querySelector('profile1')
     if (element) {
-      const styles = getComputedStyle(element)
-      expect(hideProfile()).toBe((styles.display = 'none'))
+      getComputedStyle(element).display = 'none'
+      expect(hideProfile()).toBe(getComputedStyle(element).display)
+    }
+  })
+
+  test('it should hide login', () => {
+    const login = shallow(
+      <Router>
+        <LoginCard />
+      </Router>
+    )
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const result = render(login)
+    const element = result.container.querySelector('login1')
+    if (element) {
+      getComputedStyle(element).display = 'none'
+      expect(hideLogin()).toBe(getComputedStyle(element).display)
+    }
+  })
+
+  test('it should hide logout', () => {
+    const logout = shallow(
+      <Router>
+        <LogoutCard />
+      </Router>
+    )
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const result = render(logout)
+    const element = result.container.querySelector('logout1')
+    if (element) {
+      getComputedStyle(element).display = 'none'
+      expect(hideLogout()).toBe(getComputedStyle(element).display)
+    }
+  })
+
+  test('it should hide signup', () => {
+    const signup = shallow(
+      <Router>
+        <SignupCard />
+      </Router>
+    )
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const result = render(signup)
+    const element = result.container.querySelector('signup1')
+    if (element) {
+      getComputedStyle(element).display = 'none'
+      expect(hideSignup()).toBe(getComputedStyle(element).display)
     }
   })
 })

@@ -13,7 +13,7 @@ export default createGlobalStyle`
     }
 `
 
-export const LoginCard = styled.div`
+export const SignupCard = styled.div`
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */

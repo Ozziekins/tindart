@@ -11,7 +11,6 @@ import {
   SwipeInfo,
   SwipeLike,
   SwipeLogo,
-  SwipeNext,
   SwipeNope,
   SwipeTitle,
   User
@@ -28,9 +27,7 @@ function showProfile() {
 }
 
 function getImage(imageId) {
-  const imageUrl = `https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg`
-
-  return imageUrl
+  return `https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg`
 }
 
 function Swipe() {
@@ -91,10 +88,7 @@ function Swipe() {
     }
   }
 
-  const favouriteImages = useSelector((state) => state.favourite)
   const dispatch = useDispatch()
-
-  const auctionInfo = useSelector((state) => state.auction)
 
   const history = useHistory()
 
@@ -169,7 +163,6 @@ function Swipe() {
                       likeCard(item.image_id)
                     }}
                   />
-                  {/*<SwipeNext />*/}
                 </SwipeButtons>
               </CardSwipe>
             </div>

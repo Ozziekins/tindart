@@ -4,6 +4,7 @@
 [![Babel](https://img.shields.io/badge/bundled%20by-babel-lightblue?style=plastic&logo=webpack)](https://webpack.js.org/)
 [![Typescript](https://img.shields.io/badge/typed%20using-grey?style=plastic&logo=typescript)](https://www.typescriptlang.org/)
 [![Javascript](https://img.shields.io/badge/written%20in-grey?style=plastic&logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Sonarqube](https://img.shields.io/badge/checked%20using-sonarqube-pink?style=plastic&logo=sonarqube)](https://www.sonarqube.org/?gads_campaign=Europe-1-DSA-SonarQube&gads_ad_group=DSA&gads_keyword=&gclid=CjwKCAjw49qKBhAoEiwAHQVTo9CNiqtmGr_5uPhBs5hL7QrLvt8pQg1LN8rQs1PHtXp8Vc2Df6XuCRoC7h0QAvD_BwE)
 [![Husky](https://img.shields.io/badge/pre%20commit-husky-grey)](https://www.npmjs.com/package/husky)
 [![Prettier](https://img.shields.io/badge/formatted%20with-prettier-yellow?style=plastic&logo=prettier)](https://www.npmjs.com/package/prettier)
 [![react workflow](https://github.com/Annesard/create-react-app/actions/workflows/node.js.yml/badge.svg)](https://github.com/Annesard/create-react-app/actions/workflows/node.js.yml)

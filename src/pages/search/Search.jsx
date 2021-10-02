@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import {
   ArtistDate,
   CommentFeed,
@@ -60,7 +60,6 @@ function Search() {
   }
 
   const searchRes = RetrieveSearch()
-  let urls = []
 
   searchRes.map((search) => {
     fetch(search.api_link)

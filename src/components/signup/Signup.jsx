@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import authService from '../../services/authService'
-import { Btns, Card, CardContent, CardTitle, Close, Form, FormContent, LoginCard, SignUpBtn } from './Signup.styles'
+import { Btns, Card, CardContent, CardTitle, Close, Form, FormContent, SignupCard, SignUpBtn } from './Signup.styles'
 
-function hideSignup() {
+export function hideSignup() {
   document.getElementById('signup1').style.display = 'none'
 }
 
@@ -21,7 +21,7 @@ function Signup() {
   }
 
   return (
-    <LoginCard id="signup1">
+    <SignupCard id="signup1">
       <Card>
         <CardContent>
           <Close onClick={hideSignup} title="Close Signup">
@@ -59,7 +59,7 @@ function Signup() {
           </Form>
         </CardContent>
       </Card>
-    </LoginCard>
+    </SignupCard>
   )
 }
 

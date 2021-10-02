@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, CardContent, CardText, Close, LogoutCard } from './Logout.styles'
 import authService from '../../services/authService'
 
-function hideLogout() {
+export function hideLogout() {
   document.getElementById('logout1').style.display = 'none'
 }
 
