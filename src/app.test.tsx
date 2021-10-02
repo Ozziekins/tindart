@@ -3,12 +3,15 @@
  */
 
 import React from 'react'
-import { cleanup } from '@testing-library/react'
+import { cleanup, render, queryByAttribute } from '@testing-library/react'
 import { PicFeed } from './pages/feed/Feed.styles'
 import { getImage } from './pages/feed/Feed'
 import './components/profile/NavProfile'
 import { shallow } from 'enzyme'
 import Searchbutton from './components/searchbutton/Searchbutton'
+import NavProfile from './components/profile/NavProfile'
+import { hideProfile } from './components/profile/NavProfile'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 afterEach(cleanup)
 
@@ -40,10 +43,20 @@ describe('BaseButton', () => {
   })
 })
 
-// describe('Hide Profile', () => {
-//   test('it should hide profile', () => {
-//     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//     // @ts-ignore
-//     expect(hideProfile()).toBe((document.getElementById('profile1').style.display = 'none'))
-//   })
-// })
+describe('Hide Profile', () => {
+  test('it should hide profile', () => {
+    const profile = shallow(
+      <Router>
+        <NavProfile />
+      </Router>
+    )
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const result = render(profile)
+    const element = result.container.querySelector('profile1')
+    if (element) {
+      const styles = getComputedStyle(element)
+      expect(hideProfile()).toBe((styles.display = 'none'))
+    }
+  })
+})
