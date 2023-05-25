@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   ArtistDate,
   CommentFeed,
@@ -42,13 +42,14 @@ function showProfile() {
   document.getElementById('profile1').style.display = 'block'
 }
 
-function Search() {
+const Search = React.memo(() => {
   const { photo } = useSelector((state) => state.user)
 
   const [error] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
 
-  const [urlsdata, setUrlsdata] = useState([])
+  const [searchdata, setSearchdata] = useState([])
+  // const [urlsdata, setUrlsdata] = useState([])
 
   const dispatch = useDispatch()
 
@@ -61,20 +62,22 @@ function Search() {
 
   const searchRes = RetrieveSearch()
 
-  searchRes.map((search) => {
-    fetch(search.api_link)
-      .then((searchres) => searchres.json())
-      .then((searchresult) => {
-        setIsLoaded(true)
-        setUrlsdata(urlsdata.concat(searchresult.data))
-        console.log(urlsdata)
-      })
-  })
+  useEffect(() => {
+    searchRes.map((search) => {
+      fetch(search.api_link)
+        .then((searchres) => searchres.json())
+        .then((searchresult) => {
+          setIsLoaded(true)
+          // setSearchdata(searchresult.data)
+          setSearchdata(searchdata.concat(searchresult.data))
+        })
+    })
+  }, [searchRes])
 
   if (error) {
     return (
       <div>
-        <LogoFeed to="/home" />
+        <LogoFeed to="/feed" />
         <User to="/profile" />
         <Post>Error: {error.message}</Post>
       </div>
@@ -84,7 +87,7 @@ function Search() {
   if (!isLoaded) {
     return (
       <div>
-        <LogoFeed to="/home" />
+        <LogoFeed to="/feed" />
         <User to="/profile" />
         <Post>Loading...</Post>
       </div>
@@ -93,7 +96,7 @@ function Search() {
 
   return (
     <div>
-      <LogoFeed to="/home" />
+      <LogoFeed to="/feed" />
       <User
         onClick={showProfile}
         style={{
@@ -103,29 +106,29 @@ function Search() {
         }}
       />
       <NavProfile id="profile1" />
-      {urlsdata.map((urldata) => (
-        <div key={urldata.id}>
+      {searchdata.map((searchItem) => (
+        <div key={searchItem.id}>
           <Post>
             <PostUserNameTime>
               <ArtistDate>
                 <PostUser />
                 <LiFeed>
-                  <LiFeedArtist> {urldata.artist_title} </LiFeedArtist>
-                  <LiFeedDate> {urldata.date_display} </LiFeedDate>
+                  <LiFeedArtist> {searchItem.artist_title} </LiFeedArtist>
+                  <LiFeedDate> {searchItem.date_display} </LiFeedDate>
                 </LiFeed>
               </ArtistDate>
               <DescriptionPic>
                 <DescriptionFeed>
-                  <p>Title: {urldata.title} </p>
-                  <p>Place of origin: {urldata.place_of_origin}</p>
+                  <p>Title: {searchItem.title} </p>
+                  <p>Place of origin: {searchItem.place_of_origin}</p>
                 </DescriptionFeed>
-                {getImage(urldata.image_id)}
+                {getImage(searchItem.image_id)}
               </DescriptionPic>
               <div>
                 <FooterDescPic>
                   <LikePic
                     onClick={(e) => {
-                      handleClick(e, urldata.image_id)
+                      handleClick(e, searchItem.image_id)
                     }}
                   />
                   <LikeFeed>Like</LikeFeed>
@@ -143,6 +146,6 @@ function Search() {
       </div>
     </div>
   )
-}
+})
 
 export default Search

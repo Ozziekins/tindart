@@ -221,3 +221,45 @@ export const BidAuctionButton = styled.div`
   background: #6c4125;
   border-radius: 10px;
 `
+
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+`;
+
+export const OverlayContent = styled.div`
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+`;
+
+/* The Close Button (x) */
+export const CloseButton = styled.span`
+  float: right;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+
+  &:hover {
+    color: red;
+    cursor: pointer;
+  }
+  &:focus {
+    color: red;
+    cursor: pointer;
+  }
+`
+
+export const BidAcceptedMessage = styled.div`
+  font-size: 24px;
+  color: #000;
+`;

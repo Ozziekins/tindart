@@ -22,7 +22,7 @@ function NavProfile() {
           </Close>
           <CardTextContent>
             <CardText to="/profile">Profile</CardText>
-            <CardText to="/welcome" onClick={logoutUser}>
+            <CardText to="/" onClick={logoutUser}>
               Logout
             </CardText>
           </CardTextContent>

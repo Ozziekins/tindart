@@ -55,13 +55,18 @@ function Feed() {
   const [nextPage, setNextPage] = useState(MAIN_URL)
   const dispatch = useDispatch()
 
+  const handleButtonClick = (value) => {
+    console.log('Button clicked with value:', value);
+  };
+
   const handleClick = (event, favouriteUrl) => {
     event.target.style.backgroundImage = `url(${Liked})`
     event.target.style.backgroundSize = `20px`
 
     dispatch(favouriteActions.setFavourites({ favouriteImages: favouriteUrl }))
   }
-  const fetchFeedResults = (main_url) => {
+
+  const fetchFeedResults = (MAIN_URL) => {
     fetch(MAIN_URL)
       .then((res) => res.json())
       .then((result) => {
@@ -70,6 +75,7 @@ function Feed() {
         setNextPage(result.pagination)
       })
   }
+
   const gotoNextPage = () => {
     MAIN_URL = nextPage.next_url
     console.log(MAIN_URL)
@@ -112,7 +118,7 @@ function Feed() {
     <div>
       <div style={{ display: 'inline-flex' }}>
         <LogoFeed to="/home" />
-        <Searchbutton />
+        <Searchbutton onButtonClick={handleButtonClick} />
         <User
           onClick={showProfile}
           style={{
@@ -123,7 +129,7 @@ function Feed() {
         />
         <NavProfile id="profile1" />
       </div>
-      {items.map((item) => (
+      {items.slice(0, 15).map((item) => (
         <div key={item.id}>
           <Post>
             <PostUserNameTime>

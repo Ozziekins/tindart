@@ -61,7 +61,7 @@ export const UsernameProfile = styled.div`
   text-align: center;
 `
 
-export const EditProfileIcon = styled.li`
+export const EditProfileIcon = styled.p`
   position: absolute;
   width: 25px;
   height: 25px;

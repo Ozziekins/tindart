@@ -30,28 +30,31 @@ function Signup() {
           <CardTitle>
             <h2>Sign up</h2>
           </CardTitle>
-          <Form onSubmit={onSubmit} error={error} defaultValues={{ username: '', password: '' }}>
-            <label htmlFor="username" style={{ paddingTop: '13px', color: '#ABAAAA' }}>
+          <Form onSubmit={onSubmit} error={error} defaultvalues={{ username: '', password: '' }}>
+            <label htmlFor="usernameSignup" style={{ paddingTop: '13px', color: '#ABAAAA' }}>
               &nbsp;Username
             </label>
             <FormContent
-              id="username"
+              id="usernameSignup"
               name="username"
               value={username}
               label="Username"
               rules={{ required: { message: 'Username is required', value: true } }}
               onChange={({ target }) => setUsername(target.value)}
+              autoComplete="on"
             />
-            <label htmlFor="password" style={{ paddingTop: '22px', color: '#ABAAAA' }}>
+            <label htmlFor="passwordSignup" style={{ paddingTop: '22px', color: '#ABAAAA' }}>
               &nbsp;Password
             </label>
             <FormContent
+              id="passwordSignup"
               name="password"
               value={password}
               label="Password"
               type="password"
               rules={{ required: { message: 'Password is required', value: true } }}
               onChange={({ target }) => setPassword(target.value)}
+              autoComplete="on"
             />
             <Btns>
               <SignUpBtn type="submit" name="submit" value="Signup" />

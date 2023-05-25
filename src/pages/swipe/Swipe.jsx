@@ -19,7 +19,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import NavProfile from '../../components/profile/NavProfile'
 import ReactSwing from '../../../node_modules/react-swing'
 import { favouriteActions } from '../../store/favourite/favourite.slice'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
 import { auctionActions } from '../../store/auction/auction.slice'
 
 function showProfile() {
@@ -66,7 +66,7 @@ function Swipe() {
 
   const dispatch = useDispatch()
 
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const likeCard = (favouriteUrl) => {
     dispatch(favouriteActions.setFavourites({ favouriteImages: favouriteUrl }))
@@ -75,7 +75,7 @@ function Swipe() {
   const showInfo = (image, title, info) => {
     const auctionImage = 'url(' + getImage(image) + ')'
     dispatch(auctionActions.setAuction({ title: title, auction_description: info, auction_photo: auctionImage }))
-    history.push('/auction')
+    navigate('/auction')
   }
 
   useEffect(() => {

@@ -1,46 +1,44 @@
 import React, { useState, useRef } from 'react'
 import { Form, Input, Button } from './Searchbutton.styles'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
 import { configure } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-
-configure({ adapter: new Adapter() })
 
 function Searchbutton({ onButtonClick }) {
   const [input, setInput] = useState('')
-  const [barOpened, setBarOpened] = useState(false)
+  const [baropened, setBaropened] = useState(false)
   const formRef = useRef()
   const inputFocus = useRef()
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const onFormSubmit = (e) => {
     // When form submited, clear input, close the searchbar and do something with input
     e.preventDefault()
     setInput('')
-    setBarOpened(false)
+    setBaropened(false)
     // After form submit, do what you want with the input value
     console.log(`Form was submited with input: ${input}`)
     window.sessionStorage.setItem('Keyword', input)
-    history.push('/search')
+    navigate('/search')
   }
 
   return (
     <div style={{ marginTop: '20px' }}>
       <Form
-        barOpened={barOpened}
+        width={baropened ? '30rem' : '2rem'}
+        cursor={baropened ? 'auto' : 'pointer'}
         onClick={() => {
           // When form clicked, set state of baropened to true and focus the input
-          setBarOpened(true)
+          setBaropened(true)
           inputFocus.current.focus()
         }}
         // on focus open search bar
         onFocus={() => {
-          setBarOpened(true)
+          setBaropened(true)
           inputFocus.current.focus()
         }}
         // on blur close search bar
         onBlur={() => {
-          setBarOpened(false)
+          setBaropened(false)
         }}
         // On submit, call the onFormSubmit function
         onSubmit={onFormSubmit}
@@ -48,7 +46,8 @@ function Searchbutton({ onButtonClick }) {
       >
         <Button
           type="submit"
-          barOpened={barOpened}
+          pointer={baropened ? 'auto' : 'none'}
+          cursor={baropened ? 'pointer' : 'none'}
           onClick={() => {
             onButtonClick(true)
           }}
@@ -60,7 +59,7 @@ function Searchbutton({ onButtonClick }) {
           onChange={(e) => setInput(e.target.value)}
           ref={inputFocus}
           value={input}
-          barOpened={barOpened}
+          margin={baropened ? '1rem' : '0rem'}
           placeholder="Enter keyword ..."
         />
       </Form>

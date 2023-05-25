@@ -20,7 +20,7 @@ function Logout() {
           <Close onClick={hideLogout} title="Hide Logout">
             &times;
           </Close>
-          <CardText to="/welcome" onClick={logoutUser}>
+          <CardText to="/" onClick={logoutUser}>
             {' '}
             Logout{' '}
           </CardText>

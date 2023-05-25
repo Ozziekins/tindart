@@ -15,7 +15,7 @@ import {
 import ProfilePhoto from '../../images/Profile photo PROFILE.png'
 import { useDispatch } from 'react-redux'
 import { userActions } from '../../store/user/user.slice'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
 
 function hideEdit() {
   document.getElementById('edit1').style.display = 'none'
@@ -25,7 +25,7 @@ function EditProfile() {
   const [username, setUsername] = useState('')
   const [description, setDescription] = useState('')
   const [uploadedImg, setUploadedImg] = useState(ProfilePhoto)
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const dispatch = useDispatch()
 
@@ -40,7 +40,7 @@ function EditProfile() {
       })
     )
     hideEdit()
-    history.replace('/profile')
+    navigate('/profile')
   }
 
   const uploadedImage = React.useRef(null)
@@ -97,11 +97,13 @@ function EditProfile() {
                 placeholder="Enter username"
                 rules={{ required: { message: 'Username is required', value: true } }}
                 onChange={({ target }) => setUsername(target.value)}
+                autoComplete="on"
               />
               <label htmlFor="description" style={{ paddingTop: '13px', color: '#000000' }}>
                 &nbsp;Description
               </label>
               <FormContent
+                id="description"
                 name="description"
                 value={description}
                 label="Description"
@@ -109,6 +111,7 @@ function EditProfile() {
                 placeholder="Add your description"
                 maxLength="80"
                 onChange={({ target }) => setDescription(target.value)}
+                autoComplete="on"
               />
               <Btns>
                 <EditBtn type="submit" name="submit" value="Edit" />

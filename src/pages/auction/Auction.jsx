@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   ArtInfo,
   ArtH3,
@@ -17,7 +17,11 @@ import {
   PlusAuction,
   PriceAuction,
   MinusAuction,
-  BidAuctionButton
+  BidAuctionButton,
+  Overlay,
+  OverlayContent,
+  CloseButton,
+  BidAcceptedMessage
 } from './Auction.styles'
 import { useSelector } from 'react-redux'
 import NavProfile from '../../components/profile/NavProfile'
@@ -27,6 +31,8 @@ function showProfile() {
 }
 
 function Auction() {
+  const [showOverlay, setShowOverlay] = useState(false);
+  const [showErrorOverlay, setShowErrorOverlay] = useState(false);
   var i = 0
 
   const incrementBid = () => {
@@ -43,6 +49,21 @@ function Auction() {
 
   const { photo } = useSelector((state) => state.user)
   const { title, auction_description, auction_photo } = useSelector((state) => state.auction)
+
+  const handleBidClick = () => {
+    const bidValueElement = document.getElementById('bid-value');
+    const bidValue = parseInt(bidValueElement.innerText.replace('$', ''), 10);
+    if (bidValue < 0) {
+      setShowErrorOverlay(true);
+    } else {
+      setShowOverlay(true);
+    }
+  };
+
+  const handleCloseOverlay = () => {
+    setShowErrorOverlay(false)
+    setShowOverlay(false);
+  };
 
   return (
     <div>
@@ -76,14 +97,30 @@ function Auction() {
           <TimeLeftAuction>12 hours remaining</TimeLeftAuction>
           <ButtonsPriceAuction>
             <InlineBidAuction>
-              <PlusAuction onClick={incrementBid} />
-              <PriceAuction id="bid-value">$0</PriceAuction>
               <MinusAuction onClick={decrementBid} />
+              <PriceAuction id="bid-value">$5</PriceAuction>
+              <PlusAuction onClick={incrementBid} />
             </InlineBidAuction>
           </ButtonsPriceAuction>
-          <BidAuctionButton>Bid</BidAuctionButton>
+          <BidAuctionButton onClick={handleBidClick}>Bid</BidAuctionButton>
         </BidBox>
       </AuctionDiv>
+      {showOverlay && (
+        <Overlay>
+          <OverlayContent>
+            <CloseButton onClick={handleCloseOverlay} title="Close Bid">&times;</CloseButton>
+            <BidAcceptedMessage>Bid accepted!</BidAcceptedMessage>
+          </OverlayContent>
+        </Overlay>
+      )}
+      {showErrorOverlay && (
+        <Overlay>
+          <OverlayContent>
+            <CloseButton onClick={handleCloseOverlay} title="Close Bid">&times;</CloseButton>
+            <BidAcceptedMessage>Invalid bid!</BidAcceptedMessage>
+          </OverlayContent>
+        </Overlay>
+      )}
     </div>
   )
 }

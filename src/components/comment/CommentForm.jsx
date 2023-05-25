@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useDispatch} from 'react-redux'
 import { Btns, Card, CardContent, Form, FormContent, CommentCard, CommentBtn } from './Comment.styles'
 import { commentActions } from '../../store/comment/comment.slice'
@@ -9,7 +9,7 @@ function hideComment() {
 }
 
 function CommentForm() {
-  const history = useHistory()
+  const navigate = useNavigate()
   const [comm, setComm] = useState('')
   const dispatch = useDispatch()
 
@@ -22,7 +22,7 @@ function CommentForm() {
     )
 
     hideComment()
-    history.replace('/feed')
+    navigate('/feed')
   }
 
   return (
@@ -40,6 +40,7 @@ function CommentForm() {
               label="CommentForm"
               placeholder="Write your comment here..."
               onChange={({ target }) => setComm(target.value)}
+              autoComplete="on"
             />
             <Btns>
               <CommentBtn type="submit" name="submit" value="Comment" />

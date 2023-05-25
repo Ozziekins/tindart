@@ -1,50 +1,32 @@
-import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Provider as StoreProvider } from 'react-redux'
-import WelcomeHome from './pages/home/WelcomeHome'
-import AuthorizedHome from './pages/home/AuthorizedHome'
-import Feed from './pages/feed/Feed'
-import Login from './components/login/Login'
-import Swipe from './pages/swipe/Swipe'
-import Profile from './pages/profile/Profile'
-import Auction from './pages/auction/Auction'
-import Search from './pages/search/Search'
-import store from './store'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Provider as StoreProvider } from 'react-redux';
+import WelcomeHome from './pages/home/WelcomeHome';
+import AuthorizedHome from './pages/home/AuthorizedHome';
+import Feed from './pages/feed/Feed';
+import Login from './components/login/Login';
+import Swipe from './pages/swipe/Swipe';
+import Profile from './pages/profile/Profile';
+import Auction from './pages/auction/Auction';
+import Search from './pages/search/Search';
+import store from './store';
 
 function App() {
   return (
     <StoreProvider store={store}>
-      <Router>
-        <Switch>
-          <Route path="/feed">
-            <Feed />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/swipe">
-            <Swipe />
-          </Route>
-          <Route path="/profile">
-            <Profile />
-          </Route>
-          <Route path="/auction">
-            <Auction />
-          </Route>
-          <Route path="/search">
-            <Search />
-          </Route>
-          <Route path="/home">
-            <AuthorizedHome />
-          </Route>
-          <Route path="/">
-            <WelcomeHome />
-          </Route>
-          <Route>404</Route>
-        </Switch>
-      </Router>
+      <Routes>
+        <Route path="/feed" element={<Feed />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/swipe" element={<Swipe />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/auction" element={<Auction />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/home" element={<AuthorizedHome />} />
+        <Route path="/" element={<WelcomeHome />} />
+        <Route path="*" element={<div>404</div>} />
+      </Routes>
     </StoreProvider>
-  )
+  );
 }
 
-export default App
+export default App;

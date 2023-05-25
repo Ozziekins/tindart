@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import authService from '../../services/authService'
 import {
   Btns,
@@ -20,7 +20,7 @@ export function hideLogin() {
 }
 
 function Login() {
-  const history = useHistory()
+  const navigate = useNavigate()
   const [error, setError] = useState()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -33,7 +33,7 @@ function Login() {
       .then(() => {
         window.sessionStorage.setItem('isLoggedIn', true)
         hideLogin()
-        history.replace('/home')
+        navigate('/home')
       })
       .catch(() => setError(error))
   }
@@ -48,28 +48,31 @@ function Login() {
           <CardTitle>
             <h2>Login</h2>
           </CardTitle>
-          <Form onSubmit={onSubmit} error={error} defaultValues={{ username: '', password: '' }}>
-            <label htmlFor="username" style={{ paddingTop: '13px', color: '#ABAAAA' }}>
+          <Form onSubmit={onSubmit} error={error} defaultvalues={{ username: '', password: '' }}>
+            <label htmlFor="usernameLogin" style={{ paddingTop: '13px', color: '#ABAAAA' }}>
               &nbsp;Username
             </label>
             <FormContent
-              id="username"
+              id="usernameLogin"
               name="username"
               value={username}
               label="Username"
               rules={{ required: { message: 'Username is required', value: true } }}
               onChange={({ target }) => setUsername(target.value)}
+              autoComplete="on"
             />
-            <label htmlFor="password" style={{ paddingTop: '22px', color: '#ABAAAA' }}>
+            <label htmlFor="passwordLogin" style={{ paddingTop: '22px', color: '#ABAAAA' }}>
               &nbsp;Password
             </label>
             <FormContent
+              id="passwordLogin"
               name="password"
               value={password}
               label="Password"
               type="password"
               rules={{ required: { message: 'Password is required', value: true } }}
               onChange={({ target }) => setPassword(target.value)}
+              autoComplete="on"
             />
             <ForgotPassA href="#">
               <ForgotPass id="forgot-pass">Forgot password?</ForgotPass>
