@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider as StoreProvider } from 'react-redux';
 import WelcomeHome from './pages/home/WelcomeHome';
 import AuthorizedHome from './pages/home/AuthorizedHome';
+import NotFound from './pages/home/NotFound';
 import Feed from './pages/feed/Feed';
 import Login from './components/login/Login';
 import Swipe from './pages/swipe/Swipe';
@@ -23,7 +24,7 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/home" element={<AuthorizedHome />} />
         <Route path="/" element={<WelcomeHome />} />
-        <Route path="*" element={<div>404</div>} />
+        <Route path="*" element={<NotFound /> } />
       </Routes>
     </StoreProvider>
   );

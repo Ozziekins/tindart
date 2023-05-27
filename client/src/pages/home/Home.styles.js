@@ -117,3 +117,28 @@ export const ContactLink = styled.a`
   text-decoration: none;
   color: #ffffff;
 `
+
+export const FourOhFour = styled.div`
+  position: absolute;
+  width: 700px;
+  height: 184px;
+  left: 620px;
+  top: 397px;
+
+  font-family: Allerta, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100px;
+  line-height: 184px;
+  /* identical to box height */
+
+  color: #ffffff;
+`
+
+export const LogoFourOhFour = styled(Link)`
+  margin-left: 45px;
+  float: left;
+  background-image: url(${LogoPic});
+  width: 310px;
+  height: 80px;
+`

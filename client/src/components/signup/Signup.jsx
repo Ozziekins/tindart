@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import authService from '../../services/authService'
-import { Btns, Card, CardContent, CardTitle, Close, Form, FormContent, SignupCard, SignUpBtn } from './Signup.styles'
+import { Btns, Card, CardContent, CardTitle, Close, Form, FormContent, SignupCard, SignUpBtn, ErrorAlert } from './Signup.styles'
 
 export function hideSignup() {
   document.getElementById('signup1').style.display = 'none'
@@ -30,6 +30,7 @@ function Signup() {
           <CardTitle>
             <h2>Sign up</h2>
           </CardTitle>
+          {error && <ErrorAlert>{error}</ErrorAlert>} {/* Display error alert */}
           <Form onSubmit={onSubmit} error={error} defaultvalues={{ username: '', password: '' }}>
             <label htmlFor="usernameSignup" style={{ paddingTop: '13px', color: '#ABAAAA' }}>
               &nbsp;Username

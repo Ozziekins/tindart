@@ -119,3 +119,11 @@ export const FormContent = styled.input`
   width: 100%;
   height: 25px;
 `
+
+export const ErrorAlert = styled.div`
+  background-color: #ffe6e6;
+  color: #ff5959;
+  border: 1px solid #ff5959;
+  padding: 10px;
+  margin-bottom: 10px;
+`;

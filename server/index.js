@@ -81,11 +81,11 @@ app.post('/login', (req, res) => {
 app.post('/signup', (req, res) => {
   if (req.body.login in users) {
     res.status(400).json({
-      message: 'Login already exists'
+      message: 'Username already exists'
     })
   } else if (!req.body.login || !req.body.password) {
     res.status(400).json({
-      message: 'Login and password required'
+      message: 'Username and password required'
     })
   } else {
     users[req.body.login] = req.body.password

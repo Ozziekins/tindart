@@ -12,7 +12,8 @@ import {
   Close,
   LoginBtn,
   ForgotPass,
-  ForgotPassA
+  ForgotPassA,
+  ErrorAlert
 } from './Login.styles'
 
 export function hideLogin() {
@@ -48,6 +49,7 @@ function Login() {
           <CardTitle>
             <h2>Login</h2>
           </CardTitle>
+          {error && <ErrorAlert>{error}</ErrorAlert>} {/* Display error alert */}
           <Form onSubmit={onSubmit} error={error} defaultvalues={{ username: '', password: '' }}>
             <label htmlFor="usernameLogin" style={{ paddingTop: '13px', color: '#ABAAAA' }}>
               &nbsp;Username
