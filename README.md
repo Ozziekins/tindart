@@ -14,8 +14,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="./src/images/Logo.png" alt="Logo">
+  <a>
+    <img src="./client/src/images/Logo.png" alt="Logo">
   </a>
 
 <h1 align="center">Frontend Web Development Project</h1>
