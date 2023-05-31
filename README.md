@@ -8,6 +8,7 @@
 [![Husky](https://img.shields.io/badge/pre%20commit-husky-grey)](https://www.npmjs.com/package/husky)
 [![Prettier](https://img.shields.io/badge/formatted%20with-prettier-yellow?style=plastic&logo=prettier)](https://www.npmjs.com/package/prettier)
 [![react workflow](https://github.com/Annesard/create-react-app/actions/workflows/node.js.yml/badge.svg)](https://github.com/Annesard/create-react-app/actions/workflows/node.js.yml)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/86df0a40-8310-4727-a929-747ca91cbf17/deploy-status)](https://app.netlify.com/sites/tindart/deploys)
 <br>
 
 <!-- PROJECT LOGO -->
