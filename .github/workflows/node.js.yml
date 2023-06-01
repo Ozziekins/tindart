@@ -1,0 +1,39 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+
+    - name: Install dependencies
+      run: npm ci --prefix client
+
+    - name: Run client tests
+      run: npm test --prefix client
+
+    - name: Build client
+      run: npm run build --prefix client
+
+    - name: Install server dependencies
+      run: npm ci --prefix server
+
+    - name: Run server tests
+      run: npm test --prefix server
+
+    - name: Build server
+      run: npm run build --prefix server
