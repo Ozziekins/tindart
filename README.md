@@ -78,12 +78,14 @@ In order to run our project you need to tdo the following:
 ```git clone https://github.com/Annesard/create-react-app.git```  
 
 3. To get the server up, in the project directory, `cd server` and run:  
+```npm install```  
 ```npm start```
 
 ### How to run project
 
 In the main project directory you can run:  
-- ```npm install```
+- ```npm install --legacy-peer-deps```
+>  🛠 the dependencies will be fixed soon! 🛠
 
 - ```npm start```
 
