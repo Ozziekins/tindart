@@ -43,7 +43,7 @@ function CommentForm() {
               autoComplete="on"
             />
             <Btns>
-              <CommentBtn type="submit" name="submit" value="Comment" />
+              <CommentBtn type="submit" name="submit" value="CommentButton" />
             </Btns>
           </Form>
         </CardContent>
