@@ -1,7 +1,9 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt');
-const cors = require('cors');
+const express = require('express')
+const morgan = require('morgan')
+const faker = require('faker')
+const bodyParser = require('body-parser')
+const bcrypt = require('bcrypt')
+const cors = require('cors')
 
 const API_ENDPOINT = 'https://api.artic.edu/api/v1/artworks';
 
