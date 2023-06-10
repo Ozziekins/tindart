@@ -1,6 +1,8 @@
 import axios from 'axios'
 
 class AuthService {
+  // for testing on localhost
+  // API_ENDPOINT = 'http://localhost:3003'
   API_ENDPOINT = '/.netlify/functions/tindart-api'
 
   // We will save token in auth service field

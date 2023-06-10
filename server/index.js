@@ -93,10 +93,10 @@ app.post('/signup', (req, res) => {
   }
 })
 
-// app.listen(PORT, () => console.log(`Server is starting from http://localhost:${PORT}`))
+app.listen(PORT, () => console.log(`Server is starting from http://localhost:${PORT}`))
 
-const server = app.listen(PORT, () => {
-  console.log(`Server is starting from http://localhost:${PORT}`);
-});
+// const server = app.listen(PORT, () => {
+//   console.log(`Server is starting from http://localhost:${PORT}`);
+// });
 
-module.exports = server;
+// module.exports = server;
