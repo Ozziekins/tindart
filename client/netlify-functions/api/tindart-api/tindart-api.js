@@ -1,4 +1,4 @@
-const { json } = require('netlify-functions/middleware')
+// const { json } = require('netlify-functions/middleware')
 const faker = require('faker')
 const bcrypt = require('bcrypt')
 const cors = require('cors')
