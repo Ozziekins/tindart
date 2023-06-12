@@ -3,11 +3,8 @@
   to = "/"
   status = 200
 
-[[plugins]]
-  package = "@netlify/plugin-functions"
-
 [functions]
-  directory = "client/netlify/functions" # Path to your functions directory
+  directory = "client/netlify/functions"
 
 [[redirects]]
   from = "/.netlify/functions/*"
