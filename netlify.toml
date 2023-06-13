@@ -7,9 +7,9 @@
   functions = "netlify/functions"
 
 [functions]
-  directory = "netlify/functions/tindart-api"
+  directory = "netlify/functions/"
 
 [[redirects]]
-  from = "/.netlify/functions/tindart-api/*"
-  to = "/netlify/functions/tindart-api/:splat"
+  from = "/.netlify/functions/*"
+  to = "/netlify/functions/:splat"
   status = 200
