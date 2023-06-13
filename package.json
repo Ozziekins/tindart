@@ -12,7 +12,7 @@
     ]
   },
   "bugs": {
-    "url": "https://github.com/Ozziekins/create-react-app/issues"
+    "url": "https://github.com/Ozziekins/tindart/issues"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
@@ -20,12 +20,7 @@
     "@testing-library/user-event": "^14.4.3",
     "ajv": "^8.12.0",
     "axios": "^1.4.0",
-    "bcrypt": "^5.1.0",
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "faker": "^6.6.6",
     "gh-pages": "^5.0.0",
-    "morgan": "^1.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
@@ -47,7 +42,7 @@
       "react-app/jest"
     ]
   },
-  "homepage": "https://github.com/Ozziekins/create-react-app",
+  "homepage": "https://github.com/Ozziekins/tindart",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -68,11 +63,11 @@
     ]
   },
   "main": "src/index.tsx",
-  "name": "create-react-app",
+  "name": "tindart",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ozziekins/create-react-app.git"
+    "url": "git+https://github.com/Ozziekins/tindart.git"
   },
   "scripts": {
     "build": "webpack",
