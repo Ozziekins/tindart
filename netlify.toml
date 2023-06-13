@@ -4,9 +4,9 @@
   status = 200
 
 [functions]
-  directory = "netlify/functions"
+  directory = "netlify/functions/tindart-api"
 
 [[redirects]]
-  from = "/.netlify/functions/*"
-  to = ".netlify/functions/:splat"
+  from = "/.netlify/functions/tindart-api/*"
+  to = "/netlify/functions/tindart-api/:splat"
   status = 200
