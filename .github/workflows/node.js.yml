@@ -24,7 +24,7 @@ jobs:
       run: npm ci --legacy-peer-deps
     
     - name: Install supertest
-      run: npm install --save supertest 
+      run: npm install --save supertest --legacy-peer-deps
 
     - name: Run client tests
       run: npm test
