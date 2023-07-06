@@ -1,4 +1,4 @@
-const express = request('express').default
+const express = require('express').request
 const morgan = require('morgan')
 const faker = require('faker')
 const bodyParser = require('body-parser')
