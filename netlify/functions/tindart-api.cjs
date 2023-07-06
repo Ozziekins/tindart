@@ -91,7 +91,7 @@ app.post('/signup', (req, res) => {
   }
 });
 
-export const handler = async (event) => {
+const handler = async (event) => {
   try {
     if (event.httpMethod === 'GET' && event.path === '/art') {
       const response = {
@@ -178,3 +178,5 @@ export const handler = async (event) => {
     return response;
   }
 };
+
+module.exports = { handler };

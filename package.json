@@ -1,5 +1,4 @@
 {
-  "type":"module",
   "browserslist": {
     "production": [
       ">0.2%",
