@@ -21,10 +21,7 @@ jobs:
         node-version: '16'
 
     - name: Install dependencies
-      run: npm ci --legacy-peer-deps
-    
-    - name: Install supertest
-      run: npm install --save supertest --legacy-peer-deps
+      run: npm install --legacy-peer-deps
 
     - name: Run client tests
       run: npm test
