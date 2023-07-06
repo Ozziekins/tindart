@@ -1,4 +1,4 @@
-// const express = require('express')
+const express = require('express')
 const morgan = require('morgan')
 const faker = require('faker')
 const bodyParser = require('body-parser')
