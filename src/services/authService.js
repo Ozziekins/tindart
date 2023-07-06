@@ -3,7 +3,7 @@ import axios from 'axios'
 class AuthService {
   // for testing on localhost
   // API_ENDPOINT = 'http://localhost:3003'
-  API_ENDPOINT = 'https://tindart.netlify.app/.netlify/functions/tindart-api'
+  // API_ENDPOINT = '/.netlify/functions/tindart-api'
 
   // We will save token in auth service field
   TOKEN
@@ -20,7 +20,7 @@ class AuthService {
 
   async signupUser(login, password) {
     try {
-      const response = await axios.post(`${this.API_ENDPOINT}/signup`, { login, password })
+      const response = await axios.post('/.netlify/functions/tindart-api/signup', { login, password })
 
       if (response.data?.token) {
         this.TOKEN = response.data.token
@@ -35,7 +35,7 @@ class AuthService {
 
   async loginUser(login, password) {
     try {
-      const response = await axios.post(`${this.API_ENDPOINT}/login`, { login, password })
+      const response = await axios.post('/.netlify/functions/tindart-api/login', { login, password })
 
       if (response.data?.token) {
         window.sessionStorage.setItem('Token', response.data.token)

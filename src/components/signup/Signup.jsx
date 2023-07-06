@@ -12,13 +12,13 @@ function Signup() {
   const [password, setPassword] = useState('')
 
   const onSubmit = async (e) => {
-    e.preventDefault()
-
+    e.preventDefault();
+  
     authService
       .signupUser(username, password)
       .then(() => hideSignup())
-      .catch(() => setError(error))
-  }
+      .catch((error) => setError(error.message));
+  }  
 
   return (
     <SignupCard id="signup1">

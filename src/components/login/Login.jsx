@@ -27,16 +27,16 @@ function Login() {
   const [password, setPassword] = useState('')
 
   const onSubmit = async (e) => {
-    e.preventDefault()
-
+    e.preventDefault();
+  
     authService
       .loginUser(username, password)
       .then(() => {
-        window.sessionStorage.setItem('isLoggedIn', true)
-        hideLogin()
-        navigate('/home')
+        window.sessionStorage.setItem('isLoggedIn', true);
+        hideLogin();
+        navigate('/home');
       })
-      .catch(() => setError(error))
+      .catch((error) => setError(error.message));
   }
 
   return (
