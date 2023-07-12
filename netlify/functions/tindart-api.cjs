@@ -77,6 +77,7 @@ app.post('/login', (req, res) => {
 });
 
 app.post('/signup', (req, res) => {
+  console.log("entered /signup");
   if (req.body.login in users) {
     res.status(400).json({
       message: 'Username already exists',
@@ -142,7 +143,9 @@ const handler = async (event) => {
     }
 
     if (event.httpMethod === 'POST' && event.path === '/signup') {
+      console.log("entered POST && /signup");
       const { login, password } = JSON.parse(event.body);
+      console.log(login)
       if (login in users) {
         const response = {
           statusCode: 400,

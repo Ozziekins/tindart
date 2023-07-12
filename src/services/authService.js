@@ -20,7 +20,7 @@ class AuthService {
 
   async signupUser(login, password) {
     try {
-      const response = await axios.post('https://tindart.netlify.app/auth/signup', { login, password })
+      const response = await axios.post('/.netlify/functions/signup', { login, password })
 
       if (response.data?.token) {
         this.TOKEN = response.data.token
@@ -35,7 +35,7 @@ class AuthService {
 
   async loginUser(login, password) {
     try {
-      const response = await axios.post('https://tindart.netlify.app/auth/login', { login, password })
+      const response = await axios.post('/.netlify/functions/login', { login, password })
 
       if (response.data?.token) {
         window.sessionStorage.setItem('Token', response.data.token)
