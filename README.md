@@ -15,7 +15,7 @@
 <br />
 <p align="center">
   <a>
-    <img src="./client/src/images/Logo.png" alt="Logo">
+    <img src="./src/images/Logo.png" alt="Logo">
   </a>
 
 <h1 align="center">Frontend Web Development Project</h1>
