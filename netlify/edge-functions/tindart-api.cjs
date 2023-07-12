@@ -107,4 +107,6 @@ const handler = async (event) => {
   }
 };
 
-module.exports = { handler };
+const config = { path: "/auth" };
+
+module.exports = { handler, config };
