@@ -8,7 +8,7 @@ exports.handler = async function(event, context) {
   }
 
   const { login, password } = JSON.parse(event.body);
-
+  
   if (login in users) {
     return {
       statusCode: 400,
@@ -20,7 +20,8 @@ exports.handler = async function(event, context) {
       body: JSON.stringify({ message: 'Username and password required' }),
     };
   } else {
-    users[login] = password;
+    const hash = await bcrypt.hash(password, SALT_ROUNDS);
+    users[login] = hash;
     return {
       statusCode: 200,
       body: JSON.stringify({}),
