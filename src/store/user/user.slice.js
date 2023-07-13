@@ -3,9 +3,9 @@ import authService from '../../services/authService';
 import ProfilePhoto from '../../images/Profile photo PROFILE.png';
 
 const initialState = {
-  username: '',
-  displayName: '',
-  description: '',
+  username: 'Guest',
+  displayName: 'guest',
+  description: 'guest',
   photo: ProfilePhoto
 };
 

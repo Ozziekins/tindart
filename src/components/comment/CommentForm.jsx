@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch} from 'react-redux'
+import { useDispatch, useSelector} from 'react-redux'
 import { Btns, Card, CardContent, Form, FormContent, CommentCard, CommentBtn } from './Comment.styles'
 import { commentActions } from '../../store/comment/comment.slice'
+import authService from '../../services/authService'
 
 function hideComment() {
   document.getElementById('comment1').style.display = 'none'
@@ -12,6 +13,8 @@ function CommentForm() {
   const navigate = useNavigate()
   const [comm, setComm] = useState('')
   const dispatch = useDispatch()
+  const login = useSelector((state) => state.user.username);
+  const { commentTexts } = useSelector((state) => state.comment)
 
   const onSubmit = async (e) => {
     e.preventDefault()
@@ -20,7 +23,8 @@ function CommentForm() {
         commentTexts: comm
       })
     )
-
+    authService.submitComments(login, commentTexts);
+    setComm('')
     hideComment()
     navigate('/feed')
   }
@@ -43,7 +47,7 @@ function CommentForm() {
               autoComplete="on"
             />
             <Btns>
-              <CommentBtn type="submit" name="submit" value="CommentButton" />
+              <CommentBtn type="submit" name="submit" value="Comment" />
             </Btns>
           </Form>
         </CardContent>

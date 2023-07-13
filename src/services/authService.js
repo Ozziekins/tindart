@@ -152,6 +152,31 @@ class AuthService {
     }
   }
 
+  async submitComments(login, comments) {
+    try {
+      const response = await axios.post('/.netlify/functions/save-comments', { login, comments });
+
+      if (response.data?.message) {
+        console.log('Comments submitted successfully');
+      }
+    } catch (error) {
+      console.error('Failed to submit comments:', error);
+      throw error;
+    }
+  }
+
+  async getUserComments(login) {
+    try {
+      const response = await axios.get('/.netlify/functions/fetch-comments', {
+        params: { login },
+      });
+      return response;
+    } catch (error) {
+      console.error('Failed to fetch user comments:', error);
+      throw error;
+    }
+  }
+
 }
 
 const authService = new AuthService()

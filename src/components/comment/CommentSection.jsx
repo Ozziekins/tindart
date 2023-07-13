@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   CommentAndAuthor,
   CommentAuthor,
@@ -7,11 +7,29 @@ import {
   CommentUserPhoto,
   SingleComment
 } from './Comment.styles'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import authService from '../../services/authService'
 
 function CommentSection() {
-  const { commentTexts } = useSelector((state) => state.comment)
-  const { username, photo } = useSelector((state) => state.user)
+  // const { commentTexts } = useSelector((state) => state.comment)
+  const { displayName, photo } = useSelector((state) => state.user)
+
+  const [commentTexts, setCommentTexts] = useState([]);
+  const login = useSelector((state) => state.user.username);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await authService.getUserComments(login);
+        const { comments } = response.data;
+        setCommentTexts(comments);
+      } catch (error) {
+        console.error('Failed to fetch comments:', error);
+      }
+    };
+
+    fetchData();
+  }, [login]);
 
   return (
     <CommentMenu>
@@ -25,7 +43,7 @@ function CommentSection() {
               objectFit: 'contain'
             }}
           />
-          <CommentAuthor> {username}: </CommentAuthor>
+          <CommentAuthor> {displayName}: </CommentAuthor>
           <SingleComment> {comm} </SingleComment>
         </CommentAndAuthor>
       ))}
