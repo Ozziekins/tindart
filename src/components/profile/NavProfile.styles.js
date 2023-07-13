@@ -22,7 +22,8 @@ export const Card = styled.div`
   background: #ffffff;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  left: 60%;
+  left: ${props => props.left};
+  top: ${props => props.top};
   border-radius: 20px;
   height: fit-content;
   width: fit-content;

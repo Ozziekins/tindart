@@ -105,7 +105,7 @@ const Search = React.memo(() => {
           objectFit: 'contain'
         }}
       />
-      <NavProfile id="profile1" />
+      <NavProfile id="profile1" currentPage="search" />
       {searchdata.map((searchItem) => (
         <div key={searchItem.id}>
           <Post>

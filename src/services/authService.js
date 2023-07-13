@@ -53,6 +53,37 @@ class AuthService {
   logout() {
     this.TOKEN = undefined
   }
+
+  async submitProfileChanges(displayName, description, photo) {
+    const response = await fetch('/.netlify/functions/update-profile', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        displayName,
+        description,
+        photo
+      }),
+    });
+  
+    if (!response.ok) {
+      console.error('Profile update failed');
+    }
+  }
+
+  async getUserData(login) {
+    try {
+      const response = await axios.get('/.netlify/functions/get-user-data', {
+      params: { login },
+    });
+    return response;
+    } catch (error) {
+    console.error('Failed to fetch user data:', error);
+    throw error;
+    }
+  }
+
 }
 
 const authService = new AuthService()

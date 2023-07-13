@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom';
 import {
   Btns,
   Card,
@@ -13,7 +14,8 @@ import {
   UploadBackground
 } from './EditProfile.styles'
 import ProfilePhoto from '../../images/Profile photo PROFILE.png'
-import { useDispatch } from 'react-redux'
+import authService from '../../services/authService'
+import { useDispatch, useSelector } from 'react-redux'
 import { userActions } from '../../store/user/user.slice'
 import { useNavigate } from 'react-router'
 
@@ -22,25 +24,48 @@ function hideEdit() {
 }
 
 function EditProfile() {
-  const [username, setUsername] = useState('')
+  const [displayName, setDisplayName] = useState('')
   const [description, setDescription] = useState('')
   const [uploadedImg, setUploadedImg] = useState(ProfilePhoto)
   const navigate = useNavigate()
 
   const dispatch = useDispatch()
 
+  const username = useSelector((state) => state.user.username);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await authService.getUserData(username);
+        const { displayName, description, photo } = response.data;
+        setDisplayName(displayName);
+        setDescription(description);
+        setUploadedImg(photo);
+      } catch (error) {
+        console.error('Failed to fetch user data:', error);
+      }
+    };
+
+    fetchData();
+  }, [username]);
+
   const onSubmit = async (e) => {
     e.preventDefault()
 
     dispatch(
-      userActions.setUser({
-        username: username,
-        description: description,
-        photo: uploadedImg
-      })
-    )
-    hideEdit()
-    navigate('/profile')
+      userActions.fetchUserData(username)
+    );
+
+    authService
+      .submitProfileChanges(username, displayName, description, uploadedImg)
+      .then(() => {
+        hideEdit()
+        navigate('/profile')}
+        )
+      .catch((error) => setError(error.message));
+
+    // hideEdit()
+    // navigate('/profile')
   }
 
   const uploadedImage = React.useRef(null)
@@ -92,11 +117,11 @@ function EditProfile() {
               <FormContent
                 id="username"
                 name="username"
-                value={username}
+                value={displayName}
                 label="Username"
                 placeholder="Enter username"
                 rules={{ required: { message: 'Username is required', value: true } }}
-                onChange={({ target }) => setUsername(target.value)}
+                onChange={({ target }) => setDisplayName(target.value)}
                 autoComplete="on"
               />
               <label htmlFor="description" style={{ paddingTop: '13px', color: '#000000' }}>

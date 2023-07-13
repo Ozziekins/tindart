@@ -76,7 +76,7 @@ function Auction() {
           objectFit: 'contain'
         }}
       />
-      <NavProfile id="profile1" />
+      <NavProfile id="profile1" currentPage="auction" />
       <AuctionDiv>
         <ArtInfo>
           <ArtPiece

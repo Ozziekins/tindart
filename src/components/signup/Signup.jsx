@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import authService from '../../services/authService'
+import Loading from '../loading/Loading';
 import { Btns, Card, CardContent, CardTitle, Close, Form, FormContent, SignupCard, SignUpBtn, ErrorAlert } from './Signup.styles'
 
 export function hideSignup() {
@@ -10,14 +11,18 @@ function Signup() {
   const [error, setError] = useState()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
+    setIsLoading(true);
   
     authService
       .signupUser(username, password)
       .then(() => hideSignup())
-      .catch((error) => setError(error.message));
+      .catch((error) => setError(error.message))
+      .finally(() => setIsLoading(false));
   }  
 
   return (
@@ -63,6 +68,7 @@ function Signup() {
           </Form>
         </CardContent>
       </Card>
+      {isLoading && <Loading />}
     </SignupCard>
   )
 }

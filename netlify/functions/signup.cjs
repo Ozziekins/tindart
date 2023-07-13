@@ -4,6 +4,8 @@ const SALT_ROUNDS = 3;
 const LOGIN_SEPARATOR = ';';
 
 const url = process.env.MONGODB_URL;
+const defaultProfilePhoto = 'profile-photo.png'
+
 
 const dbName = 'tindart';
 
@@ -36,6 +38,9 @@ exports.handler = async function(event, context) {
     await users.insertOne({
       login,
       password: hashedPassword,
+      displayName: 'Display Name ',
+      description: 'enter a description here :3 and upload a new profile photo by clicking on the picture holder',
+      photo: defaultProfilePhoto
     });
 
     const token = Buffer.from(`${login}${LOGIN_SEPARATOR}${hashedPassword}`).toString('base64');

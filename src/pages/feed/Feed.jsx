@@ -127,7 +127,7 @@ function Feed() {
             objectFit: 'contain'
           }}
         />
-        <NavProfile id="profile1" />
+        <NavProfile id="profile1" currentPage="feed" />
       </div>
       {items.slice(0, 15).map((item) => (
         <div key={item.id}>

@@ -13,11 +13,12 @@ import {
   UsernameProfile
 } from './Profile.styles'
 import EditProfile from '../../components/profile/EditProfile'
-
 import Logout from '../../components/logout/Logout'
 import Uploads from '../../components/uploads/Uploads'
 import Favourites from '../../components/favourites/Favourites'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
+import { userActions } from '../../store/user/user.slice';
+
 
 function showEdit() {
   document.getElementById('edit1').style.display = 'block'
@@ -38,7 +39,7 @@ function showFavourites() {
 }
 
 function Profile() {
-  const { username, description, photo } = useSelector((state) => state.user)
+  const { displayName, description, photo } = useSelector((state) => state.user)
 
   return (
     <div>
@@ -53,7 +54,7 @@ function Profile() {
       />
       <Logout id="logout1" />
       <ProfileUser style={{ backgroundImage: 'url(' + photo + ')', backgroundSize: '150px', objectFit: 'contain' }} />
-      <UsernameProfile id="user-name"> {username} </UsernameProfile>
+      <UsernameProfile id="user-name"> {displayName} </UsernameProfile>
       <EditProfileIcon onClick={showEdit} />
       <EditProfile id="edit1" />
       <DescProfile id="user-desc"> {description} </DescProfile>

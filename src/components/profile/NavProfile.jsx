@@ -12,10 +12,23 @@ function logoutUser() {
   hideProfile()
 }
 
-function NavProfile() {
+function NavProfile(props) {
+  let leftValue, topValue;
+
+  if (props.currentPage === 'auction') {
+    leftValue = '90%';
+    topValue = '0%';
+  } else if (props.currentPage === 'feed' || props.currentPage === 'swipe') {
+    leftValue = '75%';
+    topValue = '0';
+  } else if (props.currentPage === 'home') {
+    leftValue = '80%';
+    topValue = '0%';
+  }
+  
   return (
     <GotoProfileCard id="profile1">
-      <Card>
+      <Card left={leftValue} top={topValue}>
         <CardContent>
           <Close onClick={hideProfile} title="Hide Profile">
             &times;

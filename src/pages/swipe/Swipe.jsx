@@ -108,7 +108,7 @@ function Swipe() {
           objectFit: 'contain'
         }}
       />
-      <NavProfile id="profile1" />
+      <NavProfile id="profile1" currentPage="swipe" />
 
       <div id="viewport">
         {/*

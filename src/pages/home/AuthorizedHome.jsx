@@ -36,7 +36,7 @@ function AuthorizedHome() {
               objectFit: 'contain'
             }}
           />
-          <NavProfile id="profile1" />
+          <NavProfile id="profile1" currentPage="home" />
         </ul>
         <SwipeArt>Swipe Art</SwipeArt>
       </Container>

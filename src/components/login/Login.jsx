@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import authService from '../../services/authService'
+import Loading from '../loading/Loading';
+import { setUser } from '../../store/user/user.slice'
 import {
   Btns,
   Card,
@@ -15,6 +17,7 @@ import {
   ForgotPassA,
   ErrorAlert
 } from './Login.styles'
+import { useDispatch } from 'react-redux'
 
 export function hideLogin() {
   document.getElementById('login1').style.display = 'none'
@@ -25,18 +28,30 @@ function Login() {
   const [error, setError] = useState()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+
+
+  const dispatch = useDispatch();
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
+    setIsLoading(true);
   
     authService
       .loginUser(username, password)
       .then(() => {
         window.sessionStorage.setItem('isLoggedIn', true);
         hideLogin();
+        dispatch(
+          setUser({
+            username: username
+          })
+        );
         navigate('/home');
       })
-      .catch((error) => setError(error.message));
+      .catch((error) => setError(error.message))
+      .finally(() => setIsLoading(false));
   }
 
   return (
@@ -85,6 +100,7 @@ function Login() {
           </Form>
         </CardContent>
       </Card>
+      {isLoading && <Loading />}
     </LoginCard>
   )
 }
