@@ -13,6 +13,8 @@ import { getImage } from './pages/feed/Feed'
 import { mount, configure } from 'enzyme'
 import Searchbutton from './components/searchbutton/Searchbutton'
 import CommentForm from './components/comment/CommentForm'
+import { Provider } from 'react-redux';
+import store from './store';
 import { commentActions } from './store/comment/comment.slice';
 import NavProfile, { hideProfile } from './components/profile/NavProfile'
 import SignupCard, { hideSignup } from './components/signup/Signup'
@@ -92,7 +94,12 @@ jest.mock('react-router-dom');
 
 describe('CommentForm', () => {
   it('updates the comment input correctly', () => {
-    const { container } = render(<CommentForm />);
+    
+    const { container } = render(
+      <Provider store={store}>
+        <CommentForm />
+      </Provider>
+    );
     
     const commentInput = container.querySelector('input[name="comment"]');
     
