@@ -27,6 +27,7 @@ import { favouriteActions } from '../../store/favourite/favourite.slice'
 import CommentSection from '../../components/comment/CommentSection'
 import Searchbutton from '../../components/searchbutton/Searchbutton'
 import NavProfile from '../../components/profile/NavProfile'
+import authService from '../../services/authService'
 
 let MAIN_URL = 'https://api.artic.edu/api/v1/artworks'
 
@@ -48,6 +49,8 @@ function showProfile() {
 
 function Feed() {
   const { photo } = useSelector((state) => state.user)
+  const login = useSelector((state) => state.user.username);
+  const { favouriteImages } = useSelector((state) => state.favourite);
 
   const [error] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
@@ -64,6 +67,11 @@ function Feed() {
     event.target.style.backgroundSize = `20px`
 
     dispatch(favouriteActions.setFavourites({ favouriteImages: favouriteUrl }))
+
+    // const favouriteImg = favouriteImages.join(',');
+    // console.log(favouriteImg)
+
+    authService.submitFaves(login, favouriteImages);
   }
 
   const fetchFeedResults = (MAIN_URL) => {

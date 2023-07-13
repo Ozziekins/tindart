@@ -1,10 +1,28 @@
-import React from 'react'
-import { FavDiv, FavWrapper, OuterWrapper } from './Favourites.styles'
-import { UploadTemplate } from '../uploads/Uploads.styles'
-import { useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react';
+import { FavDiv, FavWrapper, OuterWrapper } from './Favourites.styles';
+import { UploadTemplate } from '../uploads/Uploads.styles';
+import { useSelector } from 'react-redux';
+import authService from '../../services/authService';
 
 function Favourites() {
-  const { favouriteImages } = useSelector((state) => state.favourite)
+  // const { favouriteImages } = useSelector((state) => state.favourite)
+
+  const [favouriteImages, setFavouriteImages] = useState([]);
+  const login = useSelector((state) => state.user.username);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await authService.getUserFaves(login);
+        const { favourites } = response.data;
+        setFavouriteImages(favourites);
+      } catch (error) {
+        console.error('Failed to fetch favourite images:', error);
+      }
+    };
+
+    fetchData();
+  }, [login]);
 
   return (
     <FavDiv id="favourites1">
@@ -16,7 +34,7 @@ function Favourites() {
         ))}
       </OuterWrapper>
     </FavDiv>
-  )
+  );
 }
 
-export default Favourites
+export default Favourites;

@@ -88,6 +88,70 @@ class AuthService {
     }
   }
 
+  async submitFaves(login, favourites) {
+    try {
+      const response = await axios.post('/.netlify/functions/save-favourites', { login, favourites });
+
+      if (response.data?.message) {
+        console.log('Favourites saved successfully');
+      }
+    } catch (error) {
+      console.error('Failed to submit favourites:', error);
+      throw error;
+    }
+  }
+
+  async getUserFaves(login) {
+    try {
+      const response = await axios.get('/.netlify/functions/fetch-favourites', {
+        params: { login },
+      });
+      return response;
+    } catch (error) {
+      console.error('Failed to fetch user favourites:', error);
+      throw error;
+    }
+  }
+
+
+  async submitUploads(login, uploads) {
+    try {
+      const response = await axios.post('/.netlify/functions/save-uploads', { login, uploads });
+
+      if (response.data?.message) {
+        console.log('Uploads saved successfully');
+      }
+    } catch (error) {
+      console.error('Failed to submit uploads:', error);
+      throw error;
+    }
+  }
+
+  async getUserUploads(login) {
+    try {
+      const response = await axios.get('/.netlify/functions/fetch-uploads', {
+        params: { login },
+      });
+      return response;
+    } catch (error) {
+      console.error('Failed to fetch user uploads:', error);
+      throw error;
+    }
+  }
+
+  async clearUploads(login) {
+    try {
+      const response = await axios.post('/.netlify/functions/remove-uploads', { login });
+
+      if (response.data?.message) {
+        console.log('Uploads cleared successfully');
+      }
+    } catch (error) {
+      console.error('Failed to clear uploads:', error);
+      throw error;
+    }
+  }
+
 }
 
 const authService = new AuthService()

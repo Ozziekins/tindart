@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   DescProfile,
   EditProfileIcon,
@@ -16,6 +16,7 @@ import Logout from '../../components/logout/Logout'
 import Uploads from '../../components/uploads/Uploads'
 import Favourites from '../../components/favourites/Favourites'
 import { useSelector, useDispatch } from 'react-redux';
+import authService from '../../services/authService'
 import { userActions } from '../../store/user/user.slice';
 
 
@@ -39,6 +40,28 @@ function showFavourites() {
 
 function Profile() {
   const { displayName, description, photo } = useSelector((state) => state.user)
+
+  // const [displayName, setDisplayName] = useState([]);
+  // const [description, setDescription] = useState([]);
+  // const [photo, setPhoto] = useState([]);
+
+  // const login = useSelector((state) => state.user.username);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await authService.getUserData(login);
+  //       const { displayName, description, photo } = response.data;
+  //       setDisplayName(displayName);
+  //       setDescription(description);
+  //       setPhoto(photo);
+  //     } catch (error) {
+  //       console.error('Failed to fetch user data:', error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, [login]);
 
   return (
     <div>

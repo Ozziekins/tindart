@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   UploadTemplate,
   DeleteBtn,
@@ -12,9 +12,13 @@ import {
 import ImageUploading from 'react-images-uploading'
 import { useDispatch, useSelector } from 'react-redux'
 import { uploadActions } from '../../store/uploads/uploads.slice'
+import authService from '../../services/authService'
 
 function Uploads() {
+  const [uploadedImgs, setUploadedImgs] = useState([]);
   const { uploadedImages } = useSelector((state) => state.upload)
+  const login = useSelector((state) => state.user.username);
+
   const dispatch = useDispatch()
 
   const [images, setImages] = React.useState([])
@@ -24,7 +28,26 @@ function Uploads() {
     // console.log(imageList, addUpdateIndex)
     setImages(imageList)
     dispatch(uploadActions.setUploads({ uploadedImages: imageList }))
+    authService.submitUploads(login, uploadedImages);
   }
+
+  const handleClearUploads = () => {
+    authService.clearUploads(login);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await authService.getUserUploads(login);
+        const { uploads } = response.data;
+        setUploadedImgs(uploads);
+      } catch (error) {
+        console.error('Failed to fetch uploaded images:', error);
+      }
+    };
+
+    fetchData();
+  }, [login]);
 
   return (
     <UploadsDiv id="uploads1">
@@ -37,13 +60,13 @@ function Uploads() {
                 Upload
               </UploadBtn>
               &nbsp;
-              <UploadBtn onClick={onImageRemoveAll}>Clear uploads</UploadBtn>
+              <UploadBtn onClick={handleClearUploads}>Clear uploads</UploadBtn>
             </BtnsWrapper>
             <ImgsWrapper>
-              {uploadedImages.map((image, index) => (
+              {uploadedImgs.map((image, index) => (
                 <ImageBtnWrapper key={index} className="image-item">
                   <UploadTemplate src={image.data_url} />
-                  <DeleteBtn onClick={() => onImageRemove(index)}>&times;</DeleteBtn>
+                  {/* <DeleteBtn onClick={() => onImageRemove(index)}>&times;</DeleteBtn> */}
                 </ImageBtnWrapper>
               ))}
             </ImgsWrapper>
