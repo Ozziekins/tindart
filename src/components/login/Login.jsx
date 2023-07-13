@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import authService from '../../services/authService'
 import Loading from '../loading/Loading';
 import { setUser } from '../../store/user/user.slice'
+import { useDispatch } from 'react-redux'
 import {
   Btns,
   Card,
@@ -17,7 +18,6 @@ import {
   ForgotPassA,
   ErrorAlert
 } from './Login.styles'
-import { useDispatch } from 'react-redux'
 
 export function hideLogin() {
   document.getElementById('login1').style.display = 'none'
@@ -30,7 +30,6 @@ function Login() {
   const [password, setPassword] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
-
   const dispatch = useDispatch();
 
   const onSubmit = async (e) => {
@@ -39,7 +38,7 @@ function Login() {
     setIsLoading(true);
   
     authService
-      .loginUser(username, password)
+      .loginUser(username, password, dispatch)
       .then(() => {
         window.sessionStorage.setItem('isLoggedIn', true);
         hideLogin();

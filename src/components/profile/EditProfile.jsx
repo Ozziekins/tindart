@@ -13,6 +13,7 @@ import {
   ProfileUser,
   UploadBackground
 } from './EditProfile.styles'
+// import Loading from '../loading/Loading'
 import ProfilePhoto from '../../images/Profile photo PROFILE.png'
 import authService from '../../services/authService'
 import { useDispatch, useSelector } from 'react-redux'
@@ -27,16 +28,19 @@ function EditProfile() {
   const [displayName, setDisplayName] = useState('')
   const [description, setDescription] = useState('')
   const [uploadedImg, setUploadedImg] = useState(ProfilePhoto)
+  // const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate()
 
   const dispatch = useDispatch()
 
-  const username = useSelector((state) => state.user.username);
+  // setIsLoading(true);
+
+  const login = useSelector((state) => state.user.username);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await authService.getUserData(username);
+        const response = await authService.getUserData(login);
         const { displayName, description, photo } = response.data;
         setDisplayName(displayName);
         setDescription(description);
@@ -47,22 +51,23 @@ function EditProfile() {
     };
 
     fetchData();
-  }, [username]);
+  }, [login]);
 
   const onSubmit = async (e) => {
     e.preventDefault()
 
     dispatch(
-      userActions.fetchUserData(username)
+      userActions.fetchUserData(login)
     );
 
     authService
-      .submitProfileChanges(username, displayName, description, uploadedImg)
+      .submitProfileChanges(login, displayName, description, uploadedImg)
       .then(() => {
         hideEdit()
         navigate('/profile')}
         )
-      .catch((error) => setError(error.message));
+      .catch((error) => setError(error.message))
+      // .finally(() => setIsLoading(false));
 
     // hideEdit()
     // navigate('/profile')
@@ -144,6 +149,7 @@ function EditProfile() {
             </Form>
           </CardContent>
         </Card>
+      {/* {isLoading && <Loading />} */}
       </EditCard>
     </div>
   )

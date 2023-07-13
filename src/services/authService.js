@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { userActions } from '../store/user/user.slice';
 
 class AuthService {
   // for testing on localhost
@@ -33,13 +34,15 @@ class AuthService {
     }
   }
 
-  async loginUser(login, password) {
+  async loginUser(login, password, dispatch) {
     try {
       const response = await axios.post('/.netlify/functions/login', { login, password })
 
       if (response.data?.token) {
         window.sessionStorage.setItem('Token', response.data.token)
         this.TOKEN = response.data.token
+
+        dispatch(userActions.fetchUserData(login));
       }
     } catch (e) {
       if (e.response) {
@@ -54,13 +57,14 @@ class AuthService {
     this.TOKEN = undefined
   }
 
-  async submitProfileChanges(displayName, description, photo) {
+  async submitProfileChanges(login, displayName, description, photo) {
     const response = await fetch('/.netlify/functions/update-profile', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        login,
         displayName,
         description,
         photo

@@ -38,7 +38,7 @@ exports.handler = async function(event, context) {
     await users.insertOne({
       login,
       password: hashedPassword,
-      displayName: 'Display Name ',
+      displayName: 'Display Name',
       description: 'enter a description here :3 and upload a new profile photo by clicking on the picture holder',
       photo: defaultProfilePhoto
     });

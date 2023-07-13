@@ -4,8 +4,8 @@ import ProfilePhoto from '../../images/Profile photo PROFILE.png';
 
 const initialState = {
   username: '',
-  displayName: 'Display name',
-  description: 'add your description here',
+  displayName: '',
+  description: '',
   photo: ProfilePhoto
 };
 
