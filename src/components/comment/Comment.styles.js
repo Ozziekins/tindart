@@ -119,7 +119,7 @@ export const CommentMenu = styled.span`
   width: 350px;
   position: fixed;
   z-index: 1;
-  top: 15%;
+  top: 250px;
   right: 0;
   overflow-x: hidden;
   // padding-top: 100px;

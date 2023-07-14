@@ -95,6 +95,7 @@ function Feed() {
     console.log(MAIN_URL)
 
     fetchFeedResults(MAIN_URL)
+    window.scrollTo(0, 0); 
   }
 
   const gotoPrevPage = () => {
@@ -102,6 +103,7 @@ function Feed() {
     console.log(MAIN_URL)
 
     fetchFeedResults(MAIN_URL)
+    window.scrollTo(0, 0); 
   }
 
   useEffect(() => {
@@ -143,6 +145,7 @@ function Feed() {
         />
         <NavProfile id="profile1" currentPage="feed" />
       </div>
+      <div>
       {items.slice(0, 15).map((item) => (
         <div key={item.id}>
           <Post>
@@ -175,13 +178,28 @@ function Feed() {
               </div>
             </PostUserNameTime>
           </Post>
-          <CommentForm id="comment1" />
+          <CommentForm id={`comment${item.id}`}/>
         </div>
       ))}
       <div>
         <CommentSection />
       </div>
-      <div style={{ width: '100%', height: '100%', display: 'flex', position: 'fixed', top: '90%', right: '35%' }}>
+      </div>
+      <div
+        style={{ 
+          width: '100%', 
+          height: '100%', 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center', 
+          position: 'relative', 
+          bottom: '0',
+          left: '0',
+          right: '0',
+          marginTop: '15%',
+          marginBottom: '5%'
+        }}
+      >
         <PrevPageBtn onClick={gotoPrevPage}> Prev </PrevPageBtn>
         <NextPageBtn onClick={gotoNextPage}> Next </NextPageBtn>
       </div>

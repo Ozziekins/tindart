@@ -12,7 +12,7 @@ export default createGlobalStyle`
 
 export const Post = styled.div`
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 10%;
 `
 
 export const User = styled.div`
@@ -209,7 +209,8 @@ export const NextPageBtn = styled.div`
   margin-left: 10px;
   margin-right: auto;
   margin-top: 50px;
-  padding: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
 `
 
 export const PrevPageBtn = styled.div`
@@ -228,5 +229,6 @@ export const PrevPageBtn = styled.div`
   margin-left: auto;
   margin-right: 10px;
   margin-top: 50px;
-  padding: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
 `

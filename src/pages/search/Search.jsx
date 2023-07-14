@@ -144,7 +144,7 @@ const Search = React.memo(() => {
               </div>
             </PostUserNameTime>
           </Post>
-          <CommentForm id="comment1" />
+          <CommentForm id={`comment${searchItem.id}`} />
         </div>
       ))}
       <div>
