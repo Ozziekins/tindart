@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector} from 'react-redux'
 import { Btns, Card, CardContent, Form, FormContent, CommentCard, CommentBtn } from './Comment.styles'
@@ -29,9 +29,24 @@ function CommentForm() {
     navigate('/feed')
   }
 
+  const commentRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (commentRef.current && !commentRef.current.contains(event.target)) {
+      hideComment();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <CommentCard id="comment1">
-      <Card>
+      <Card ref={commentRef}>
         <CardContent>
           <Form onSubmit={onSubmit}>
             <label htmlFor="comment" style={{ paddingTop: '13px', color: '#ABAAAA' }}>
