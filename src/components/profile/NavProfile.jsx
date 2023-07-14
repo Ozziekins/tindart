@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Card, CardContent, CardText, CardTextContent, Close, GotoProfileCard } from './NavProfile.styles'
 import authService from '../../services/authService'
 
@@ -13,6 +13,21 @@ function logoutUser() {
 }
 
 function NavProfile(props) {
+  const profileRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (profileRef.current && !profileRef.current.contains(event.target)) {
+      hideProfile();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   let leftValue, topValue;
 
   if (props.currentPage === 'auction') {
@@ -28,7 +43,7 @@ function NavProfile(props) {
   
   return (
     <GotoProfileCard id="profile1">
-      <Card left={leftValue} top={topValue}>
+      <Card left={leftValue} top={topValue} ref={profileRef}>
         <CardContent>
           <Close onClick={hideProfile} title="Hide Profile">
             &times;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import authService from '../../services/authService'
 import Loading from '../loading/Loading';
@@ -53,9 +53,24 @@ function Login() {
       .finally(() => setIsLoading(false));
   }
 
+  const loginRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (loginRef.current && !loginRef.current.contains(event.target)) {
+      hideLogin();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <LoginCard id="login1">
-      <Card>
+      <Card ref={loginRef}>
         <CardContent>
           <Close onClick={hideLogin} title="Close Login">
             &times;

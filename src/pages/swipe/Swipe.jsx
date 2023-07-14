@@ -23,8 +23,14 @@ import { useNavigate } from 'react-router'
 import { auctionActions } from '../../store/auction/auction.slice'
 
 function showProfile() {
-  document.getElementById('profile1').style.display = 'block'
+  const profileElement = document.getElementById('profile1');
+  if (profileElement.style.display === 'block') {
+    profileElement.style.display = 'none';
+  } else {
+    profileElement.style.display = 'block';
+  }
 }
+
 
 function getImage(imageId) {
   return `https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg`

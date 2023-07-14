@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import authService from '../../services/authService'
 import Loading from '../loading/Loading';
 import { Btns, Card, CardContent, CardTitle, Close, Form, FormContent, SignupCard, SignUpBtn, ErrorAlert } from './Signup.styles'
@@ -23,11 +23,27 @@ function Signup() {
       .then(() => hideSignup())
       .catch((error) => setError(error.message))
       .finally(() => setIsLoading(false));
-  }  
+  }
+
+  const signupRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (signupRef.current && !signupRef.current.contains(event.target)) {
+      hideSignup();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
 
   return (
     <SignupCard id="signup1">
-      <Card>
+      <Card ref={signupRef}>
         <CardContent>
           <Close onClick={hideSignup} title="Close Signup">
             &times;

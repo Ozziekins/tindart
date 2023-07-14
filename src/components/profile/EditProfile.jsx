@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom';
 import {
   Btns,
@@ -90,10 +90,25 @@ function EditProfile() {
     }
   }
 
+  const editRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (editRef.current && !editRef.current.contains(event.target)) {
+      hideEdit();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <div>
       <EditCard id="edit1">
-        <Card>
+        <Card ref={editRef}>
           <CardContent>
             <CardTitle>
               <h2>Edit your profile</h2>

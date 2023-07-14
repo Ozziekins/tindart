@@ -4,8 +4,14 @@ import { useSelector } from 'react-redux'
 import NavProfile from '../../components/profile/NavProfile'
 
 function showProfile() {
-  document.getElementById('profile1').style.display = 'block'
+  const profileElement = document.getElementById('profile1');
+  if (profileElement.style.display === 'block') {
+    profileElement.style.display = 'none';
+  } else {
+    profileElement.style.display = 'block';
+  }
 }
+
 
 function AuthorizedHome() {
   const { photo } = useSelector((state) => state.user)

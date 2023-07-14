@@ -44,8 +44,14 @@ function showComment() {
 }
 
 function showProfile() {
-  document.getElementById('profile1').style.display = 'block'
+  const profileElement = document.getElementById('profile1');
+  if (profileElement.style.display === 'block') {
+    profileElement.style.display = 'none';
+  } else {
+    profileElement.style.display = 'block';
+  }
 }
+
 
 function Feed() {
   const { photo } = useSelector((state) => state.user)
