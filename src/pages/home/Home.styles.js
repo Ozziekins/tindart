@@ -17,6 +17,11 @@ export const GlobalStyle = createGlobalStyle`
     }
 `
 
+export const HeaderWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const NoDecorLink = styled(Link)`
   text-decoration: none;
   color: #ffffff;
@@ -63,6 +68,7 @@ export const Logo = styled.div`
 export const LoginButton = styled.button`
   float: right;
   width: 88px;
+  height: 42px;
   text-align: center;
   margin-right: 30px;
   padding: 10px;
@@ -95,7 +101,7 @@ export const SwipeArt = styled.div`
 `
 
 export const SignUp = styled.div`
-  position: absolute;
+  // position: absolute;
   width: 189px;
   height: 55px;
   left: 770px;
@@ -111,6 +117,35 @@ export const SignUp = styled.div`
 
   text-align: center;
   padding-top: 20px;
+`
+
+export const Guest = styled.div`
+  // position: absolute;
+  width: 189px;
+  height: 55px;
+  left: 770px;
+  top: 611px;
+  background: #6c4125;
+  border-radius: 50px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+
+  color: #ffffff;
+
+  text-align: center;
+  padding-top: 20px;
+  text-decoration: none;
+`
+
+export const SignUpOpts = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 35%;
+  margin-left: 20%;
+  margin-right: 15%;
 `
 
 export const ContactLink = styled.a`

@@ -1,7 +1,8 @@
 import React from 'react'
 import Signup from '../../components/signup/Signup'
-import { Container, GlobalStyle, LoginButton, Logo, SignUp, SwipeArt } from './Home.styles'
+import { Container, Guest, GlobalStyle, HeaderWrapper, LoginButton, Logo, SignUp, SignUpOpts, SwipeArt } from './Home.styles'
 import Login from '../../components/login/Login'
+import { Link } from 'react-router-dom';
 
 function showLogin() {
   document.getElementById('login1').style.display = 'block'
@@ -16,11 +17,16 @@ function WelcomeHome() {
     <div>
       <Container>
         <GlobalStyle />
-        <Logo />
-        <ul />
-        <LoginButton onClick={showLogin}> Log in </LoginButton>
-        <SwipeArt>Swipe Art</SwipeArt>
-        <SignUp onClick={showSignup}>Sign up</SignUp>
+        <HeaderWrapper>
+          <Logo />
+          <ul />
+          <LoginButton onClick={showLogin}> Log in </LoginButton>
+          <SwipeArt>Swipe Art</SwipeArt>
+        </HeaderWrapper>
+        <SignUpOpts>
+          <SignUp onClick={showSignup}>Sign up</SignUp>
+          <Guest as={Link} to="/home">Guest</Guest>
+        </SignUpOpts>
       </Container>
 
       <Login id="login1" />
