@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import {
+  Container,
   DescProfile,
   EditProfileIcon,
   FavBoxProfile,
   FavProfile,
+  HeaderWrapper,
   LiProfile,
   LogoProfile,
   ProfileButtons,
   ProfileUser,
   User,
+  UserNameEditWrapper,
   UsernameProfile
 } from './Profile.styles'
 import EditProfile from '../../components/profile/EditProfile'
@@ -65,29 +68,35 @@ function Profile() {
 
   return (
     <div>
-      <LogoProfile to="/home" />
-      <User
-        onClick={showLogout}
-        style={{
-          backgroundImage: 'url(' + photo + ')',
-          backgroundSize: '60px',
-          objectFit: 'contain'
-        }}
-      />
+      <HeaderWrapper>
+        <LogoProfile to="/home" />
+        <User
+          onClick={showLogout}
+          style={{
+            backgroundImage: 'url(' + photo + ')',
+            backgroundSize: '60px',
+            objectFit: 'contain'
+          }}
+        />
+      </HeaderWrapper>
       <Logout id="logout1" />
-      <ProfileUser style={{ backgroundImage: 'url(' + photo + ')', backgroundSize: '150px', objectFit: 'contain' }} />
-      <UsernameProfile id="user-name"> {displayName} </UsernameProfile>
-      <EditProfileIcon onClick={showEdit} />
-      <EditProfile id="edit1" />
-      <DescProfile id="user-desc"> {description} </DescProfile>
+      <Container>
+        <ProfileUser style={{ backgroundImage: 'url(' + photo + ')', backgroundSize: '150px', objectFit: 'contain' }} />
+        <UserNameEditWrapper>
+          <UsernameProfile id="user-name"> {displayName} </UsernameProfile>
+          <EditProfileIcon onClick={showEdit} />
+        </UserNameEditWrapper>
+        <EditProfile id="edit1" />
+        <DescProfile id="user-desc"> {description} </DescProfile>
       <ProfileButtons>
-        <FavProfile onClick={showFavourites}>Favorites</FavProfile>
         <LiProfile onClick={showUploads}>Uploads</LiProfile>
+        <FavProfile onClick={showFavourites}>Favorites</FavProfile>
       </ProfileButtons>
       <FavBoxProfile>
         <Uploads id="uploads1" />
         <Favourites id="favourites1" />
       </FavBoxProfile>
+      </Container>
     </div>
   )
 }

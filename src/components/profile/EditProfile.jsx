@@ -40,8 +40,8 @@ function EditProfile() {
       try {
         const response = await authService.getUserData(login);
         const { displayName, description, photo } = response.data;
-        setDisplayName(displayName);
-        setDescription(description);
+        // setDisplayName(displayName);
+        // setDescription(description);
         setUploadedImg(photo);
       } catch (error) {
         console.error('Failed to fetch user data:', error);
@@ -60,17 +60,14 @@ function EditProfile() {
       .submitProfileChanges(login, displayName, description, uploadedImg)
       .then(() => {
         hideEdit()
-        navigate('/profile')}
-        )
+        navigate('/profile')
+        dispatch(userActions.fetchUserData(login))
+      })
       .catch((error) => setError(error.message))
       .finally(() => setIsLoading(false));
 
     // hideEdit()
     // navigate('/profile')
-
-    dispatch(
-      userActions.fetchUserData(login)
-    );
   }
 
   const uploadedImage = React.useRef(null)
@@ -132,20 +129,20 @@ function EditProfile() {
               </UploadPhoto>
 
               <label htmlFor="username" style={{ paddingTop: '13px', color: '#000000' }}>
-                &nbsp;Username
+                &nbsp;Display name
               </label>
               <FormContent
                 id="username"
                 name="username"
                 value={displayName}
                 label="Username"
-                placeholder="Enter username"
+                placeholder="Add your name"
                 rules={{ required: { message: 'Username is required', value: true } }}
                 onChange={({ target }) => setDisplayName(target.value)}
                 autoComplete="on"
               />
               <label htmlFor="description" style={{ paddingTop: '13px', color: '#000000' }}>
-                &nbsp;Description
+                &nbsp;Bio
               </label>
               <FormContent
                 id="description"
