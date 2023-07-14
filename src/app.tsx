@@ -10,6 +10,7 @@ import Swipe from './pages/swipe/Swipe';
 import Profile from './pages/profile/Profile';
 import Auction from './pages/auction/Auction';
 import Search from './pages/search/Search';
+import Contact from './pages/contact/Contact';
 import store from './store';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/auction" element={<Auction />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/home" element={<AuthorizedHome />} />
         <Route path="/" element={<WelcomeHome />} />
         <Route path="*" element={<NotFound /> } />

@@ -177,6 +177,19 @@ class AuthService {
     }
   }
 
+  async sendMessage(message) {
+    try {
+      const response = await axios.post('/.netlify/functions/send-me-message', { message });
+
+      if (response.data?.success) {
+        console.log('Message sent successfully');
+      }
+    } catch (error) {
+      console.error('Failed to send message:', error);
+      throw error;
+    }
+  }
+
 }
 
 const authService = new AuthService()

@@ -26,7 +26,7 @@ function AuthorizedHome() {
             <NoDecorLink to="/auction">Auction</NoDecorLink>
           </LiHome>
           <LiHome>
-            <ContactLink href="https://forms.gle/8bSFaKFEiJCyKb3fA">Contact</ContactLink>
+            <NoDecorLink to="/contact">Contact</NoDecorLink>
           </LiHome>
           <User
             onClick={showProfile}
