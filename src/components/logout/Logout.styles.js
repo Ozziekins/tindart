@@ -23,8 +23,8 @@ export const Card = styled.div`
   border-radius: 20px;
   height: fit-content;
   width: fit-content;
-  margin-top: 5%;
-  margin-left: 65%;
+  margin-top: 2%;
+  margin-left: 71%;
 `
 
 export const CardContent = styled.div`

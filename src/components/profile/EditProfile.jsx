@@ -13,7 +13,7 @@ import {
   ProfileUser,
   UploadBackground
 } from './EditProfile.styles'
-// import Loading from '../loading/Loading'
+import Loading from '../loading/Loading'
 import ProfilePhoto from '../../images/Profile photo PROFILE.png'
 import authService from '../../services/authService'
 import { useDispatch, useSelector } from 'react-redux'
@@ -28,12 +28,10 @@ function EditProfile() {
   const [displayName, setDisplayName] = useState('')
   const [description, setDescription] = useState('')
   const [uploadedImg, setUploadedImg] = useState(ProfilePhoto)
-  // const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate()
 
   const dispatch = useDispatch()
-
-  // setIsLoading(true);
 
   const login = useSelector((state) => state.user.username);
 
@@ -56,9 +54,7 @@ function EditProfile() {
   const onSubmit = async (e) => {
     e.preventDefault()
 
-    dispatch(
-      userActions.fetchUserData(login)
-    );
+    setIsLoading(true);
 
     authService
       .submitProfileChanges(login, displayName, description, uploadedImg)
@@ -67,10 +63,14 @@ function EditProfile() {
         navigate('/profile')}
         )
       .catch((error) => setError(error.message))
-      // .finally(() => setIsLoading(false));
+      .finally(() => setIsLoading(false));
 
     // hideEdit()
     // navigate('/profile')
+
+    dispatch(
+      userActions.fetchUserData(login)
+    );
   }
 
   const uploadedImage = React.useRef(null)
@@ -164,7 +164,7 @@ function EditProfile() {
             </Form>
           </CardContent>
         </Card>
-      {/* {isLoading && <Loading />} */}
+      {isLoading && <Loading />}
       </EditCard>
     </div>
   )

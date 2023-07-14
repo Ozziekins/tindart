@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Card, CardContent, CardText, Close, LogoutCard } from './Logout.styles'
 import authService from '../../services/authService'
 
@@ -13,9 +13,24 @@ function logoutUser() {
 }
 
 function Logout() {
+  const logoutRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (logoutRef.current && !logoutRef.current.contains(event.target)) {
+      hideLogout();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <LogoutCard id="logout1">
-      <Card>
+      <Card ref={logoutRef}>
         <CardContent>
           <Close onClick={hideLogout} title="Hide Logout">
             &times;

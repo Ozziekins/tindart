@@ -3,8 +3,10 @@ import { FavDiv, FavWrapper, OuterWrapper } from './Favourites.styles';
 import { UploadTemplate } from '../uploads/Uploads.styles';
 import { useSelector } from 'react-redux';
 import authService from '../../services/authService';
+import Loading from '../loading/Loading';
 
 function Favourites() {
+  const [isLoading, setIsLoading] = useState(false)
   // const { favouriteImages } = useSelector((state) => state.favourite)
 
   const [favouriteImages, setFavouriteImages] = useState([]);
@@ -13,9 +15,11 @@ function Favourites() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true);
         const response = await authService.getUserFaves(login);
         const { favourites } = response.data;
         setFavouriteImages(favourites);
+        setIsLoading(false);
       } catch (error) {
         console.error('Failed to fetch favourite images:', error);
       }
@@ -33,6 +37,7 @@ function Favourites() {
           </FavWrapper>
         ))}
       </OuterWrapper>
+      {isLoading && <Loading />}
     </FavDiv>
   );
 }
