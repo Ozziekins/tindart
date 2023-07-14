@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import {
   ArtInfo,
   ArtH3,
@@ -71,6 +71,21 @@ function Auction() {
     setShowOverlay(false);
   };
 
+  const bidRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (bidRef.current && !bidRef.current.contains(event.target)) {
+      handleCloseOverlay();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <div>
       <LogoAuction to="/home" />
@@ -113,7 +128,7 @@ function Auction() {
       </AuctionDiv>
       {showOverlay && (
         <Overlay>
-          <OverlayContent>
+          <OverlayContent ref={bidRef}>
             <CloseButton onClick={handleCloseOverlay} title="Close Bid">&times;</CloseButton>
             <BidAcceptedMessage>Bid accepted!</BidAcceptedMessage>
           </OverlayContent>
@@ -121,7 +136,7 @@ function Auction() {
       )}
       {showErrorOverlay && (
         <Overlay>
-          <OverlayContent>
+          <OverlayContent ref={bidRef}>
             <CloseButton onClick={handleCloseOverlay} title="Close Bid">&times;</CloseButton>
             <BidAcceptedMessage>Invalid bid!</BidAcceptedMessage>
           </OverlayContent>
