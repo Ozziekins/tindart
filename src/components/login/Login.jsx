@@ -29,6 +29,7 @@ function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [forgotPassAlert, setForgotPassAlert] = useState('');
 
   const dispatch = useDispatch();
 
@@ -58,6 +59,7 @@ function Login() {
   const handleClickOutside = (event) => {
     if (loginRef.current && !loginRef.current.contains(event.target)) {
       hideLogin();
+      setForgotPassAlert('');
     }
   };
 
@@ -67,6 +69,11 @@ function Login() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  const handleForgotPassClick = (e) => {
+    e.preventDefault();
+    setForgotPassAlert('Feature in progress, please sign up again or continue as a guest');
+  };
 
   return (
     <LoginCard id="login1">
@@ -79,6 +86,7 @@ function Login() {
             <h2>Login</h2>
           </CardTitle>
           {error && <ErrorAlert>{error}</ErrorAlert>} {/* Display error alert */}
+          {forgotPassAlert && <ErrorAlert>{forgotPassAlert}</ErrorAlert>}
           <Form onSubmit={onSubmit} error={error} defaultvalues={{ username: '', password: '' }}>
             <label htmlFor="usernameLogin" style={{ paddingTop: '13px', color: '#ABAAAA' }}>
               &nbsp;Username
@@ -105,7 +113,10 @@ function Login() {
               onChange={({ target }) => setPassword(target.value)}
               autoComplete="on"
             />
-            <ForgotPassA href="#">
+            <ForgotPassA 
+              href="#"
+              onClick={handleForgotPassClick}
+            >
               <ForgotPass id="forgot-pass">Forgot password?</ForgotPass>
             </ForgotPassA>
             <Btns>
